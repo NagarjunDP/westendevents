@@ -1,58 +1,55 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMobileVideoLoaded, setIsMobileVideoLoaded] = useState(false);
-  const [isDesktopVideoLoaded, setIsDesktopVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.log("Autoplay prevented:", err);
+        });
+      }
+    }
+  }, []);
 
   return (
     <>
       <section ref={containerRef} className="relative min-h-[100dvh] w-full bg-black overflow-hidden flex flex-col justify-end md:justify-center">
         
         {/* =========================================
-            MOBILE LAYOUT (Full Bleed Background 9:16)
+            FULL-BLEED HIGH-PERFORMANCE VIDEO BACKGROUND
             ========================================= */}
-        <div className="absolute inset-0 md:hidden z-0 overflow-hidden bg-black flex items-center justify-center">
-           {/* Placeholder Image */}
+        <div className="absolute inset-0 z-0 overflow-hidden bg-black flex items-center justify-center">
+           {/* Fallback Poster Background */}
            <div 
-             className="absolute inset-0 bg-[url('/_05A6903.jpg')] bg-cover bg-center transition-opacity duration-[1.5s]"
-             style={{ opacity: isMobileVideoLoaded ? 0 : 0.8 }}
+             className="absolute inset-0 bg-[url('/Video-44267-mobile-poster.jpg')] bg-cover bg-center opacity-30"
            />
-           <iframe 
-             src="https://player.vimeo.com/video/1200769667?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
-             className={`absolute w-full h-full pointer-events-none scale-[1.15] origin-center transition-opacity duration-[1.5s] ${isMobileVideoLoaded ? 'opacity-80' : 'opacity-0'}`}
-             allow="autoplay; fullscreen; picture-in-picture"
-             frameBorder="0"
-             onLoad={() => setIsMobileVideoLoaded(true)}
-           ></iframe>
-           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-        </div>
 
-        {/* =========================================
-            DESKTOP LAYOUT (Full Bleed Background 4:3)
-            ========================================= */}
-        <div className="hidden md:flex absolute inset-0 z-0 overflow-hidden bg-black items-center justify-center">
-           {/* Placeholder Image */}
-           <div 
-             className="absolute inset-0 bg-[url('/205A4188.jpg')] bg-cover bg-center transition-opacity duration-[1.5s]"
-             style={{ opacity: isDesktopVideoLoaded ? 0 : 0.7 }}
-           />
-           <iframe
-              src="https://player.vimeo.com/video/1200799664?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
-              className={`absolute pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[75vw] min-h-[100vh] min-w-[133.33vh] transition-opacity duration-[1.5s] ${isDesktopVideoLoaded ? 'opacity-70' : 'opacity-0'}`}
-              style={{border:"none"}}
-              allow="autoplay; fullscreen; picture-in-picture"
-              title="Westendevents Desktop Reel"
-              onLoad={() => setIsDesktopVideoLoaded(true)}
+           {/* Direct HTML5 Video Background */}
+           <video
+             ref={videoRef}
+             autoPlay
+             loop
+             muted
+             playsInline
+             preload="auto"
+             poster="/Video-44267-mobile-poster.jpg"
+             className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-80"
            >
-           </iframe>
-           {/* Gradient to ensure text readability */}
-           <div className="absolute inset-0 bg-black/30"></div>
-           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+             <source src="/Video-44267-mobile-opt.mp4" type="video/mp4" />
+           </video>
+
+           {/* Readability Gradients */}
+           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+           <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
         </div>
       
         {/* =========================================

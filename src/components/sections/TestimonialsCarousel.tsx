@@ -5,19 +5,24 @@ import { motion } from "framer-motion";
 export function TestimonialsCarousel() {
   const testimonials = [
     {
+      text: "Westend Events executed my son's wedding with extraordinary grandeur and precision. Their 100% in-house decor team, original JBL VRX sound, and SFX made the entire celebration unforgettable.",
+      author: "Kanwaljit Singh (Actor)",
+      meta: "Celebrity Wedding · Lonavla"
+    },
+    {
       text: "We flew in from Toronto with 180 guests and didn't have to worry about a single thing. The décor, sound, and coordination were flawless — it felt like a Bollywood film brought to life.",
       author: "Natasha & Arjun S.",
-      meta: "Destination Wedding · Lonavla"
+      meta: "NRI Destination Wedding · Lonavla"
     },
     {
       text: "As an American bride marrying into an Indian family, I was overwhelmed. Westendevents held our hand through every ritual and detail. Truly nail to hair — they meant it.",
       author: "Emily & Rohan M.",
-      meta: "Hindu-Western Fusion Wedding · Goa"
+      meta: "Foreigner & NRI Fusion Wedding · Goa"
     },
     {
-      text: "Their JBL sound system was the best we've heard at any corporate event in India. Professional, punctual, and the special effects team was world-class.",
-      author: "Head of Marketing, Global Brand",
-      meta: "Product Launch · Mumbai"
+      text: "Their JBL sound system and in-house production team was the best we've experienced for our annual corporate convention. Punctual, professional, and world-class.",
+      author: "Event Chairperson, JITO & Corporate Lead",
+      meta: "Corporate & Social Convention · Mumbai"
     }
   ];
 

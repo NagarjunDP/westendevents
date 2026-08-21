@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { StatsBar } from "@/components/sections/StatsBar";
 import { ServicesBentoGrid } from "@/components/sections/ServicesBentoGrid";
 import { InHouseAdvantage } from "@/components/sections/InHouseAdvantage";
+import { CorporateClients } from "@/components/sections/CorporateClients";
 import { DestinationSpotlight } from "@/components/sections/DestinationSpotlight";
 import { GalleryTeaser } from "@/components/sections/GalleryTeaser";
 import { TestimonialsCarousel } from "@/components/sections/TestimonialsCarousel";
@@ -93,6 +94,7 @@ export default function Home() {
       <StatsBar />
       <ServicesBentoGrid />
       <InHouseAdvantage />
+      <CorporateClients />
       <DestinationSpotlight />
       <GalleryTeaser />
       <TestimonialsCarousel />
