@@ -25,8 +25,8 @@ export function HeroSection() {
 
            {/* High-Performance CDN Video Background */}
            <iframe 
-             src="https://player.vimeo.com/video/1200769667?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
-             className={`absolute w-full h-full pointer-events-none scale-[1.15] origin-center transition-opacity duration-1000 ${
+             src="https://player.vimeo.com/video/1200799664?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
+             className={`absolute pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[100vh] min-w-[100vw] min-h-[56.25vw] transition-opacity duration-1000 ${
                isMobileVideoLoaded ? 'opacity-85' : 'opacity-0'
              }`}
              allow="autoplay; fullscreen; picture-in-picture"
