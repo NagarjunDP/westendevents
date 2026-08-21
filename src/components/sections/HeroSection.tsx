@@ -6,27 +6,21 @@ import { motion } from "framer-motion";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mobileIframeRef = useRef<HTMLIFrameElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const [isMobileVideoLoaded, setIsMobileVideoLoaded] = useState(false);
   const [isDesktopVideoLoaded, setIsDesktopVideoLoaded] = useState(false);
 
   useEffect(() => {
-    const seekVimeoTo3s = () => {
-      if (mobileIframeRef.current && mobileIframeRef.current.contentWindow) {
-        mobileIframeRef.current.contentWindow.postMessage(
-          JSON.stringify({ method: "setCurrentTime", value: 3 }),
-          "*"
-        );
+    const video = mobileVideoRef.current;
+    if (video) {
+      if (video.readyState >= 2) {
+        setIsMobileVideoLoaded(true);
       }
-    };
-
-    const timer1 = setTimeout(seekVimeoTo3s, 500);
-    const timer2 = setTimeout(seekVimeoTo3s, 1500);
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-    };
-  }, [isMobileVideoLoaded]);
+      video.play().catch(() => {
+        // Handle browser autoplay policy
+      });
+    }
+  }, []);
 
   return (
     <>
@@ -38,29 +32,27 @@ export function HeroSection() {
         <div className="absolute inset-0 md:hidden z-0 overflow-hidden bg-black flex items-center justify-center">
            {/* Fast-loading Poster Image */}
            <div 
-             className="absolute inset-0 bg-[url('/Video-44267-mobile-poster.jpg')] bg-cover bg-center transition-opacity duration-1000"
+             className="absolute inset-0 bg-[url('/Video-44267-mobile-poster.jpg')] bg-cover bg-center transition-opacity duration-700"
              style={{ opacity: isMobileVideoLoaded ? 0.3 : 1 }}
            />
 
-           {/* High-Performance CDN Video Background Starting at 3 Seconds */}
-           <iframe 
-             ref={mobileIframeRef}
-             src="https://player.vimeo.com/video/1200799664?t=3s&background=1&autoplay=1&loop=1&muted=1&quality=1080p#t=3s"
-             className={`absolute pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[100vh] min-w-[100vw] min-h-[56.25vw] transition-opacity duration-1000 ${
-               isMobileVideoLoaded ? 'opacity-85' : 'opacity-0'
+           {/* High-Performance Native Mobile Video (Trimmed at 3s, Instant Playback) */}
+           <video
+             ref={mobileVideoRef}
+             autoPlay
+             loop
+             muted
+             playsInline
+             preload="auto"
+             poster="/Video-44267-mobile-poster.jpg"
+             onLoadedData={() => setIsMobileVideoLoaded(true)}
+             onCanPlay={() => setIsMobileVideoLoaded(true)}
+             className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-700 ${
+               isMobileVideoLoaded ? 'opacity-85' : 'opacity-85'
              }`}
-             allow="autoplay; fullscreen; picture-in-picture"
-             frameBorder="0"
-             onLoad={() => {
-               setIsMobileVideoLoaded(true);
-               if (mobileIframeRef.current && mobileIframeRef.current.contentWindow) {
-                 mobileIframeRef.current.contentWindow.postMessage(
-                   JSON.stringify({ method: "setCurrentTime", value: 3 }),
-                   "*"
-                 );
-               }
-             }}
-           ></iframe>
+           >
+             <source src="/mobile-hero-fast.mp4" type="video/mp4" />
+           </video>
            
            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
         </div>
