@@ -1,13 +1,32 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const mobileIframeRef = useRef<HTMLIFrameElement>(null);
   const [isMobileVideoLoaded, setIsMobileVideoLoaded] = useState(false);
   const [isDesktopVideoLoaded, setIsDesktopVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const seekVimeoTo3s = () => {
+      if (mobileIframeRef.current && mobileIframeRef.current.contentWindow) {
+        mobileIframeRef.current.contentWindow.postMessage(
+          JSON.stringify({ method: "setCurrentTime", value: 3 }),
+          "*"
+        );
+      }
+    };
+
+    const timer1 = setTimeout(seekVimeoTo3s, 500);
+    const timer2 = setTimeout(seekVimeoTo3s, 1500);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, [isMobileVideoLoaded]);
 
   return (
     <>
@@ -23,15 +42,24 @@ export function HeroSection() {
              style={{ opacity: isMobileVideoLoaded ? 0.3 : 1 }}
            />
 
-           {/* High-Performance CDN Video Background */}
+           {/* High-Performance CDN Video Background Starting at 3 Seconds */}
            <iframe 
-             src="https://player.vimeo.com/video/1200799664?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
+             ref={mobileIframeRef}
+             src="https://player.vimeo.com/video/1200799664?t=3s&background=1&autoplay=1&loop=1&muted=1&quality=1080p#t=3s"
              className={`absolute pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[100vh] min-w-[100vw] min-h-[56.25vw] transition-opacity duration-1000 ${
                isMobileVideoLoaded ? 'opacity-85' : 'opacity-0'
              }`}
              allow="autoplay; fullscreen; picture-in-picture"
              frameBorder="0"
-             onLoad={() => setIsMobileVideoLoaded(true)}
+             onLoad={() => {
+               setIsMobileVideoLoaded(true);
+               if (mobileIframeRef.current && mobileIframeRef.current.contentWindow) {
+                 mobileIframeRef.current.contentWindow.postMessage(
+                   JSON.stringify({ method: "setCurrentTime", value: 3 }),
+                   "*"
+                 );
+               }
+             }}
            ></iframe>
            
            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>

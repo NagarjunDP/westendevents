@@ -35,7 +35,7 @@ export function Footer() {
           {/* Quick Links */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <h4 className="font-serif text-xl font-semibold mb-6 text-white border-b border-gray-700 pb-2 inline-block">Quick Links</h4>
-            <ul className="flex flex-col gap-3 font-sans text-[12px] tracking-widest text-[#0E0A07]/70 uppercase">
+            <ul className="flex flex-col gap-3 font-sans text-[13px] tracking-widest text-gray-300 uppercase">
               <li><Link href="/" className="hover:text-[var(--color-brand-gold)] transition-colors">Home</Link></li>
               <li><Link href="/services" className="hover:text-[var(--color-brand-gold)] transition-colors">Services</Link></li>
               <li><Link href="/collection" className="hover:text-[var(--color-brand-gold)] transition-colors">Collection</Link></li>
