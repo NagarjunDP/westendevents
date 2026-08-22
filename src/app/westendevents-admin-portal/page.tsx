@@ -305,7 +305,10 @@ export default function AdminPortalPage() {
       const data = await res.json();
       if (res.ok && data.success && data.popup) {
         setPopupConfig(data.popup);
-        setPopupSaveMessage("Offer Pop-Up settings published successfully to all devices!");
+        if (data.popup.fontFamily) {
+          window.dispatchEvent(new CustomEvent("themeFontChange", { detail: data.popup.fontFamily }));
+        }
+        setPopupSaveMessage("Offer Pop-Up & Site Typography published successfully to all devices!");
         setTimeout(() => setPopupSaveMessage(""), 4000);
       } else {
         setPopupSaveMessage(data.message || "Failed to update pop-up settings.");
@@ -1487,8 +1490,12 @@ export default function AdminPortalPage() {
                       <label className="block text-[#8E8E93] mb-1">Popup & Site Title Font Style</label>
                       <select
                         value={popupConfig.fontFamily || "Cormorant Garamond"}
-                        onChange={e => setPopupConfig({ ...popupConfig, fontFamily: e.target.value })}
-                        className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none cursor-pointer"
+                        onChange={e => {
+                          const val = e.target.value;
+                          setPopupConfig({ ...popupConfig, fontFamily: val });
+                          window.dispatchEvent(new CustomEvent("themeFontChange", { detail: val }));
+                        }}
+                        className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none cursor-pointer font-serif"
                       >
                         <option value="Cormorant Garamond">Cormorant Garamond (Ultra Luxury Fashion Serif)</option>
                         <option value="Playfair Display">Playfair Display (Royal Classic Serif)</option>

@@ -6,6 +6,7 @@ import { FloatingContact } from "@/components/ui/FloatingContact";
 import { Preloader } from "@/components/ui/Preloader";
 import { AnalyticsTracker } from "@/components/analytics/AnalyticsTracker";
 import { ExclusiveOfferPopup } from "@/components/ui/ExclusiveOfferPopup";
+import { DynamicThemeFont } from "@/components/theme/DynamicThemeFont";
 import type { Metadata, Viewport } from "next";
 
 const playfair = Playfair_Display({
@@ -65,6 +66,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased text-[17px] sm:text-[18px]`}
     >
       <body className="min-h-full flex flex-col leading-[1.7]">
+        <DynamicThemeFont />
         <AnalyticsTracker />
         <ExclusiveOfferPopup />
         <Preloader />

@@ -17,6 +17,7 @@ export interface PopupOfferConfig {
   buttonLink: string;
   effectStyle: "gold-flakes" | "snow-flakes" | "sparkles" | "petals";
   showDelaySeconds: number;
+  fontFamily?: string;
 }
 
 export interface AnalyticsData {
