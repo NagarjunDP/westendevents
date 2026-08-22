@@ -2,15 +2,15 @@ import { Metadata } from "next";
 import { CollectionGallery } from "./CollectionGallery";
 
 export const metadata: Metadata = {
-  title: "The Collection | Westend Events",
-  description: "Browse our curated collection of luxury destination weddings, premium decor, and high-end event production across India.",
+  title: "Our Portfolio | Westend Events",
+  description: "Browse our curated portfolio of luxury destination weddings, premium decor, and high-end event production across India.",
   openGraph: {
-    title: "The Collection | Westend Events",
-    description: "Browse our curated collection of luxury destination weddings, premium decor, and high-end event production.",
-    url: "https://www.westendevent.com/collection",
+    title: "Our Portfolio | Westend Events",
+    description: "Browse our curated portfolio of luxury destination weddings, premium decor, and high-end event production.",
+    url: "https://www.westendevent.com/gallery",
   },
   alternates: {
-    canonical: "https://www.westendevent.com/collection"
+    canonical: "https://www.westendevent.com/gallery"
   }
 };
 
@@ -23,7 +23,7 @@ export default function CollectionPage() {
           OUR PORTFOLIO
         </span>
         <h1 className="font-serif text-5xl md:text-7xl text-[#0E0A07] mb-6 leading-tight max-w-4xl mx-auto">
-          The <span className="italic font-light">Collection</span>
+          Our <span className="italic font-light">Portfolio</span>
         </h1>
         <p className="font-sans text-[16px] md:text-[18px] text-[#4A3E31] max-w-2xl mx-auto leading-relaxed">
           A curated glimpse into our world of luxury production. From intimate lakeside ceremonies to grand royal affairs, every detail is owned and executed by our in-house team.

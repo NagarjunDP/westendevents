@@ -40,7 +40,7 @@ export function InHouseAdvantage() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-medium tracking-tight leading-tight"
         >
-          ONE TEAM. <span className="italic font-light text-[var(--color-brand-gold)]">EVERYTHING IN-HOUSE.</span>
+          One Team. <span className="italic font-light text-[var(--color-brand-gold)]">Everything In-House.</span>
         </motion.h2>
 
         {/* Capabilities Pill Grid */}

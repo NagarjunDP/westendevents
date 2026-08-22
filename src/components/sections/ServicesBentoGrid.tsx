@@ -39,7 +39,7 @@ export function ServicesBentoGrid() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-brand-gold)]/10 border border-[var(--color-brand-gold)]/30 text-[var(--color-brand-gold)] text-[11px] font-mono font-bold tracking-[0.25em] uppercase mb-6"
           >
             <Sparkles size={14} />
-            <span>TWO Obvious ROUTES</span>
+            <span>TWO DISTINCT EXPERIENCES</span>
           </motion.div>
 
           <motion.h2

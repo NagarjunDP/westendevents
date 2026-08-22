@@ -40,30 +40,27 @@ export function TestimonialsCarousel() {
         </motion.h2>
       </div>
 
-      <div className="relative flex overflow-hidden w-full group">
-        <motion.div 
-          className="flex gap-6 md:gap-8 w-max px-3 md:px-4"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
-        >
-          {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((t, idx) => (
+      {/* STATIC NON-REPEATING TESTIMONIAL GRID */}
+      <div className="max-w-[1400px] mx-auto px-4 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {testimonials.map((t, idx) => (
             <div 
               key={idx}
-              className="w-[85vw] max-w-[400px] shrink-0 bg-[#FFFFFF] p-8 md:p-12 border border-[var(--color-gold-muted)] flex flex-col items-start text-left transition-all duration-500 hover:border-[var(--color-brand-gold)] relative"
+              className="bg-[#FFFFFF] p-8 border border-[var(--color-gold-muted)] flex flex-col justify-between items-start text-left transition-all duration-500 hover:border-[var(--color-brand-gold)] relative rounded-2xl shadow-xs hover:shadow-md"
             >
-              <div className="absolute -top-[45px] -left-[10px] font-serif text-[120px] leading-none text-[var(--color-brand-gold)] opacity-40 select-none pointer-events-none">
+              <div className="absolute -top-[25px] left-[15px] font-serif text-[80px] leading-none text-[var(--color-brand-gold)] opacity-30 select-none pointer-events-none">
                 "
               </div>
-              <p className="font-serif italic text-[#0E0A07] text-lg leading-relaxed mb-10 flex-grow relative z-10 pt-4">
+              <p className="font-serif italic text-[#0E0A07] text-base leading-relaxed mb-6 flex-grow relative z-10 pt-2">
                 {t.text}
               </p>
-              <div className="relative z-10">
-                <div className="text-[12px] text-[var(--color-brand-gold)] uppercase tracking-[0.2em] mb-1 font-semibold">{t.author}</div>
+              <div className="relative z-10 pt-4 border-t border-[var(--color-gold-muted)]/30 w-full">
+                <div className="text-[12px] text-[var(--color-brand-gold)] uppercase tracking-[0.18em] mb-1 font-bold">{t.author}</div>
                 <div className="text-[11px] text-[#4A3E31] uppercase tracking-wider">{t.meta}</div>
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

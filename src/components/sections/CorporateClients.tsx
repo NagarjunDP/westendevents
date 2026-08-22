@@ -159,9 +159,6 @@ const corporateClients: Client[] = [
 ];
 
 export function CorporateClients() {
-  // Multiply client list for seamless infinite marquee loop
-  const marqueeList = [...corporateClients, ...corporateClients, ...corporateClients];
-
   return (
     <section className="relative w-full bg-[#FAF6EF] py-16 md:py-24 overflow-hidden border-t border-b border-[var(--color-brand-gold)]/20">
       
@@ -200,30 +197,22 @@ export function CorporateClients() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-sans text-sm md:text-base text-[var(--color-cream-muted)] max-w-2xl mx-auto leading-relaxed"
         >
-          Executing seamless corporate galas, product launches, 
-          social galas, and brand activations with 100% in-house production.
+          Executing seamless corporate galas, product launches, social galas, and brand events with in-house technical production.
         </motion.p>
       </div>
 
-      {/* INFINITE SLIDING MARQUEE TICKER */}
-      <div className="relative w-full overflow-hidden py-6 bg-[#F5ECD7]/50 border-y border-[var(--color-brand-gold)]/15 backdrop-blur-xs">
-        
-        {/* Left & Right Shadow Fades */}
-        <div className="absolute top-0 bottom-0 left-0 w-16 md:w-32 z-10 bg-gradient-to-r from-[#FAF6EF] to-transparent pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-16 md:w-32 z-10 bg-gradient-to-l from-[#FAF6EF] to-transparent pointer-events-none" />
-
-        {/* Marquee Track */}
-        <div className="animate-marquee flex items-center gap-6 md:gap-8">
-          {marqueeList.map((client, index) => (
+      {/* STATIC NON-REPEATING BRAND GRID */}
+      <div className="max-w-[1400px] mx-auto px-4 md:px-12 lg:px-20">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 md:gap-6">
+          {corporateClients.map((client, index) => (
             <div 
               key={index} 
-              className="flex-shrink-0 flex items-center gap-4 px-6 py-3.5 rounded-full bg-white border border-[var(--color-brand-gold)]/25 shadow-xs hover:shadow-md hover:border-[var(--color-brand-gold)] transition-all duration-300 group"
+              className="flex items-center justify-between p-4 rounded-2xl bg-white border border-[var(--color-brand-gold)]/25 shadow-xs hover:shadow-md hover:border-[var(--color-brand-gold)] transition-all duration-300 group"
             >
               <div className="flex items-center justify-center h-9">
                 {client.svgLogo}
               </div>
-              <div className="h-6 w-[1px] bg-[var(--color-brand-gold)]/20 mx-1" />
-              <span className="font-sans text-xs font-semibold tracking-wider text-[var(--color-cream-muted)] group-hover:text-[var(--color-cream)] transition-colors whitespace-nowrap uppercase">
+              <span className="font-sans text-[11px] font-bold tracking-wider text-[var(--color-cream-muted)] group-hover:text-[var(--color-cream)] transition-colors uppercase text-right pl-2">
                 {client.name}
               </span>
             </div>

@@ -10,6 +10,9 @@ export function ContactSection() {
     email: "",
     phone: "",
     date: "",
+    location: "",
+    guestCount: "",
+    budget: "",
     type: "wedding",
     message: ""
   });
@@ -28,6 +31,10 @@ export function ContactSection() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -43,12 +50,15 @@ export function ContactSection() {
         setSubmitSuccess(true);
         
         // Build pre-filled WhatsApp enquiry message
-        const messageText = `✨ *New Westend Events Enquiry* ✨\n\n` +
+        const messageText = `✨ *New Westend Events Proposal Enquiry* ✨\n\n` +
           `👤 *Name:* ${formData.name}\n` +
           `📞 *Phone:* ${formData.phone}\n` +
           `✉️ *Email:* ${formData.email}\n` +
           `📅 *Event Date:* ${formData.date || "TBD"}\n` +
           `🎉 *Event Type:* ${formData.type}\n` +
+          `📍 *Location:* ${formData.location || "Lonavala / TBD"}\n` +
+          `👥 *Guest Count:* ${formData.guestCount || "TBD"}\n` +
+          `💰 *Approx. Budget:* ${formData.budget || "Flexible"}\n` +
           `💬 *Details:* ${formData.message}`;
 
         const encodedMsg = encodeURIComponent(messageText);
@@ -60,6 +70,9 @@ export function ContactSection() {
           email: "",
           phone: "",
           date: "",
+          location: "",
+          guestCount: "",
+          budget: "",
           type: "wedding",
           message: ""
         });
@@ -67,20 +80,17 @@ export function ContactSection() {
         // Trigger WhatsApp redirect with prefilled details
         setTimeout(() => {
           window.open(whatsappUrl, "_blank");
-        }, 300);
+        }, 800);
       } else {
         setSubmitError(data.error || "Failed to submit enquiry. Please try again.");
       }
     } catch {
-      setSubmitError("Something went wrong. Please check your network connection.");
+      setSubmitError("Network error. Please try again or contact us on WhatsApp.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   return (
     <section id="contact" className="relative py-24 md:py-32 bg-[#FAF6EF] overflow-hidden">
@@ -145,11 +155,11 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-[11px] text-[#4A3E31] uppercase tracking-widest mb-1 font-semibold">Official Email Addresses</h4>
-                  <div className="flex flex-col gap-1">
-                    <a href="mailto:westendagarwal@gmail.com" className="text-[16px] text-[#0E0A07] font-serif font-medium hover:text-[var(--color-brand-gold)] transition-colors">
+                  <div className="flex flex-col gap-2 pt-1">
+                    <a href="mailto:westendagarwal@gmail.com" className="text-[15px] sm:text-[16px] text-[#0E0A07] font-serif font-medium hover:text-[var(--color-brand-gold)] transition-colors block">
                       westendagarwal@gmail.com
                     </a>
-                    <a href="mailto:info@westendevent.com" className="text-[16px] text-[#0E0A07] font-serif font-medium hover:text-[var(--color-brand-gold)] transition-colors">
+                    <a href="mailto:info@westendevent.com" className="text-[15px] sm:text-[16px] text-[#0E0A07] font-serif font-medium hover:text-[var(--color-brand-gold)] transition-colors block">
                       info@westendevent.com
                     </a>
                   </div>
@@ -265,33 +275,77 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                {/* Event Type */}
-                <div className="relative">
-                  <select 
-                    name="type"
-                    value={formData.type}
-                    onChange={handleChange}
-                    className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] text-[14px] px-4 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors appearance-none"
-                  >
-                    <option value="wedding">Destination Wedding</option>
-                    <option value="corporate">Corporate Event / Conference</option>
-                    <option value="concert">Live Concert / Entertainment</option>
-                    <option value="activation">Brand Activation</option>
-                    <option value="other">Other</option>
-                  </select>
-                  {/* Custom dropdown arrow */}
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 1.5L6 6.5L11 1.5" stroke="#4A3E31" strokeOpacity="0.8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                {/* Event Type & Location */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Event Type Dropdown with Separate Corporate Option */}
+                  <div className="relative">
+                    <select 
+                      name="type"
+                      value={formData.type}
+                      onChange={handleChange}
+                      className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] text-[14px] px-4 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors appearance-none"
+                    >
+                      <option value="wedding">Destination Wedding</option>
+                      <option value="corporate">Corporate Event / Conference</option>
+                      <option value="corporate-offsite">Corporate Offsite & Team Retreat</option>
+                      <option value="corporate-launch">Corporate Product Launch & Gala</option>
+                      <option value="luxury-wedding">Luxury Local Wedding</option>
+                      <option value="concert">Live Concert / Festival</option>
+                      <option value="other">Other Event</option>
+                    </select>
+                    {/* Custom dropdown arrow */}
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1.5L6 6.5L11 1.5" stroke="#4A3E31" strokeOpacity="0.8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Location / Venue City */}
+                  <div className="relative">
+                    <input 
+                      type="text" 
+                      name="location"
+                      placeholder="Event Location (e.g. Lonavala, Goa...)" 
+                      value={formData.location}
+                      onChange={handleChange}
+                      className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] placeholder-[#4A3E31]/50 text-[14px] px-6 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors"
+                    />
                   </div>
                 </div>
 
-                {/* Message */}
+                {/* Guest Count & Approx Budget */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Guest Count */}
+                  <div className="relative">
+                    <input 
+                      type="text" 
+                      name="guestCount"
+                      placeholder="Approx. Number of Guests" 
+                      value={formData.guestCount}
+                      onChange={handleChange}
+                      className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] placeholder-[#4A3E31]/50 text-[14px] px-6 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors"
+                    />
+                  </div>
+
+                  {/* Approx Budget */}
+                  <div className="relative">
+                    <input 
+                      type="text" 
+                      name="budget"
+                      placeholder="Approx. Budget (e.g. ₹15L - ₹50L+)" 
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] placeholder-[#4A3E31]/50 text-[14px] px-6 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors"
+                    />
+                  </div>
+                </div>
+
+                {/* Message / Requirement */}
                 <textarea 
                   name="message"
                   required
-                  placeholder="Tell us about your event (Location, guest count, vision...)"
+                  placeholder="Tell us about your event requirements (Vision, specific decor, technical sound/lighting needs...)"
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
@@ -300,7 +354,7 @@ export function ContactSection() {
 
                 {submitSuccess && (
                   <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded flex items-center justify-between">
-                    <span>Thank you for your enquiry. Our luxury event specialists will contact you shortly!</span>
+                    <span>Thank you for your proposal request! Our luxury event specialists will contact you shortly on phone/WhatsApp.</span>
                     <button type="button" onClick={() => setSubmitSuccess(false)} className="text-xs text-emerald-600 font-bold ml-2 underline">Send another</button>
                   </div>
                 )}
@@ -314,11 +368,11 @@ export function ContactSection() {
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="group relative w-full bg-[#0E0A07] text-[var(--color-brand-gold)] py-5 px-8 flex justify-center items-center gap-3 overflow-hidden mt-2 border-none disabled:opacity-50"
+                  className="group relative w-full bg-[#0E0A07] text-[var(--color-brand-gold)] py-5 px-8 flex justify-center items-center gap-3 overflow-hidden mt-2 border-none disabled:opacity-50 rounded-xl"
                 >
                   <div className="absolute inset-0 bg-[var(--color-brand-gold)] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]" />
                   <span className="relative z-10 text-[13px] font-bold uppercase tracking-widest group-hover:text-[#0E0A07] transition-colors duration-500">
-                    {isSubmitting ? "Submitting..." : "Submit Enquiry"}
+                    {isSubmitting ? "Submitting..." : "Get a Proposal"}
                   </span>
                   <ArrowRight size={16} className="relative z-10 group-hover:text-[#0E0A07] transition-colors duration-500" />
                 </button>
