@@ -94,7 +94,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-[10px] sm:text-[11px] md:text-[12px] font-mono tracking-[0.18em] uppercase text-[var(--color-brand-gold)] mb-2 block font-bold leading-normal"
           >
-            LUXURY WEDDINGS • DESTINATION CELEBRATIONS • CORPORATE EXPERIENCES
+            LUXURY WEDDINGS. POWERFUL CORPORATE EXPERIENCES.
           </motion.span>
           
           {/* Headline H1 (Sleek Desktop Font Scaling) */}
@@ -104,8 +104,10 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-3 sm:mb-4 md:mb-5 leading-[1.18] sm:leading-[1.15] text-white tracking-tight"
           >
-            We Don’t Just Plan Events. <br className="hidden sm:block"/>
-            <span className="italic font-light text-[var(--color-brand-gold)]">We Own Every Detail.</span>
+            Unforgettable Celebrations <br className="hidden sm:block"/>
+            <span className="italic font-light text-[var(--color-brand-gold)] font-serif text-xl sm:text-3xl md:text-4xl block mt-1">
+              "Flawless in-house production for extraordinary luxury weddings."
+            </span>
           </motion.h1>
 
           {/* Sub-headline Paragraph */}
@@ -113,9 +115,9 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-            className="font-sans text-xs sm:text-sm md:text-base lg:text-lg font-light leading-relaxed mb-5 sm:mb-6 max-w-2xl text-gray-200"
+            className="font-sans text-xs sm:text-sm md:text-base lg:text-lg font-light leading-relaxed mb-5 sm:mb-6 max-w-3xl text-gray-200"
           >
-            From concept to final execution — décor, production, entertainment, hospitality and special effects, managed by one experienced team.
+            From destination weddings to corporate events, Westend Events delivers creative concepts, complete in-house production and seamless execution across India.
           </motion.p>
 
           {/* Dual CTAs: Plan Your Wedding & Plan a Corporate Event */}
@@ -152,24 +154,26 @@ export function HeroSection() {
               }}
               className="border border-white/40 bg-black/40 backdrop-blur-md text-white hover:bg-white hover:text-[#0E0A07] transition-colors duration-300 px-6 sm:px-7 py-3 sm:py-3.5 text-[11px] sm:text-[12px] font-mono font-bold tracking-[0.15em] sm:tracking-[0.18em] uppercase text-center rounded-xl cursor-pointer"
             >
-              Plan a Corporate Event
+              Plan Your Corporate Event
             </button>
           </motion.div>
 
-          {/* Underneath Trust Bar */}
+          {/* Underneath Capabilities Bar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="pt-3 sm:pt-4 border-t border-white/20 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-[11px] sm:text-xs md:text-sm font-mono text-[var(--color-brand-gold)] text-center sm:text-left"
+            className="pt-3 sm:pt-4 border-t border-white/20 flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 text-[11px] sm:text-xs md:text-sm font-mono text-[var(--color-brand-gold)] font-medium text-center sm:text-left"
           >
-            <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-              <span className="text-white font-bold">500+ Events</span>
-              <span className="text-white/40">•</span>
-              <span className="text-white font-bold">100% In-House Production</span>
-            </div>
-            <span className="hidden sm:inline text-white/40">|</span>
-            <div className="text-white/80">Lonavala • Pune • Mumbai • Goa • Across India</div>
+            <span>JBL VRX Sound Systems</span>
+            <span className="text-white/40">|</span>
+            <span>Technical AV</span>
+            <span className="text-white/40">|</span>
+            <span>LED Screens</span>
+            <span className="text-white/40">|</span>
+            <span>Special Entries</span>
+            <span className="text-white/40">|</span>
+            <span>SFX</span>
           </motion.div>
         </div>
       </section>

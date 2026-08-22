@@ -109,7 +109,7 @@ const DEFAULT_POPUP: PopupOfferConfig = {
     "Dedicated Senior Event Director for NRI Weddings"
   ],
   phone: "+91 99235 90038",
-  email: "info@westendevent.com",
+  email: "westendagarwal@gmail.com",
   buttonText: "Plan Your Event",
   buttonLink: "#contact",
   effectStyle: "gold-flakes",

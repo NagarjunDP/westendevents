@@ -15,7 +15,7 @@ export function TestimonialsCarousel() {
       meta: "NRI Destination Wedding · Lonavla"
     },
     {
-      text: "As an American bride marrying into an Indian family, I was overwhelmed. Westendevents held our hand through every ritual and detail. Truly nail to hair — they meant it.",
+      text: "As an American bride marrying into an Indian family, I was overwhelmed. Westend Events held our hand through every ritual and detail. Truly end-to-end — they meant it.",
       author: "Emily & Rohan M.",
       meta: "Foreigner & NRI Fusion Wedding · Goa"
     },

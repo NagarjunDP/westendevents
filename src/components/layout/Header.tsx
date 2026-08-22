@@ -67,25 +67,25 @@ export function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-7 lg:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="group relative font-sans text-[11px] tracking-[0.25em] transition-colors duration-300 uppercase py-2 text-[#0E0A07] hover:text-[var(--color-brand-gold)] font-medium"
+                className="group relative font-sans text-[13px] xl:text-[14px] tracking-[0.18em] transition-colors duration-300 uppercase py-2 text-[#0E0A07] hover:text-[var(--color-brand-gold)] font-bold"
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[var(--color-brand-gold)] origin-center scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-x-100" />
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[var(--color-brand-gold)] origin-center scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-x-100" />
               </Link>
             ))}
           </nav>
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-6">
-            <a href="tel:+919923590038" className="font-sans text-[13px] font-semibold tracking-wider transition-colors text-[#0E0A07] hover:text-[var(--color-brand-gold)]">
+            <a href="tel:+919923590038" className="font-sans text-[14px] font-bold tracking-wider transition-colors text-[#0E0A07] hover:text-[var(--color-brand-gold)]">
               +91 99235 90038
             </a>
-            <Link href="/#contact" className="border border-[#0E0A07] text-[#0E0A07] hover:bg-[#0E0A07] hover:text-[#FDF6F5] px-6 py-2.5 font-sans text-[11px] tracking-[0.2em] uppercase transition-all duration-300 font-semibold">
+            <Link href="/#contact" className="border-2 border-[#0E0A07] text-[#0E0A07] hover:bg-[#0E0A07] hover:text-[#FDF6F5] px-6 py-2.5 font-sans text-[12px] tracking-[0.18em] uppercase transition-all duration-300 font-bold rounded-lg">
               Plan Your Event
             </Link>
           </div>

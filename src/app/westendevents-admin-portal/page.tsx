@@ -1450,9 +1450,9 @@ export default function AdminPortalPage() {
                       <label className="block text-[#8E8E93] mb-1">Official Email</label>
                       <input
                         type="text"
-                        value={popupConfig.email || "info@westendevent.com"}
+                        value={popupConfig.email || "westendagarwal@gmail.com"}
                         onChange={e => setPopupConfig({ ...popupConfig, email: e.target.value })}
-                        placeholder="info@westendevent.com"
+                        placeholder="westendagarwal@gmail.com"
                         className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none"
                       />
                     </div>

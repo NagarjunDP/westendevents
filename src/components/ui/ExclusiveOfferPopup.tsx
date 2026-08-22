@@ -154,7 +154,7 @@ export function ExclusiveOfferPopup() {
   if (!popupConfig || !popupConfig.enabled) return null;
 
   const phoneNum = popupConfig.phone || "+91 99235 90038";
-  const emailAddr = popupConfig.email || "info@westendevent.com";
+  const emailAddr = popupConfig.email || "westendagarwal@gmail.com";
   const cleanPhone = phoneNum.replace(/[^0-9]/g, "");
 
   const activeFont = popupConfig.fontFamily || "Cormorant Garamond";

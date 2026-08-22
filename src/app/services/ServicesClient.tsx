@@ -175,7 +175,7 @@ export function ServicesClient() {
                 }`}
               >
                 <Briefcase size={18} />
-                <span>Corporate Events & Activations</span>
+                <span>Corporate Events</span>
               </button>
             </div>
           </div>

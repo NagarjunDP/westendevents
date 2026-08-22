@@ -28,6 +28,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.westendevent.com",
   },
+  icons: {
+    icon: [
+      { url: "/logo.png", type: "image/png" },
+      { url: "/favicon.ico" }
+    ],
+    shortcut: ["/logo.png"],
+    apple: [
+      { url: "/logo.png", type: "image/png" }
+    ]
+  },
   title: "Westend Events | Luxury Wedding & Event Management in Lonavla, Pune, Goa & Rajasthan",
   description: "India's most trusted luxury event company based in Lonavla. Destination weddings for foreigners & NRIs, local luxury weddings, corporate events & concerts. 100% in-house production — décor, JBL VRX sound, special effects, anchors. Serving Lonavla, Mumbai, Pune, Goa, Udaipur, Jaipur & beyond.",
   keywords: "destination wedding planner Lonavla, luxury event management company, in-house production, JBL VRX sound, special effects wedding India, destination wedding India for foreigners",

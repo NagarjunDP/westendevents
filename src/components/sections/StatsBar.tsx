@@ -19,13 +19,14 @@ export function StatsBar() {
   ];
 
   const communities = [
+    "NRI / Global Couples",
     "Jain",
     "Marwadi",
     "Agarwal",
+    "Maharashtrian / Brahmin",
     "Punjabi",
     "Sindhi",
-    "Christian",
-    "NRI / Global Couples"
+    "Christian"
   ];
 
   return (
@@ -33,7 +34,7 @@ export function StatsBar() {
       <div className="max-w-[1400px] mx-auto space-y-16">
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <div className="text-center max-w-5xl mx-auto space-y-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +43,7 @@ export function StatsBar() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-brand-gold)]/10 border border-[var(--color-brand-gold)]/30 text-[var(--color-brand-gold)] text-[11px] font-mono font-bold tracking-[0.25em] uppercase"
           >
             <Sparkles size={14} />
-            <span>WHY WESTEND EVENTS</span>
+            <span>END-TO-END EVENT MANAGEMENT</span>
           </motion.div>
 
           <motion.h2
@@ -50,9 +51,9 @@ export function StatsBar() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-serif text-3xl md:text-5xl text-[#0E0A07] font-bold"
+            className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#0E0A07] font-bold tracking-tight"
           >
-            Experience, Versatility & <span className="text-[var(--color-brand-gold)] italic font-light">In-House Power.</span>
+            Experience, Versatility & <span className="italic font-light text-[#0E0A07]">In-House Power.</span>
           </motion.h2>
         </div>
 

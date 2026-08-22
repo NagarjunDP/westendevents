@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       message
     });
 
-    const targetEmails = ["info@westendevent.com", "westendeventagarwal@gmail.com"];
+    const targetEmails = ["westendagarwal@gmail.com", "info@westendevent.com"];
     console.log(`[Form Trigger] Direct enquiry notification dispatched to: ${targetEmails.join(", ")} for client ${name}`);
 
     return NextResponse.json({

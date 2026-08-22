@@ -112,6 +112,7 @@ export function ContactSection() {
             </p>
 
             <div className="flex flex-col gap-8">
+              {/* Phone & WhatsApp */}
               <div className="flex gap-6 items-start">
                 <div className="w-12 h-12 rounded-full border border-[var(--color-brand-gold)]/30 flex items-center justify-center shrink-0">
                   <Phone size={18} className="text-[var(--color-brand-gold)]" />
@@ -121,8 +122,23 @@ export function ContactSection() {
                   <div className="text-[18px] text-[#0E0A07] font-serif font-bold">
                     <a href="tel:+919923590038" className="hover:text-[var(--color-brand-gold)] transition-colors">+91 99235 90038</a>
                   </div>
+                  <div className="mt-2">
+                    <a 
+                      href="https://wa.me/919923590038?text=Hello%20Westend%20Events%2C%20I%20would%20like%20to%20plan%20an%20event." 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#25D366]/10 text-[#128C7E] border border-[#25D366]/30 text-xs font-mono font-bold hover:bg-[#25D366] hover:text-white transition-all shadow-sm"
+                    >
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" className="shrink-0">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 005.708 1.458h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                      </svg>
+                      <span>Direct Chat on WhatsApp</span>
+                    </a>
+                  </div>
                 </div>
               </div>
+
+              {/* Official Email */}
               <div className="flex gap-6 items-start">
                 <div className="w-12 h-12 rounded-full border border-[var(--color-brand-gold)]/30 flex items-center justify-center shrink-0">
                   <Mail size={18} className="text-[var(--color-brand-gold)]" />
@@ -130,11 +146,41 @@ export function ContactSection() {
                 <div>
                   <h4 className="text-[11px] text-[#4A3E31] uppercase tracking-widest mb-1 font-semibold">Official Email Addresses</h4>
                   <div className="flex flex-col gap-1">
+                    <a href="mailto:westendagarwal@gmail.com" className="text-[16px] text-[#0E0A07] font-serif font-medium hover:text-[var(--color-brand-gold)] transition-colors">
+                      westendagarwal@gmail.com
+                    </a>
                     <a href="mailto:info@westendevent.com" className="text-[16px] text-[#0E0A07] font-serif font-medium hover:text-[var(--color-brand-gold)] transition-colors">
                       info@westendevent.com
                     </a>
-                    <a href="mailto:westendeventagarwal@gmail.com" className="text-[16px] text-[#0E0A07] font-serif font-medium hover:text-[var(--color-brand-gold)] transition-colors">
-                      westendeventagarwal@gmail.com
+                  </div>
+                </div>
+              </div>
+
+              {/* Instagram Page */}
+              <div className="flex gap-6 items-start">
+                <div className="w-12 h-12 rounded-full border border-[var(--color-brand-gold)]/30 flex items-center justify-center shrink-0 bg-[#E1306C]/5">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#E1306C]">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-[11px] text-[#4A3E31] uppercase tracking-widest mb-1 font-semibold">Official Instagram Page</h4>
+                  <div className="text-[16px] text-[#0E0A07] font-serif font-bold">
+                    <a href="https://instagram.com/westendevents" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-brand-gold)] transition-colors">
+                      @westendevents
+                    </a>
+                  </div>
+                  <div className="mt-1.5">
+                    <a 
+                      href="https://instagram.com/westendevents" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono text-[#E1306C] hover:underline font-bold"
+                    >
+                      <span>Follow on Instagram</span>
+                      <span>→</span>
                     </a>
                   </div>
                 </div>

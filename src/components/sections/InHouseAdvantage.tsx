@@ -6,14 +6,14 @@ import { CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
 
 export function InHouseAdvantage() {
   const capabilities = [
-    "Décor",
-    "Sound",
-    "Lighting",
-    "LED",
-    "Special Effects",
-    "Entertainment",
+    "JBL VRX Sound Systems",
+    "Technical AV",
+    "LED Screens",
+    "Special Entries",
+    "SFX",
+    "Bespoke Décor",
     "Hospitality",
-    "Production"
+    "Stage Production"
   ];
 
   return (
@@ -29,7 +29,7 @@ export function InHouseAdvantage() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-brand-gold)]/20 border border-[var(--color-brand-gold)]/40 text-[var(--color-brand-gold)] text-[11px] font-mono font-bold tracking-[0.25em] uppercase"
         >
           <Sparkles size={14} />
-          <span>ZERO OUTSOURCING ADVANTAGE</span>
+          <span>100% IN-HOUSE ADVANTAGE</span>
         </motion.div>
 
         {/* Main Section Heading */}
@@ -38,10 +38,9 @@ export function InHouseAdvantage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-medium tracking-wide leading-none"
+          className="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-medium tracking-tight leading-tight"
         >
-          ONE TEAM. <br className="hidden sm:block" />
-          <span className="italic font-light text-[var(--color-brand-gold)]">EVERYTHING IN-HOUSE.</span>
+          ONE TEAM. <span className="italic font-light text-[var(--color-brand-gold)]">EVERYTHING IN-HOUSE.</span>
         </motion.h2>
 
         {/* Capabilities Pill Grid */}
