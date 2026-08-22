@@ -31,6 +31,20 @@ export function ContactSection() {
       const data = await res.json();
       if (res.ok && data.success) {
         setSubmitSuccess(true);
+        
+        // Build pre-filled WhatsApp enquiry message
+        const messageText = `✨ *New Westend Events Enquiry* ✨\n\n` +
+          `👤 *Name:* ${formData.name}\n` +
+          `📞 *Phone:* ${formData.phone}\n` +
+          `✉️ *Email:* ${formData.email}\n` +
+          `📅 *Event Date:* ${formData.date || "TBD"}\n` +
+          `🎉 *Event Type:* ${formData.type}\n` +
+          `💬 *Details:* ${formData.message}`;
+
+        const encodedMsg = encodeURIComponent(messageText);
+        const whatsappUrl = `https://wa.me/919923590037?text=${encodedMsg}`;
+
+        // Reset form
         setFormData({
           name: "",
           email: "",
@@ -39,10 +53,15 @@ export function ContactSection() {
           type: "wedding",
           message: ""
         });
+
+        // Trigger WhatsApp redirect with prefilled details
+        setTimeout(() => {
+          window.open(whatsappUrl, "_blank");
+        }, 300);
       } else {
         setSubmitError(data.error || "Failed to submit enquiry. Please try again.");
       }
-    } catch (err) {
+    } catch {
       setSubmitError("Something went wrong. Please check your network connection.");
     } finally {
       setIsSubmitting(false);
@@ -88,8 +107,12 @@ export function ContactSection() {
                   <Phone size={18} className="text-[var(--color-brand-gold)]" />
                 </div>
                 <div>
-                  <h4 className="text-[11px] text-[#4A3E31] uppercase tracking-widest mb-1 font-semibold">Direct Line</h4>
-                  <p className="text-[16px] text-[#0E0A07] font-serif font-medium">+91 99235 90037</p>
+                  <h4 className="text-[11px] text-[#4A3E31] uppercase tracking-widest mb-1 font-semibold">Direct Lines & WhatsApp</h4>
+                  <div className="flex flex-col sm:flex-row sm:gap-3 text-[16px] text-[#0E0A07] font-serif font-medium">
+                    <a href="tel:+919923590037" className="hover:text-[var(--color-brand-gold)] transition-colors">+91 99235 90037</a>
+                    <span className="hidden sm:inline text-gray-400">|</span>
+                    <a href="tel:+919923590038" className="hover:text-[var(--color-brand-gold)] transition-colors">+91 99235 90038</a>
+                  </div>
                 </div>
               </div>
               <div className="flex gap-6 items-start">
@@ -97,8 +120,15 @@ export function ContactSection() {
                   <Mail size={18} className="text-[var(--color-brand-gold)]" />
                 </div>
                 <div>
-                  <h4 className="text-[11px] text-[#4A3E31] uppercase tracking-widest mb-1 font-semibold">Email Us</h4>
-                  <p className="text-[16px] text-[#0E0A07] font-serif font-medium">westendeventagarwal@gmail.com</p>
+                  <h4 className="text-[11px] text-[#4A3E31] uppercase tracking-widest mb-1 font-semibold">Official Email Addresses</h4>
+                  <div className="flex flex-col gap-1">
+                    <a href="mailto:info@westendevent.com" className="text-[16px] text-[#0E0A07] font-serif font-medium hover:text-[var(--color-brand-gold)] transition-colors">
+                      info@westendevent.com
+                    </a>
+                    <a href="mailto:westendeventagarwal@gmail.com" className="text-[16px] text-[#0E0A07] font-serif font-medium hover:text-[var(--color-brand-gold)] transition-colors">
+                      westendeventagarwal@gmail.com
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

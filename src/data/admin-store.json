@@ -1,27 +1,29 @@
 {
   "analytics": {
-    "totalViews": 5,
+    "totalViews": 20,
     "refreshCount": 0,
     "uniqueVisitors": 1,
     "visitorIds": [
       "v_1787369471736_ttqeg4f"
     ],
-    "viewsToday": 5,
-    "viewsThisWeek": 5,
-    "viewsThisMonth": 5,
+    "viewsToday": 20,
+    "viewsThisWeek": 20,
+    "viewsThisMonth": 20,
     "pageViews": {
-      "/": 2,
-      "/x-admin-portal": 3
+      "/": 15,
+      "/x-admin-portal": 3,
+      "/westendevents_admin-portal": 1,
+      "/about": 1
     },
     "deviceDistribution": {
-      "mobile": 3,
-      "desktop": 2,
+      "mobile": 12,
+      "desktop": 8,
       "tablet": 0
     },
     "history": [
       {
         "date": "2026-08-22",
-        "views": 5
+        "views": 20
       }
     ]
   },
@@ -74,14 +76,14 @@
         "id": "chk_1",
         "category": "On-Page SEO",
         "task": "Optimize H1, Title & Meta descriptions across all core pages",
-        "status": "completed",
+        "status": "in_progress",
         "updatedAt": "2026-08-22"
       },
       {
         "id": "chk_2",
         "category": "Technical SEO",
         "task": "Submit XML sitemap & verify Google Search Console indexing",
-        "status": "completed",
+        "status": "in_progress",
         "updatedAt": "2026-08-22"
       },
       {
@@ -99,5 +101,23 @@
         "updatedAt": "2026-08-22"
       }
     ]
+  },
+  "popup": {
+    "enabled": true,
+    "title": "Grand Wedding Season Offer",
+    "badge": "EXCLUSIVE FESTIVE OFFERrr",
+    "subtitle": "Lonavla, Pune & Goa Luxury Packages",
+    "description": "Book your luxury event & receive complimentary 100% In-House VRX Sound & Stage Pyros setup!",
+    "perks": [
+      "100% In-House Decor, Stage & Floral Production",
+      "Complimentary JBL VRX Sound & Stage Pyros Setup",
+      "Dedicated Senior Event Director for NRI Weddings"
+    ],
+    "phone": "+91 99235 90037",
+    "email": "info@westendevent.com",
+    "buttonText": "Plan Your Event",
+    "buttonLink": "#contact",
+    "effectStyle": "snow-flakes",
+    "showDelaySeconds": 1.5
   }
 }

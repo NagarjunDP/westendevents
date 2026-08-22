@@ -3,6 +3,10 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingContact } from "@/components/ui/FloatingContact";
+import { Preloader } from "@/components/ui/Preloader";
+import { AnalyticsTracker } from "@/components/analytics/AnalyticsTracker";
+import { ExclusiveOfferPopup } from "@/components/ui/ExclusiveOfferPopup";
+import type { Metadata, Viewport } from "next";
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
@@ -14,13 +18,15 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-import type { Metadata, Viewport } from "next";
-
 export const viewport: Viewport = {
   themeColor: "#0E0A07",
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.westendevent.com"),
+  alternates: {
+    canonical: "https://www.westendevent.com",
+  },
   title: "Westend Events | Luxury Wedding & Event Management in Lonavla, Pune, Goa & Rajasthan",
   description: "India's most trusted luxury event company based in Lonavla. Destination weddings for foreigners & NRIs, local luxury weddings, corporate events & concerts. 100% in-house production — décor, JBL VRX sound, special effects, anchors. Serving Lonavla, Mumbai, Pune, Goa, Udaipur, Jaipur & beyond.",
   keywords: "destination wedding planner Lonavla, luxury event management company, in-house production, JBL VRX sound, special effects wedding India, destination wedding India for foreigners",
@@ -48,29 +54,26 @@ export const metadata: Metadata = {
   },
 };
 
-import { Preloader } from "@/components/ui/Preloader";
-import { AnalyticsTracker } from "@/components/analytics/AnalyticsTracker";
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-      <html
-        lang="en"
-        className={`${playfair.variable} ${inter.variable} h-full antialiased text-[17px] sm:text-[18px]`}
-      >
-        <body className="min-h-full flex flex-col leading-[1.7]">
+    <html
+      lang="en"
+      className={`${playfair.variable} ${inter.variable} h-full antialiased text-[17px] sm:text-[18px]`}
+    >
+      <body className="min-h-full flex flex-col leading-[1.7]">
         <AnalyticsTracker />
+        <ExclusiveOfferPopup />
         <Preloader />
         <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
+        <main className="flex-grow">{children}</main>
         <Footer />
         <FloatingContact />
       </body>
     </html>
   );
 }
+

@@ -1,7 +1,23 @@
 import fs from "fs";
 import path from "path";
 
-const DATA_FILE_PATH = path.join(process.cwd(), "src", "data", "admin-store.json");
+const PRIMARY_DATA_PATH = path.join(process.cwd(), "src", "data", "admin-store.json");
+const TMP_DATA_PATH = path.join("/tmp", "westend-admin-store.json");
+
+export interface PopupOfferConfig {
+  enabled: boolean;
+  title: string;
+  badge: string;
+  subtitle: string;
+  description: string;
+  perks?: string[];
+  phone?: string;
+  email?: string;
+  buttonText: string;
+  buttonLink: string;
+  effectStyle: "gold-flakes" | "snow-flakes" | "sparkles" | "petals";
+  showDelaySeconds: number;
+}
 
 export interface AnalyticsData {
   totalViews: number;
@@ -77,7 +93,27 @@ export interface AdminStoreSchema {
   analytics: AnalyticsData;
   contacts: ContactSubmission[];
   seo: SeoData;
+  popup: PopupOfferConfig;
 }
+
+const DEFAULT_POPUP: PopupOfferConfig = {
+  enabled: true,
+  title: "Grand Wedding Season Offer",
+  badge: "EXCLUSIVE FESTIVE OFFER",
+  subtitle: "Lonavla, Pune & Goa Luxury Packages",
+  description: "Book your luxury event & receive complimentary 100% In-House VRX Sound & Stage Pyros setup!",
+  perks: [
+    "100% In-House Decor, Stage & Floral Production",
+    "Complimentary JBL VRX Sound & Stage Pyros Setup",
+    "Dedicated Senior Event Director for NRI Weddings"
+  ],
+  phone: "+91 99235 90037",
+  email: "info@westendevent.com",
+  buttonText: "Plan Your Event",
+  buttonLink: "#contact",
+  effectStyle: "gold-flakes",
+  showDelaySeconds: 1.5
+};
 
 const DEFAULT_STORE: AdminStoreSchema = {
   analytics: {
@@ -94,50 +130,88 @@ const DEFAULT_STORE: AdminStoreSchema = {
   },
   contacts: [],
   seo: {
-    healthScore: 94,
-    speedScore: 96,
-    technicalHealth: 98,
-    mobileScore: 95,
+    healthScore: 96,
+    speedScore: 98,
+    technicalHealth: 100,
+    mobileScore: 96,
     backlinksCount: 340,
     monthlyReports: [],
     keywords: [],
     checklist: []
-  }
+  },
+  popup: DEFAULT_POPUP
 };
 
+// Global in-memory cache to maintain immediate updates across requests
+declare global {
+  // eslint-disable-next-line no-var
+  var __WESTEND_ADMIN_STORE__: AdminStoreSchema | undefined;
+}
+
 export function getAdminStore(): AdminStoreSchema {
-  try {
-    if (!fs.existsSync(DATA_FILE_PATH)) {
-      const dir = path.dirname(DATA_FILE_PATH);
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-      }
-      fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(DEFAULT_STORE, null, 2), "utf-8");
-      return DEFAULT_STORE;
-    }
-    const raw = fs.readFileSync(DATA_FILE_PATH, "utf-8");
-    const store = JSON.parse(raw) as AdminStoreSchema;
-    if (!store.analytics.visitorIds) store.analytics.visitorIds = [];
-    if (store.analytics.refreshCount === undefined) store.analytics.refreshCount = 0;
-    return store;
-  } catch (error) {
-    console.error("Error reading admin store:", error);
-    return DEFAULT_STORE;
+  if (globalThis.__WESTEND_ADMIN_STORE__) {
+    return globalThis.__WESTEND_ADMIN_STORE__;
   }
+
+  // Try reading primary data path
+  try {
+    if (fs.existsSync(PRIMARY_DATA_PATH)) {
+      const raw = fs.readFileSync(PRIMARY_DATA_PATH, "utf-8");
+      const store = JSON.parse(raw) as AdminStoreSchema;
+      if (!store.analytics.visitorIds) store.analytics.visitorIds = [];
+      if (store.analytics.refreshCount === undefined) store.analytics.refreshCount = 0;
+      if (!store.popup) store.popup = DEFAULT_POPUP;
+      globalThis.__WESTEND_ADMIN_STORE__ = store;
+      return store;
+    }
+  } catch (err) {
+    console.warn("Could not read primary admin store path, checking tmp:", err);
+  }
+
+  // Fallback try reading tmp path
+  try {
+    if (fs.existsSync(TMP_DATA_PATH)) {
+      const raw = fs.readFileSync(TMP_DATA_PATH, "utf-8");
+      const store = JSON.parse(raw) as AdminStoreSchema;
+      if (!store.popup) store.popup = DEFAULT_POPUP;
+      globalThis.__WESTEND_ADMIN_STORE__ = store;
+      return store;
+    }
+  } catch (err) {
+    console.warn("Could not read tmp admin store path:", err);
+  }
+
+  // Fallback write initial default store
+  globalThis.__WESTEND_ADMIN_STORE__ = DEFAULT_STORE;
+  saveAdminStore(DEFAULT_STORE);
+  return DEFAULT_STORE;
 }
 
 export function saveAdminStore(store: AdminStoreSchema): boolean {
+  globalThis.__WESTEND_ADMIN_STORE__ = store;
+  let saved = false;
+
+  // Try primary path
   try {
-    const dir = path.dirname(DATA_FILE_PATH);
+    const dir = path.dirname(PRIMARY_DATA_PATH);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(store, null, 2), "utf-8");
-    return true;
-  } catch (error) {
-    console.error("Error writing admin store:", error);
-    return false;
+    fs.writeFileSync(PRIMARY_DATA_PATH, JSON.stringify(store, null, 2), "utf-8");
+    saved = true;
+  } catch (err) {
+    console.warn("Primary disk write failed (read-only filesystem?), attempting /tmp fallback:", err);
   }
+
+  // Also sync to /tmp path for serverless safety
+  try {
+    fs.writeFileSync(TMP_DATA_PATH, JSON.stringify(store, null, 2), "utf-8");
+    saved = true;
+  } catch (err) {
+    console.warn("/tmp disk write failed:", err);
+  }
+
+  return saved;
 }
 
 export function recordPageView(
@@ -192,6 +266,17 @@ export function recordPageView(
   }
 
   saveAdminStore(store);
+}
+
+export function updatePopupConfig(newConfig: Partial<PopupOfferConfig>): PopupOfferConfig {
+  const store = getAdminStore();
+  store.popup = {
+    ...DEFAULT_POPUP,
+    ...(store.popup || {}),
+    ...newConfig
+  };
+  saveAdminStore(store);
+  return store.popup;
 }
 
 export function addContactSubmission(payload: Omit<ContactSubmission, "id" | "timestamp" | "status">): ContactSubmission {
@@ -255,3 +340,4 @@ export function addSeoKeyword(kw: Omit<SeoKeyword, "id">) {
   saveAdminStore(store);
   return newKw;
 }
+

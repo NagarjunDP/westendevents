@@ -13,6 +13,7 @@ import {
   FileSpreadsheet,
   FileText,
   Filter,
+  Gift,
   Globe,
   Key,
   Layers,
@@ -21,6 +22,7 @@ import {
   LogOut,
   Mail,
   Menu,
+  MessageCircle,
   MessageSquare,
   Phone,
   Plus,
@@ -36,6 +38,21 @@ import {
   X
 } from "lucide-react";
 import { useEffect, useState } from "react";
+
+interface PopupOfferConfig {
+  enabled: boolean;
+  title: string;
+  badge: string;
+  subtitle: string;
+  description: string;
+  perks?: string[];
+  phone?: string;
+  email?: string;
+  buttonText: string;
+  buttonLink: string;
+  effectStyle: "gold-flakes" | "snow-flakes" | "sparkles" | "petals";
+  showDelaySeconds: number;
+}
 
 interface ContactSubmission {
   id: string;
@@ -121,7 +138,7 @@ export default function AdminPortalPage() {
   const [loginLoading, setLoginLoading] = useState(false);
 
   // Tab & UI state
-  const [activeTab, setActiveTab] = useState<"overview" | "analytics" | "contacts" | "seo">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "analytics" | "contacts" | "seo" | "popup">("overview");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -130,6 +147,24 @@ export default function AdminPortalPage() {
   const [contacts, setContacts] = useState<ContactSubmission[]>([]);
   const [seo, setSeo] = useState<SeoData | null>(null);
   const [metaAudit, setMetaAudit] = useState<MetaAuditItem[]>([]);
+
+  // Offer Popup State
+  const [popupConfig, setPopupConfig] = useState<PopupOfferConfig>({
+    enabled: true,
+    title: "Grand Wedding Season Offer",
+    badge: "EXCLUSIVE FESTIVE OFFER",
+    subtitle: "Lonavla, Pune & Goa Luxury Packages",
+    description: "Book your luxury event & receive complimentary 100% In-House VRX Sound & Stage Pyros setup!",
+    phone: "+91 99235 90037",
+    email: "info@westendevent.com",
+    buttonText: "Plan Your Event",
+    buttonLink: "#contact",
+    effectStyle: "gold-flakes",
+    showDelaySeconds: 1.5
+  });
+  const [popupSaving, setPopupSaving] = useState(false);
+  const [popupSaveMessage, setPopupSaveMessage] = useState("");
+
 
   // Contact modal state
   const [selectedContact, setSelectedContact] = useState<ContactSubmission | null>(null);
@@ -155,6 +190,15 @@ export default function AdminPortalPage() {
   useEffect(() => {
     checkAuthSession();
   }, []);
+
+  // Real-time live polling every 4 seconds when authenticated
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    const pollInterval = setInterval(() => {
+      loadDashboardData(true);
+    }, 4000);
+    return () => clearInterval(pollInterval);
+  }, [isAuthenticated]);
 
   const checkAuthSession = async () => {
     try {
@@ -211,12 +255,13 @@ export default function AdminPortalPage() {
     setIsAuthenticated(false);
   };
 
-  const loadDashboardData = async () => {
-    setIsLoading(true);
+  const loadDashboardData = async (silent: boolean = false) => {
+    if (!silent) setIsLoading(true);
     try {
-      const [contactsRes, seoRes] = await Promise.all([
+      const [contactsRes, seoRes, popupRes] = await Promise.all([
         fetch("/api/admin/contacts"),
-        fetch("/api/admin/seo")
+        fetch("/api/admin/seo"),
+        fetch("/api/popup", { cache: "no-store" })
       ]);
 
       if (contactsRes.ok) {
@@ -230,12 +275,47 @@ export default function AdminPortalPage() {
         setSeo(sData.seo || null);
         setMetaAudit(sData.metaAudit || []);
       }
+
+      // Only update popup form state on initial load or non-silent refresh
+      if (!silent && popupRes.ok) {
+        const pData = await popupRes.json();
+        if (pData.popup) {
+          setPopupConfig(pData.popup);
+        }
+      }
     } catch (error) {
-      console.error("Error loading dashboard data:", error);
+      if (!silent) console.error("Error loading dashboard data:", error);
     } finally {
-      setIsLoading(false);
+      if (!silent) setIsLoading(false);
     }
   };
+
+  const handleSavePopupConfig = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPopupSaving(true);
+    setPopupSaveMessage("");
+
+    try {
+      const res = await fetch("/api/popup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(popupConfig)
+      });
+      const data = await res.json();
+      if (res.ok && data.success && data.popup) {
+        setPopupConfig(data.popup);
+        setPopupSaveMessage("Offer Pop-Up settings published successfully to all devices!");
+        setTimeout(() => setPopupSaveMessage(""), 4000);
+      } else {
+        setPopupSaveMessage(data.message || "Failed to update pop-up settings.");
+      }
+    } catch {
+      setPopupSaveMessage("Error updating settings.");
+    } finally {
+      setPopupSaving(false);
+    }
+  };
+
 
   const handleUpdateContactStatus = async (id: string, status: ContactSubmission["status"], notes?: string) => {
     try {
@@ -536,12 +616,24 @@ export default function AdminPortalPage() {
               <Globe className="w-3.5 h-3.5" />
               <span>Monthly SEO</span>
             </button>
+
+            <button
+              onClick={() => setActiveTab("popup")}
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs font-mono transition-colors ${
+                activeTab === "popup"
+                  ? "bg-[#D4AF37] text-[#0B0B0C] font-bold"
+                  : "text-[#8E8E93] hover:text-[#ECECEE]"
+              }`}
+            >
+              <Gift className="w-3.5 h-3.5" />
+              <span>Offer Pop-Up</span>
+            </button>
           </nav>
 
           {/* Action buttons */}
           <div className="flex items-center gap-2">
             <button
-              onClick={loadDashboardData}
+              onClick={() => loadDashboardData(false)}
               title="Refresh Data"
               className="p-2 rounded-lg bg-[#121214] border border-[#1F1F24] text-[#8E8E93] hover:text-[#ECECEE] hover:border-[#2E2E35] transition-colors"
             >
@@ -613,7 +705,19 @@ export default function AdminPortalPage() {
               >
                 Monthly SEO
               </button>
+              <button
+                onClick={() => {
+                  setActiveTab("popup");
+                  setMobileMenuOpen(false);
+                }}
+                className={`p-2.5 rounded-lg text-center col-span-2 ${
+                  activeTab === "popup" ? "bg-[#D4AF37] text-[#0B0B0C] font-bold" : "bg-[#121214] border border-[#1F1F24]"
+                }`}
+              >
+                Festive Offer Pop-Up
+              </button>
             </div>
+
             <div className="pt-2 flex justify-between items-center text-[11px] font-mono text-[#8E8E93]">
               <span>Admin Session Active</span>
               <button onClick={handleLogout} className="text-rose-400 underline">Logout</button>
@@ -1188,7 +1292,272 @@ export default function AdminPortalPage() {
             </div>
           </div>
         )}
+
+        {/* ================= TAB 5: OFFER POP-UP MANAGER ================= */}
+        {activeTab === "popup" && (
+          <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#1F1F24] pb-4">
+              <div>
+                <h2 className="text-xl font-serif font-bold text-[#ECECEE]">Festive & Exclusive Offer Pop-Up Manager</h2>
+                <p className="text-xs text-[#8E8E93] font-mono">
+                  Control the announcement popup modal, promo codes & animated flakes shown to website visitors
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className={`w-2.5 h-2.5 rounded-full ${popupConfig.enabled ? "bg-emerald-400 animate-pulse" : "bg-rose-500"}`} />
+                <span className="text-xs font-mono text-[#8E8E93]">
+                  {popupConfig.enabled ? "Pop-Up Active on Website" : "Pop-Up Paused"}
+                </span>
+              </div>
+            </div>
+
+            {popupSaveMessage && (
+              <div className={`p-3.5 rounded-xl border text-xs font-mono flex items-center gap-2 ${
+                popupSaveMessage.includes("successfully")
+                  ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-300"
+                  : "bg-rose-500/10 border-rose-500/30 text-rose-300"
+              }`}>
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>{popupSaveMessage}</span>
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              {/* Left Column: Form Settings */}
+              <div className="lg:col-span-7 space-y-5 bg-[#121214] border border-[#1F1F24] p-5 sm:p-6 rounded-xl">
+                <form onSubmit={handleSavePopupConfig} className="space-y-4 text-xs font-mono">
+                  {/* Enable / Disable Switch */}
+                  <div className="p-4 rounded-xl bg-[#0B0B0C] border border-[#1F1F24] flex items-center justify-between">
+                    <div>
+                      <span className="text-sm font-serif font-bold text-[#ECECEE] block">Pop-Up Status</span>
+                      <span className="text-[11px] text-[#8E8E93]">Show pop-up to new visitors when they open the site</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setPopupConfig({ ...popupConfig, enabled: !popupConfig.enabled })}
+                      className={`px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors ${
+                        popupConfig.enabled
+                          ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
+                          : "bg-rose-500/20 text-rose-300 border border-rose-500/40"
+                      }`}
+                    >
+                      {popupConfig.enabled ? "ENABLED" : "DISABLED"}
+                    </button>
+                  </div>
+
+                  {/* Flake / Particle Effect Picker */}
+                  <div>
+                    <label className="block text-[#8E8E93] mb-1.5 font-bold uppercase text-[11px]">
+                      Occasion Flake Effect (Animated Canvas)
+                    </label>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                      {[
+                        { id: "gold-flakes", label: "🪙 Gold Flakes", desc: "Grand Festive & Wedding" },
+                        { id: "snow-flakes", label: "❄️ Snow Flakes", desc: "Winter & New Year" },
+                        { id: "sparkles", label: "✨ Starlight Sparkles", desc: "Luxury & VIP" },
+                        { id: "petals", label: "🌸 Flower Petals", desc: "Spring & Floral Wedding" }
+                      ].map(effect => (
+                        <button
+                          key={effect.id}
+                          type="button"
+                          onClick={() =>
+                            setPopupConfig({
+                              ...popupConfig,
+                              effectStyle: effect.id as PopupOfferConfig["effectStyle"]
+                            })
+                          }
+                          className={`p-3 rounded-lg border text-left transition-all ${
+                            popupConfig.effectStyle === effect.id
+                              ? "bg-[#D4AF37]/15 border-[#D4AF37] text-[#ECECEE]"
+                              : "bg-[#0B0B0C] border-[#1F1F24] text-[#8E8E93] hover:border-[#2E2E35]"
+                          }`}
+                        >
+                          <span className="font-bold text-xs block">{effect.label}</span>
+                          <span className="text-[10px] text-[#8E8E93] block mt-0.5">{effect.desc}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Title & Badge */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[#8E8E93] mb-1">Pop-Up Title</label>
+                      <input
+                        type="text"
+                        required
+                        value={popupConfig.title}
+                        onChange={e => setPopupConfig({ ...popupConfig, title: e.target.value })}
+                        placeholder="Grand Wedding Season Offer"
+                        className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[#8E8E93] mb-1">Top Badge Tag</label>
+                      <input
+                        type="text"
+                        required
+                        value={popupConfig.badge}
+                        onChange={e => setPopupConfig({ ...popupConfig, badge: e.target.value })}
+                        placeholder="EXCLUSIVE ONLINE PERK"
+                        className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none uppercase"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Subtitle / Occasion Tag */}
+                  <div>
+                    <label className="block text-[#8E8E93] mb-1">Subtitle / Occasion Tag</label>
+                    <input
+                      type="text"
+                      value={popupConfig.subtitle}
+                      onChange={e => setPopupConfig({ ...popupConfig, subtitle: e.target.value })}
+                      placeholder="Lonavla, Pune & Goa Luxury Packages"
+                      className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none"
+                    />
+                  </div>
+
+                  {/* Description */}
+                  <div>
+                    <label className="block text-[#8E8E93] mb-1">Offer Details / Description</label>
+                    <textarea
+                      required
+                      value={popupConfig.description}
+                      onChange={e => setPopupConfig({ ...popupConfig, description: e.target.value })}
+                      rows={3}
+                      placeholder="Book your luxury event & get complimentary setup..."
+                      className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none resize-none"
+                    />
+                  </div>
+
+                  {/* Direct Contact Phone & Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[#8E8E93] mb-1">WhatsApp / Contact Phone</label>
+                      <input
+                        type="text"
+                        value={popupConfig.phone || "+91 99235 90037"}
+                        onChange={e => setPopupConfig({ ...popupConfig, phone: e.target.value })}
+                        placeholder="+91 99235 90037"
+                        className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[#8E8E93] mb-1">Official Email</label>
+                      <input
+                        type="text"
+                        value={popupConfig.email || "info@westendevent.com"}
+                        onChange={e => setPopupConfig({ ...popupConfig, email: e.target.value })}
+                        placeholder="info@westendevent.com"
+                        className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Button Text & Target Link */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[#8E8E93] mb-1">Main Action Button Text</label>
+                      <input
+                        type="text"
+                        required
+                        value={popupConfig.buttonText}
+                        onChange={e => setPopupConfig({ ...popupConfig, buttonText: e.target.value })}
+                        placeholder="Plan Your Event"
+                        className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[#8E8E93] mb-1">Button Target Link</label>
+                      <input
+                        type="text"
+                        required
+                        value={popupConfig.buttonLink}
+                        onChange={e => setPopupConfig({ ...popupConfig, buttonLink: e.target.value })}
+                        placeholder="#contact or /collection"
+                        className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Popup Delay */}
+                  <div>
+                    <label className="block text-[#8E8E93] mb-1">Popup Delay (Seconds)</label>
+                    <input
+                      type="number"
+                      step="0.5"
+                      min="0.5"
+                      max="10"
+                      required
+                      value={popupConfig.showDelaySeconds}
+                      onChange={e => setPopupConfig({ ...popupConfig, showDelaySeconds: parseFloat(e.target.value) || 1 })}
+                      className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={popupSaving}
+                      className="w-full py-3.5 rounded-xl bg-[#D4AF37] text-[#0B0B0C] font-bold text-xs uppercase tracking-wider hover:bg-[#E5BE48] transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                    >
+                      <Sparkles className="w-4 h-4" />
+                      <span>{popupSaving ? "Publishing..." : "Publish Offer Pop-Up Changes"}</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              {/* Right Column: Live Interactive Preview */}
+              <div className="lg:col-span-5 space-y-3">
+                <span className="text-xs font-mono text-[#8E8E93] uppercase block">
+                  Live Preview (Compact Mobile View)
+                </span>
+
+                <div className="relative max-w-[340px] mx-auto bg-[#0E0B08] border border-[#D4AF37]/40 rounded-2xl p-5 shadow-xl text-center space-y-3 overflow-hidden">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30 text-[#D4AF37] text-[10px] font-mono font-semibold tracking-wider uppercase">
+                    <Sparkles className="w-3 h-3" />
+                    <span>{popupConfig.badge || "EXCLUSIVE FESTIVE OFFER"}</span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-serif font-bold text-[#F4E8D6]">
+                      {popupConfig.title || "Your Offer Title"}
+                    </h3>
+                    {popupConfig.subtitle && (
+                      <p className="text-[11px] text-[#D4AF37] font-serif italic mt-0.5">
+                        {popupConfig.subtitle}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="p-2.5 rounded-xl bg-[#16120E] border border-[#2E261D] text-left space-y-1 text-[11px] text-[#FFE0B2]">
+                    <div>&bull; 100% In-House Production: Stage, Décor</div>
+                    <div>&bull; Free VRX Sound & Stage Pyros Setup</div>
+                  </div>
+
+                  <div className="pt-1 space-y-1.5">
+                    <div className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-xs flex items-center justify-center gap-2 font-mono">
+                      <MessageCircle className="w-4 h-4 fill-current" />
+                      <span>WhatsApp Direct: {popupConfig.phone || "+91 99235 90037"}</span>
+                    </div>
+
+                    <div className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#FFD700] to-[#FF8F00] text-[#0E0B08] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5">
+                      <span>{popupConfig.buttonText || "Plan Your Event"}</span>
+                    </div>
+                  </div>
+
+                  <div className="text-[10px] font-mono text-[#8E8E93] pt-1">
+                    Effect Active: <span className="text-[#D4AF37] capitalize">{popupConfig.effectStyle.replace("-", " ")}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
+
 
       {/* Note Modal */}
       <AnimatePresence>

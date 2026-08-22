@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { StatsBar } from "@/components/sections/StatsBar";
 import { ServicesBentoGrid } from "@/components/sections/ServicesBentoGrid";
+import { AboutSection } from "@/components/sections/AboutSection";
 import { InHouseAdvantage } from "@/components/sections/InHouseAdvantage";
 import { CorporateClients } from "@/components/sections/CorporateClients";
 import { DestinationSpotlight } from "@/components/sections/DestinationSpotlight";
@@ -93,6 +94,7 @@ export default function Home() {
       <HeroSection />
       <StatsBar />
       <ServicesBentoGrid />
+      <AboutSection />
       <InHouseAdvantage />
       <CorporateClients />
       <DestinationSpotlight />

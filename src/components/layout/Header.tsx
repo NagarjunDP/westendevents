@@ -90,12 +90,20 @@ export function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-6">
-            <a href="tel:+919923590037" className={cn(
-              "font-sans text-[12px] tracking-wider transition-colors",
-              isScrolled ? "text-[#0E0A07] hover:text-[var(--color-brand-gold)]" : "text-[var(--color-brand-gold)] hover:text-white"
-            )}>
-              +91 99235 90037
-            </a>
+            <div className="flex flex-col text-right">
+              <a href="tel:+919923590037" className={cn(
+                "font-sans text-[11px] font-medium tracking-wider transition-colors",
+                isScrolled ? "text-[#0E0A07] hover:text-[var(--color-brand-gold)]" : "text-[var(--color-brand-gold)] hover:text-white"
+              )}>
+                +91 99235 90037
+              </a>
+              <a href="tel:+919923590038" className={cn(
+                "font-sans text-[11px] font-medium tracking-wider transition-colors opacity-90",
+                isScrolled ? "text-[#0E0A07] hover:text-[var(--color-brand-gold)]" : "text-[var(--color-brand-gold)] hover:text-white"
+              )}>
+                +91 99235 90038
+              </a>
+            </div>
             <Link href="/#contact" className={cn(
               "border px-6 py-2.5 font-sans text-[11px] tracking-[0.2em] uppercase transition-all duration-300",
               isScrolled
@@ -174,14 +182,17 @@ export function Header() {
                 </a>
               </div>
 
-              <div className="flex flex-col items-center gap-3">
-                <a href="tel:+919923590037" className="font-sans text-[15px] tracking-widest text-[#0E0A07] hover:text-[var(--color-brand-gold)] transition-colors">
+              <div className="flex flex-col items-center gap-1.5">
+                <a href="tel:+919923590037" className="font-sans text-[14px] tracking-widest text-[#0E0A07] hover:text-[var(--color-brand-gold)] transition-colors">
                   +91 99235 90037
+                </a>
+                <a href="tel:+919923590038" className="font-sans text-[14px] tracking-widest text-[#0E0A07] hover:text-[var(--color-brand-gold)] transition-colors">
+                  +91 99235 90038
                 </a>
                 <Link
                   href="/#contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="bg-[var(--color-brand-gold)] text-[#0E0A07] px-8 py-3 font-sans text-[12px] font-semibold tracking-[0.2em] uppercase hover:bg-[#0E0A07] hover:text-white transition-all duration-300 shadow-md"
+                  className="mt-2 bg-[var(--color-brand-gold)] text-[#0E0A07] px-8 py-3 font-sans text-[12px] font-semibold tracking-[0.2em] uppercase hover:bg-[#0E0A07] hover:text-white transition-all duration-300 shadow-md"
                 >
                   Plan Your Event
                 </Link>

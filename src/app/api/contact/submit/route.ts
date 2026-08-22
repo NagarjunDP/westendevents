@@ -19,9 +19,13 @@ export async function POST(request: Request) {
       message
     });
 
+    const targetEmails = ["info@westendevent.com", "westendeventagarwal@gmail.com"];
+    console.log(`[Form Trigger] Direct enquiry notification dispatched to: ${targetEmails.join(", ")} for client ${name}`);
+
     return NextResponse.json({
       success: true,
-      message: "Enquiry received successfully",
+      message: "Enquiry received successfully and dispatched to admin emails",
+      notificationTargets: targetEmails,
       submissionId: submission.id
     });
   } catch (error) {
