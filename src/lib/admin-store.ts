@@ -107,12 +107,13 @@ const DEFAULT_POPUP: PopupOfferConfig = {
     "Complimentary JBL VRX Sound & Stage Pyros Setup",
     "Dedicated Senior Event Director for NRI Weddings"
   ],
-  phone: "+91 99235 90037",
+  phone: "+91 99235 90038",
   email: "info@westendevent.com",
   buttonText: "Plan Your Event",
   buttonLink: "#contact",
   effectStyle: "gold-flakes",
-  showDelaySeconds: 1.5
+  showDelaySeconds: 1.5,
+  fontFamily: "Cormorant Garamond"
 };
 
 const DEFAULT_STORE: AdminStoreSchema = {

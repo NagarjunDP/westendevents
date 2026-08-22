@@ -1,173 +1,306 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { useRef } from "react";
-
-const services = [
-  {
-    id: "weddings",
-    title: "Luxury Destination Weddings",
-    subtitle: "Complete Planning & Production",
-    description: "From royal ceremonies in Udaipur to beachfront celebrations in Goa, we offer comprehensive end-to-end wedding management. Our dedicated team handles everything—from venue sourcing and guest hospitality to logistics and complete event production for international couples and NRIs coming to India.",
-    features: ["Venue Sourcing & Booking", "Guest Hospitality & Logistics", "End-to-end Event Production", "Dedicated Shadow Teams"],
-    image: "/_05A6903.jpg", // The requested image
-    align: "left"
-  },
-  {
-    id: "decor",
-    title: "Bespoke Floral & Theme Decor",
-    subtitle: "100% In-House Inventory",
-    description: "Unlike standard planners who outsource, we own an extensive inventory of premium decor elements. Our in-house production facility allows us to create bespoke floral arrangements, towering stage setups, and immersive luxury themes that are tailored exactly to your vision, guaranteeing unmatched quality control.",
-    features: ["Custom Stage Fabrication", "Premium Floral Arrangements", "Luxury Furniture Rentals", "Immersive Lighting Design"],
-    image: "/205A4188.jpg",
-    align: "right"
-  },
-  {
-    id: "sound-sfx",
-    title: "JBL VRX Audio & Special Effects",
-    subtitle: "Tour-Grade Technical Infrastructure",
-    description: "We bring the concert experience to your private events. Equipped with original JBL VRX line arrays, intelligent lighting rigs, cold pyrotechnics, dry ice, and CO2 jets, our in-house technical crew ensures your event sounds and looks spectacular. No third-party rentals, just pure uncompromised quality.",
-    features: ["JBL VRX Sound Systems", "Intelligent Stage Lighting", "Cold Pyros & SFX", "LED Walls & Visuals"],
-    image: "/_MP_2156.jpg",
-    align: "left"
-  },
-  {
-    id: "anchors-artists",
-    title: "Anchors, Artists & Entertainment",
-    subtitle: "Curating Unforgettable Performances",
-    description: "The soul of any grand event lies in its entertainment. We provide top-tier celebrity anchors, professional hosts, live bands, international acts, and traditional folk dancers. We manage all artist coordination, riders, and stage requirements so your guests remain enthralled from the first welcome to the final after-party.",
-    features: ["Celebrity Appearances", "Professional Emcees & Anchors", "Live Bands & DJs", "Traditional & Global Acts"],
-    image: "/_MP_2161.jpg",
-    align: "right"
-  },
-  {
-    id: "corporate",
-    title: "Corporate Events & Activations",
-    subtitle: "Turnkey B2B Event Management",
-    description: "From massive tech conferences and product launches to high-end corporate galas and mall activations, we deliver turnkey production for MNCs. Our meticulous planning and flawless execution ensure your brand message is delivered powerfully and professionally.",
-    features: ["Conferences & Seminars", "Product Launches", "Brand Activations", "Gala Dinners & Awards"],
-    image: "/_MP_0245.jpg",
-    align: "left"
-  }
-];
+import { ArrowRight, CheckCircle2, Heart, Briefcase, Sparkles, Compass, Music, ShieldCheck, Presentation, Building2, Award, Layers } from "lucide-react";
+import { useState } from "react";
 
 export function ServicesClient() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeTab, setActiveTab] = useState<"weddings" | "corporate">("weddings");
+
+  const weddingServices = [
+    {
+      id: "destination-weddings",
+      title: "Destination Weddings & NRI Celebrations",
+      subtitle: "Full End-to-End Planning & Management",
+      description: "From royal palace ceremonies in Udaipur and Jaipur to hilltop retreats in Lonavala and tropical beach weddings in Goa, we offer complete turn-key wedding management for couples and NRI families flying in from abroad. We act as your single point of contact for venue shortlisting, guest hospitality, airport transfers, and remote planning.",
+      features: ["Royal Venue Sourcing & Booking", "Dedicated NRI Concierge & Airport Logistics", "Full Remote & On-Site Planning", "Shadow Teams for Couple & Family"],
+      image: "/205A4188.jpg",
+      icon: Compass
+    },
+    {
+      id: "wedding-decor",
+      title: "Bespoke Décor & Floral Architecture",
+      subtitle: "100% In-House Inventory & Production",
+      description: "Unlike standard planners who rely on third-party vendors, Westend Events owns an extensive in-house decor inventory. Our team creates bespoke mandap setups, royal floral entryways, custom stage structures, and theme lighting that transform every venue into a fairytale experience.",
+      features: ["Custom Mandap & Stage Fabrication", "Royal Floral Entryways & Structures", "Luxury Seating & Theme Furniture", "Intelligent Ambient & Accent Lighting"],
+      image: "/MDP_1147.jpg",
+      icon: Sparkles
+    },
+    {
+      id: "hospitality-logistics",
+      title: "Hospitality & Guest Management",
+      subtitle: "White-Glove Guest Experience",
+      description: "We ensure every guest feels like royalty from the moment they arrive. Our hospitality directors manage hotel check-ins, luxury resort room blockings, luggage coordination, welcome hamper distribution, and 24/7 guest helpline assistance.",
+      features: ["5-Star Resort Room Blockings", "Airport & Station AC Coach Transfers", "Customized Welcome Hampers & Keycards", "24/7 On-Site Guest Desk"],
+      image: "/_MP_2156.jpg",
+      icon: Heart
+    },
+    {
+      id: "wedding-entertainment",
+      title: "Entertainment & Artist Management",
+      subtitle: "Curated Live Acts & Choreography",
+      description: "Elevate your celebrations with India's finest performers. We manage top-tier celebrity anchors, professional Sangeet choreographers, live Bollywood bands, traditional Shehnai masters, international dancers, and high-energy DJ lineups.",
+      features: ["Celebrity MCs & TV Anchors", "Sangeet Choreography & Showflows", "Live Bands, Dhol Teams & DJs", "Artist Travel & Rider Logistics"],
+      image: "/_05A6896.jpg",
+      icon: Music
+    },
+    {
+      id: "wedding-production",
+      title: "JBL Sound, Pyros & Stage SFX",
+      subtitle: "Concert-Grade In-House Audio Visual",
+      description: "We bring tour-grade sound systems and special effects to your wedding functions. Equipped with original JBL VRX line arrays, cold pyrotechnics for varmala, dry ice heavy fog for couple entry, and LED screens for Sangeet visuals.",
+      features: ["Original JBL VRX Line Arrays", "Cold Spark Pyros & CO2 Jets", "Dry Ice Low-Lying Heavy Fog", "Custom LED Walls & Lighting Rigs"],
+      image: "/205A4204.jpg",
+      icon: ShieldCheck
+    }
+  ];
+
+  const corporateServices = [
+    {
+      id: "corporate-conferences",
+      title: "Conferences, Summits & Keynotes",
+      subtitle: "Turnkey B2B Executive Events",
+      description: "Flawless execution for high-level corporate summits, multi-track annual conferences, and executive keynotes. We provide custom stage fabrication, broadcast-quality AV setups, delegate registration portals, and live streaming capabilities.",
+      features: ["Custom Keynote Stage & Podium Setup", "Multi-Track Audio Visual Systems", "High-Def Live Streaming & Recording", "Delegate Badging & Registration Desks"],
+      image: "/corporate_conference.jpg",
+      icon: Presentation
+    },
+    {
+      id: "corporate-offsites",
+      title: "Offsites & Team Retreats",
+      subtitle: "Experiential Corporate Escapes",
+      description: "Transform your company offsite into an unforgettable experience. Based in Lonavala and Pune, we manage resort bookings, outdoor team-building activities, open-air lawn gala dinners under fairy lights, and evening entertainment.",
+      features: ["Lonavala & Pune Resort Bookings", "Outdoor Team Building Activities", "Open-Air Gala Dinners & Cocktail Nights", "Complete Logistics & Coach Transfers"],
+      image: "/corporate_offsites.jpg",
+      icon: Building2
+    },
+    {
+      id: "product-launches",
+      title: "Product Launches & Brand Activations",
+      subtitle: "High-Impact Reveal Staging",
+      description: "Make your new product launch headline-worthy. We design dramatic reveal staging, interactive brand installation booths, media press walls, and immersive lighting shows that command audience attention.",
+      features: ["Dramatic Product Reveal Stage FX", "Brand Experience Booths & Stalls", "Press & Media Wall Fabrications", "Interactive Display Technology"],
+      image: "/corporate_launch.jpg",
+      icon: Sparkles
+    },
+    {
+      id: "awards-nights",
+      title: "Awards Ceremonies & Annual Galas",
+      subtitle: "Red Carpet Corporate Excellence",
+      description: "Celebrate corporate milestones with a spectacular red-carpet gala. From golden trophy stage fabrications and intelligent lighting design to celebrity anchors and entertainment acts.",
+      features: ["Red Carpet Entry & Backdrop Fabrications", "Custom Trophy Podium & Stage Production", "Celebrity Anchors & Live Performers", "Full Audio-Visual & Pyro Effects"],
+      image: "/corporate_awards.jpg",
+      icon: Award
+    },
+    {
+      id: "exhibitions",
+      title: "Exhibitions & Trade Show Booths",
+      subtitle: "Custom Stall Architecture & AV",
+      description: "Stand out on the expo floor with bespoke exhibition booth architecture. We handle stall design, 3D floorplan rendering, timber & metal fabrication, LED display integration, and on-ground booth staffing.",
+      features: ["3D Stall Design & Fabrication", "Integrated LED Screens & AV Displays", "Exhibition Flooring & Lighting Rigs", "On-Ground Crowd Flow Management"],
+      image: "/corporate_exhibition.jpg",
+      icon: Layers
+    },
+    {
+      id: "corporate-production",
+      title: "Corporate Production & Audio-Visual",
+      subtitle: "100% In-House Sound & Stage Rigging",
+      description: "We own our entire technical audio-visual inventory, ensuring crystal-clear acoustics and seamless technical execution for corporate presentations without third-party vendor delays.",
+      features: ["In-House JBL VRX Sound Systems", "Intelligent Stage Lighting & DMX Rigs", "Ultra-HD LED Video Walls", "On-Site Technical Engineers & Sound Masters"],
+      image: "/corporate_production.jpg",
+      icon: Briefcase
+    }
+  ];
+
+  const currentList = activeTab === "weddings" ? weddingServices : corporateServices;
 
   return (
-    <div className="bg-[#FAF6EF] min-h-screen" ref={containerRef}>
+    <div className="bg-[#FAF6EF] min-h-screen font-sans">
       {/* Hero Section */}
-      <section className="pt-40 pb-20 md:pt-48 md:pb-32 px-4 md:px-12 lg:px-24 relative overflow-hidden">
-        <div className="max-w-[1200px] mx-auto text-center relative z-10">
+      <section className="pt-36 pb-16 md:pt-48 md:pb-24 px-4 md:px-12 lg:px-24 relative overflow-hidden bg-[#0E0A07] text-[#FAF6EF]">
+        <div className="absolute inset-0 bg-[url('/205A4189.jpg')] bg-cover bg-center opacity-20" />
+        <div className="max-w-[1200px] mx-auto text-center relative z-10 space-y-6">
+          
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-brand-gold)] mb-6 font-bold"
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-brand-gold)]/20 border border-[var(--color-brand-gold)]/40 text-[var(--color-brand-gold)] text-[11px] font-mono font-bold tracking-[0.25em] uppercase"
           >
-            OUR EXPERTISE
+            <Sparkles size={14} />
+            <span>FULL IN-HOUSE EVENT PRODUCTION</span>
           </motion.div>
+
           <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="font-serif text-4xl md:text-[72px] text-[#0E0A07] leading-[1.05] mb-8"
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-serif text-4xl md:text-7xl text-white leading-tight"
           >
-            We Don't Just Plan Events.<br />
-            <span className="text-[var(--color-brand-gold)] italic font-light">We Own Every Detail.</span>
+            Our In-House Services. <br />
+            <span className="text-[var(--color-brand-gold)] italic font-light">Weddings & Corporate Events.</span>
           </motion.h1>
+
           <motion.p 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="font-sans text-[18px] text-[#4A3E31] max-w-[800px] mx-auto leading-relaxed mb-12"
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="font-sans text-[16px] md:text-[18px] text-gray-300 max-w-[800px] mx-auto leading-relaxed"
           >
-            As a premier luxury event company based in Lonavla, Westend Events specializes in high-profile destination weddings, NRI celebrations, and large-scale corporate events. We offer a 100% in-house, zero-outsourcing model across Maharashtra and India.
+            Based in <strong className="text-white">Lonavala and Pune</strong>, Westend Events owns 100% in-house decor inventory, tour-grade JBL VRX sound systems, stage pyros, and technical AV for extraordinary celebrations across India.
           </motion.p>
+
+          {/* Interactive Category Selector Tabs */}
+          <div className="pt-8 flex justify-center">
+            <div className="inline-flex p-1.5 rounded-2xl bg-[#1C1611] border border-[var(--color-brand-gold)]/40 gap-2 shadow-2xl">
+              <button
+                onClick={() => setActiveTab("weddings")}
+                className={`flex items-center gap-2.5 px-6 py-3 rounded-xl font-serif text-sm md:text-base font-bold transition-all duration-300 ${
+                  activeTab === "weddings"
+                    ? "bg-[var(--color-brand-gold)] text-[#0E0A07] shadow-lg"
+                    : "text-gray-300 hover:text-white"
+                }`}
+              >
+                <Heart size={18} className={activeTab === "weddings" ? "fill-current" : ""} />
+                <span>Weddings & Celebrations</span>
+              </button>
+
+              <button
+                onClick={() => setActiveTab("corporate")}
+                className={`flex items-center gap-2.5 px-6 py-3 rounded-xl font-serif text-sm md:text-base font-bold transition-all duration-300 ${
+                  activeTab === "corporate"
+                    ? "bg-[var(--color-brand-gold)] text-[#0E0A07] shadow-lg"
+                    : "text-gray-300 hover:text-white"
+                }`}
+              >
+                <Briefcase size={18} />
+                <span>Corporate Events & Activations</span>
+              </button>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* Detailed Services Alternating Blocks */}
-      <section className="py-12 md:py-24 px-4 md:px-12 lg:px-24 bg-white">
-        <div className="max-w-[1400px] mx-auto flex flex-col gap-24 md:gap-40">
-          {services.map((service, index) => (
-            <div 
-              key={service.id} 
-              className={`flex flex-col gap-12 md:gap-24 items-center ${service.align === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'}`}
-            >
-              {/* Image Side */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-20%" }}
-                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="w-full md:w-1/2 relative group"
-              >
-                <div className="aspect-[4/5] md:aspect-[3/4] overflow-hidden bg-[#161616] relative">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.5s] ease-out group-hover:scale-105"
-                    style={{ backgroundImage: `url(${service.image})` }}
-                  />
-                  <div className="absolute inset-0 bg-black/10 transition-opacity duration-700 group-hover:bg-black/0" />
-                </div>
-                {/* Decorative Element */}
-                <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 text-[var(--color-brand-gold)] font-serif text-[120px] md:text-[200px] opacity-[0.1] leading-none pointer-events-none font-bold">
-                  0{index + 1}
-                </div>
-              </motion.div>
+      {/* Detailed Services Block */}
+      <section className="py-16 md:py-28 px-4 md:px-12 lg:px-24 bg-[#FAF6EF]">
+        <div className="max-w-[1400px] mx-auto space-y-20 md:space-y-32">
+          
+          {/* Section Heading Badge */}
+          <div className="text-center max-w-2xl mx-auto border-b border-[var(--color-brand-gold)]/30 pb-8">
+            <span className="text-xs font-mono text-[var(--color-brand-gold)] uppercase tracking-[0.25em] font-bold block mb-2">
+              {activeTab === "weddings" ? "DIVISION 01 — WEDDINGS" : "DIVISION 02 — CORPORATE"}
+            </span>
+            <h2 className="font-serif text-3xl md:text-5xl text-[#0E0A07] font-bold">
+              {activeTab === "weddings" ? "Luxury Wedding Services" : "Corporate & Turnkey B2B Services"}
+            </h2>
+          </div>
 
-              {/* Text Side */}
-              <motion.div 
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20%" }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="w-full md:w-1/2 flex flex-col justify-center"
-              >
-                <span className="text-[12px] text-[var(--color-brand-gold)] uppercase tracking-[0.2em] mb-4 block font-bold">
-                  {service.subtitle}
-                </span>
-                <h2 className="font-serif text-4xl md:text-[54px] text-[#0E0A07] leading-[1.1] mb-6">
-                  {service.title}
-                </h2>
-                <p className="font-sans text-[16px] text-[#4A3E31] leading-relaxed mb-10 max-w-[540px]">
-                  {service.description}
-                </p>
-                
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-[14px] text-[#0E0A07] font-medium">
-                      <CheckCircle2 size={18} className="text-[var(--color-brand-gold)] flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+          {currentList.map((service, index) => {
+            const IconComp = service.icon;
+            const isEven = index % 2 === 0;
 
-                <Link href="/#contact" className="inline-flex items-center gap-3 text-[13px] text-[#0E0A07] font-bold uppercase tracking-wider hover:text-[var(--color-brand-gold)] transition-colors w-fit border-b border-[#0E0A07] hover:border-[var(--color-brand-gold)] pb-1">
-                  Discuss Your Event <ArrowRight size={16} />
-                </Link>
-              </motion.div>
-            </div>
-          ))}
+            return (
+              <div 
+                key={service.id} 
+                id={service.id}
+                className={`flex flex-col gap-10 md:gap-20 items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+              >
+                {/* Image Side */}
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-15%" }}
+                  transition={{ duration: 0.7 }}
+                  className="w-full md:w-1/2 relative group"
+                >
+                  <div className="aspect-[4/3] md:aspect-[3/2] overflow-hidden rounded-2xl bg-[#0E0A07] relative shadow-2xl border border-[var(--color-brand-gold)]/30">
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                      style={{ backgroundImage: `url('${service.image}')` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    
+                    <div className="absolute top-4 left-4 p-3 rounded-full bg-black/70 backdrop-blur-md text-[var(--color-brand-gold)] border border-[var(--color-brand-gold)]/40">
+                      <IconComp size={22} />
+                    </div>
+
+                    <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-mono font-bold flex items-center justify-between">
+                      <span className="bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-[var(--color-brand-gold)] border border-[var(--color-brand-gold)]/30">
+                        {service.subtitle}
+                      </span>
+                      <span className="text-white/80">0{index + 1}</span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Text Side */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-15%" }}
+                  transition={{ duration: 0.7, delay: 0.15 }}
+                  className="w-full md:w-1/2 flex flex-col justify-center space-y-6"
+                >
+                  <span className="text-[12px] text-[var(--color-brand-gold)] uppercase tracking-[0.2em] font-mono font-bold">
+                    {service.subtitle}
+                  </span>
+
+                  <h3 className="font-serif text-3xl md:text-4xl text-[#0E0A07] font-bold leading-tight">
+                    {service.title}
+                  </h3>
+
+                  <p className="font-sans text-[15px] sm:text-[16px] text-[#4A3E31] leading-relaxed">
+                    {service.description}
+                  </p>
+                  
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    {service.features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2.5 text-[13px] sm:text-[14px] text-[#0E0A07] font-medium">
+                        <CheckCircle2 size={16} className="text-[var(--color-brand-gold)] shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="pt-4">
+                    <Link 
+                      href={activeTab === "corporate" ? "/#contact?type=corporate" : "/#contact"}
+                      className="inline-flex items-center gap-2.5 bg-[var(--color-brand-gold)] text-[#0E0A07] hover:bg-[#0E0A07] hover:text-white transition-all duration-300 px-6 py-3.5 rounded-xl font-mono text-xs font-bold uppercase tracking-wider shadow-md"
+                    >
+                      <span>{activeTab === "corporate" ? "Request Corporate Proposal" : "Discuss Your Event"}</span>
+                      <ArrowRight size={15} />
+                    </Link>
+                  </div>
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
       {/* Final CTA Strip */}
-      <section className="bg-[#0E0A07] py-24 px-4 text-center">
+      <section className="bg-[#0E0A07] py-24 px-4 text-center text-[#FAF6EF]">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-[800px] mx-auto"
+          className="max-w-[800px] mx-auto space-y-6"
         >
-          <h2 className="font-serif text-3xl md:text-5xl text-white mb-8">Ready to create something extraordinary?</h2>
-          <p className="font-sans text-white/70 mb-12 max-w-[600px] mx-auto">Contact us today to schedule a consultation at our Lonavla headquarters or via video call for international clients.</p>
-          <Link href="/#contact" className="inline-flex items-center justify-center bg-[var(--color-brand-gold)] text-[#0E0A07] px-8 py-4 text-[13px] font-bold uppercase tracking-wider hover:bg-white transition-colors duration-300">
-            Book a Consultation
-          </Link>
+          <h2 className="font-serif text-3xl md:text-5xl text-white">We Create. You Celebrate.</h2>
+          <p className="font-sans text-gray-300 max-w-[600px] mx-auto leading-relaxed">
+            Contact Westend Events today to schedule a meeting at our Lonavala or Pune office, or book a video consultation for international NRI clients.
+          </p>
+          <div>
+            <Link 
+              href="/#contact" 
+              className="inline-flex items-center justify-center bg-[var(--color-brand-gold)] text-[#0E0A07] px-8 py-4 text-xs font-mono font-bold uppercase tracking-widest hover:bg-white transition-colors duration-300 rounded-xl shadow-xl"
+            >
+              Plan Your Celebration Now
+            </Link>
+          </div>
         </motion.div>
       </section>
     </div>

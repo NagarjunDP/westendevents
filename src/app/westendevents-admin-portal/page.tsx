@@ -52,6 +52,7 @@ interface PopupOfferConfig {
   buttonLink: string;
   effectStyle: "gold-flakes" | "snow-flakes" | "sparkles" | "petals";
   showDelaySeconds: number;
+  fontFamily?: string;
 }
 
 interface ContactSubmission {
@@ -1436,9 +1437,9 @@ export default function AdminPortalPage() {
                       <label className="block text-[#8E8E93] mb-1">WhatsApp / Contact Phone</label>
                       <input
                         type="text"
-                        value={popupConfig.phone || "+91 99235 90037"}
+                        value={popupConfig.phone || "+91 99235 90038"}
                         onChange={e => setPopupConfig({ ...popupConfig, phone: e.target.value })}
-                        placeholder="+91 99235 90037"
+                        placeholder="+91 99235 90038"
                         className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none"
                       />
                     </div>
@@ -1480,19 +1481,37 @@ export default function AdminPortalPage() {
                     </div>
                   </div>
 
-                  {/* Popup Delay */}
-                  <div>
-                    <label className="block text-[#8E8E93] mb-1">Popup Delay (Seconds)</label>
-                    <input
-                      type="number"
-                      step="0.5"
-                      min="0.5"
-                      max="10"
-                      required
-                      value={popupConfig.showDelaySeconds}
-                      onChange={e => setPopupConfig({ ...popupConfig, showDelaySeconds: parseFloat(e.target.value) || 1 })}
-                      className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none"
-                    />
+                  {/* Popup Delay & Font Style Selection */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[#8E8E93] mb-1">Popup & Site Title Font Style</label>
+                      <select
+                        value={popupConfig.fontFamily || "Cormorant Garamond"}
+                        onChange={e => setPopupConfig({ ...popupConfig, fontFamily: e.target.value })}
+                        className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none cursor-pointer"
+                      >
+                        <option value="Cormorant Garamond">Cormorant Garamond (Ultra Luxury Fashion Serif)</option>
+                        <option value="Playfair Display">Playfair Display (Royal Classic Serif)</option>
+                        <option value="Cinzel">Cinzel (Regal Roman Architectural Serif)</option>
+                        <option value="Bodoni Moda">Bodoni Moda (Vogue Fashion Luxury)</option>
+                        <option value="Great Vibes">Great Vibes (Romantic Cursive Calligraphy)</option>
+                        <option value="Montserrat">Montserrat (Clean Architectural Serif/Sans)</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-[#8E8E93] mb-1">Popup Delay (Seconds)</label>
+                      <input
+                        type="number"
+                        step="0.5"
+                        min="0.5"
+                        max="10"
+                        required
+                        value={popupConfig.showDelaySeconds}
+                        onChange={e => setPopupConfig({ ...popupConfig, showDelaySeconds: parseFloat(e.target.value) || 1 })}
+                        className="w-full bg-[#0B0B0C] border border-[#1F1F24] focus:border-[#D4AF37] text-[#ECECEE] p-3 rounded-lg outline-none"
+                      />
+                    </div>
                   </div>
 
                   {/* Submit Button */}
@@ -1540,7 +1559,7 @@ export default function AdminPortalPage() {
                   <div className="pt-1 space-y-1.5">
                     <div className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-xs flex items-center justify-center gap-2 font-mono">
                       <MessageCircle className="w-4 h-4 fill-current" />
-                      <span>WhatsApp Direct: {popupConfig.phone || "+91 99235 90037"}</span>
+                      <span>WhatsApp Direct: {popupConfig.phone || "+91 99235 90038"}</span>
                     </div>
 
                     <div className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#FFD700] to-[#FF8F00] text-[#0E0B08] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5">

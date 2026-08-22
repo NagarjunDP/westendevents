@@ -54,7 +54,7 @@ export function DestinationSpotlight() {
           transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-sans text-[16px] text-[#4A3E31] max-w-3xl leading-relaxed mobile-center-subtext"
         >
-          Planning a destination wedding in India from the US, UK, Europe, or Australia? Westendevents is your single point of contact — from shortlisting venues in Lonavla's lush hills or Goa's beachfronts, to managing guest logistics, décor, sound, and on-ground coordination. You bring the vision, we handle everything else — remotely and on-site.
+          Planning a destination wedding in India from the US, UK, Europe, or Australia? Westend Events is your single point of contact — from shortlisting venues in Lonavla's lush hills or Goa's beachfronts, to managing guest logistics, décor, sound, and on-ground coordination. You bring the vision, we handle everything else — remotely and on-site.
         </motion.p>
       </div>
 
@@ -77,7 +77,7 @@ export function DestinationSpotlight() {
               <div className="w-full h-[220px] overflow-hidden bg-[#161616]">
                 <img 
                   src={loc.image} 
-                  alt={`${loc.name} destination wedding Westendevents`}
+                  alt={`${loc.name} destination wedding Westend Events`}
                   className="w-full h-full object-cover transition-transform duration-[0.8s] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-105"
                   loading="lazy"
                 />

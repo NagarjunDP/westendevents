@@ -152,14 +152,20 @@ export function ExclusiveOfferPopup() {
 
   if (!popupConfig || !popupConfig.enabled) return null;
 
-  const phoneNum = popupConfig.phone || "+91 99235 90037";
+  const phoneNum = popupConfig.phone || "+91 99235 90038";
   const emailAddr = popupConfig.email || "info@westendevent.com";
   const cleanPhone = phoneNum.replace(/[^0-9]/g, "");
+
+  const activeFont = popupConfig.fontFamily || "Cormorant Garamond";
+  const googleFontUrl = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(activeFont)}:ital,wght@0,400;0,600;0,700;1,400&display=swap`;
 
   return (
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 font-sans overflow-hidden">
+          {/* Dynamic Google Font Import */}
+          <link rel="stylesheet" href={googleFontUrl} />
+
           {/* Glass Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -206,13 +212,19 @@ export function ExclusiveOfferPopup() {
                 <span>{popupConfig.badge || "EXCLUSIVE FESTIVE OFFER"}</span>
               </div>
 
-              {/* Title & Subtitle */}
+              {/* Title & Subtitle with Admin Selected Font */}
               <div className="relative z-10 space-y-0.5">
-                <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#FFF5E4] leading-tight">
+                <h2
+                  style={{ fontFamily: `'${activeFont}', serif` }}
+                  className="text-2xl sm:text-3xl font-bold text-[#FFF5E4] leading-tight tracking-wide"
+                >
                   {popupConfig.title || "Grand Wedding Season Offer"}
                 </h2>
                 {popupConfig.subtitle && (
-                  <p className="text-[11px] sm:text-xs text-[#FFD700] font-serif italic">
+                  <p
+                    style={{ fontFamily: `'${activeFont}', serif` }}
+                    className="text-xs sm:text-sm text-[#FFD700] italic font-medium"
+                  >
                     {popupConfig.subtitle}
                   </p>
                 )}

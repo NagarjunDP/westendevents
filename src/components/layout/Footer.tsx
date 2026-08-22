@@ -71,10 +71,7 @@ export function Footer() {
             <ul className="space-y-4 font-sans text-sm text-gray-300 w-full">
               <li className="flex items-start justify-center md:justify-start gap-3 w-full">
                 <Phone size={18} className="text-[var(--color-brand-gold)] shrink-0 mt-1" />
-                <div className="flex flex-col gap-0.5">
-                  <a href="tel:+919923590037" className="hover:text-[var(--color-brand-gold)] transition-colors font-medium">+91 99235 90037</a>
-                  <a href="tel:+919923590038" className="hover:text-[var(--color-brand-gold)] transition-colors font-medium">+91 99235 90038</a>
-                </div>
+                <a href="tel:+919923590038" className="hover:text-[var(--color-brand-gold)] transition-colors font-medium">+91 99235 90038</a>
               </li>
               <li className="flex items-start justify-center md:justify-start gap-3 w-full">
                 <Mail size={18} className="text-[var(--color-brand-gold)] shrink-0 mt-1" />

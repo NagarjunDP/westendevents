@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Maximize2, X, ChevronLeft, ChevronRight, Layers } from "lucide-react";
+import { Sparkles, Maximize2, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 export interface GalleryItem {
   id: string;
   src: string;
   title: string;
-  category: "Weddings" | "Decor" | "Corporate" | "Sound & SFX" | "Destinations";
+  category: "Weddings" | "Corporate";
   location: string;
   featured?: boolean;
   span?: string; // Tailwind grid span override for Desktop/Mobile bento
@@ -28,32 +28,32 @@ export const galleryItems: GalleryItem[] = [
     id: "2",
     src: "/_MP_2138.jpg",
     title: "Luxury Floral Pathway & Aisles",
-    category: "Decor",
+    category: "Weddings",
     location: "Lonavla Estate",
     span: "col-span-1 h-[260px] sm:h-[300px] md:h-[270px]"
   },
   {
     id: "3",
-    src: "/_05A6890.jpg",
-    title: "Original JBL VRX Sound & Stage",
-    category: "Sound & SFX",
-    location: "Concert Arena, Mumbai",
+    src: "/corporate_conference.jpg",
+    title: "Global Executive Conference Summit",
+    category: "Corporate",
+    location: "Grand Ballroom, Mumbai",
     span: "col-span-1 h-[260px] sm:h-[300px] md:h-[270px]"
   },
   {
     id: "4",
     src: "/_05A6913.jpg",
     title: "Sunset Beach Mandap",
-    category: "Destinations",
+    category: "Weddings",
     location: "Goa Beachfront",
     span: "col-span-1 md:col-span-2 h-[280px] sm:h-[320px] md:h-[270px]"
   },
   {
     id: "5",
-    src: "/_MP_2148.jpg",
-    title: "Glamorous Sangeet Lighting & Pyros",
-    category: "Sound & SFX",
-    location: "Karjat Farmhouse",
+    src: "/corporate_offsites.jpg",
+    title: "Open-Air Gala Team Offsite Night",
+    category: "Corporate",
+    location: "Lonavla Resort Grounds",
     span: "col-span-1 h-[260px] sm:h-[300px] md:h-[270px]"
   },
   {
@@ -69,53 +69,53 @@ export const galleryItems: GalleryItem[] = [
     id: "7",
     src: "/MDP_1147.jpg",
     title: "Traditional Varmala Stage",
-    category: "Decor",
+    category: "Weddings",
     location: "Pune Luxury Hotel",
     span: "col-span-1 h-[260px] sm:h-[300px] md:h-[320px]"
   },
   {
     id: "8",
-    src: "/_MP_2173.jpg",
-    title: "Heritage Fort Wedding Gala",
-    category: "Destinations",
-    location: "Jaipur Heritage Fort",
+    src: "/corporate_launch.jpg",
+    title: "High-Impact Product Reveal Stage",
+    category: "Corporate",
+    location: "Mumbai Expo Center",
     span: "col-span-1 h-[260px] sm:h-[300px] md:h-[320px]"
   },
   {
     id: "9",
-    src: "/_MP_2188.jpg",
-    title: "Corporate Excellence Night",
+    src: "/corporate_awards.jpg",
+    title: "Corporate Excellence Awards Night",
     category: "Corporate",
     location: "Grand Ballroom, Mumbai",
     span: "col-span-1 md:col-span-2 h-[280px] sm:h-[320px] md:h-[320px]"
   },
   {
     id: "10",
-    src: "/_MP_2154.jpg",
-    title: "Cold Pyros & Heavy Fog SFX",
-    category: "Sound & SFX",
-    location: "Khopoli Open Air Ground",
+    src: "/corporate_production.jpg",
+    title: "Concert Stage Audio-Visual Rigging",
+    category: "Corporate",
+    location: "Arena Arena, Pune",
     span: "col-span-1 h-[260px] sm:h-[300px] md:h-[290px]"
   },
   {
     id: "11",
     src: "/_MP_2166.jpg",
     title: "Vibrant Haldi & Mehendi Canopy",
-    category: "Decor",
+    category: "Weddings",
     location: "Igatpuri Hill Resort",
     span: "col-span-1 h-[260px] sm:h-[300px] md:h-[290px]"
   },
   {
     id: "12",
-    src: "/_MP_2190.jpg",
-    title: "Illuminated Night Reception",
-    category: "Weddings",
-    location: "Mahabaleshwar Club",
+    src: "/corporate_exhibition.jpg",
+    title: "Custom Timber & Glass Expo Stall",
+    category: "Corporate",
+    location: "Trade Fair Center",
     span: "col-span-1 h-[260px] sm:h-[300px] md:h-[290px]"
   }
 ];
 
-const categories = ["ALL", "Weddings", "Decor", "Corporate", "Sound & SFX", "Destinations"] as const;
+const categories = ["ALL", "Weddings", "Corporate"] as const;
 
 interface BentoGalleryProps {
   isPage?: boolean;
@@ -147,40 +147,16 @@ export function BentoGallery({ isPage = false, maxItems }: BentoGalleryProps) {
   return (
     <div className="w-full">
       
-      {/* MOBILE HIGHLIGHT STORIES (Horizontal Swipe Banner) */}
-      <div className="md:hidden mb-8 overflow-x-auto pb-4 pt-1 no-scrollbar flex gap-4 px-2">
-        {galleryItems.slice(0, 5).map((story, i) => (
-          <button
-            key={story.id}
-            onClick={() => setSelectedImageIndex(i)}
-            className="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer focus:outline-none"
-          >
-            <div className="w-20 h-20 rounded-full p-[2.5px] bg-gradient-to-tr from-[var(--color-brand-gold)] via-[#E8C97A] to-amber-200 shadow-md group-active:scale-95 transition-transform">
-              <div className="w-full h-full rounded-full overflow-hidden border-2 border-black relative">
-                <img 
-                  src={story.src} 
-                  alt={story.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                />
-              </div>
-            </div>
-            <span className="text-[10px] tracking-wider uppercase font-semibold text-[var(--color-cream-muted)] max-w-[80px] truncate text-center">
-              {story.location.split(" ")[0]}
-            </span>
-          </button>
-        ))}
-      </div>
-
-      {/* CATEGORY FILTER TABS */}
-      <div className="flex items-center justify-center gap-2 md:gap-3 flex-wrap mb-10 md:mb-14 px-2">
+      {/* CATEGORY FILTER TABS (Only ALL, WEDDINGS, CORPORATE) */}
+      <div className="flex items-center justify-center gap-3 md:gap-4 flex-wrap mb-10 md:mb-14 px-2">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 cursor-pointer ${
+            className={`px-6 md:px-8 py-2.5 md:py-3 rounded-full font-serif text-xs md:text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 cursor-pointer shadow-md ${
               activeCategory === cat
-                ? "bg-[var(--color-brand-gold)] text-black shadow-lg scale-105"
-                : "bg-white/80 hover:bg-white text-[var(--color-cream-muted)] hover:text-black border border-[var(--color-brand-gold)]/20"
+                ? "bg-[var(--color-brand-gold)] text-[#0E0A07] scale-105 shadow-xl ring-2 ring-[var(--color-brand-gold)]/50"
+                : "bg-white text-[#0E0A07] hover:bg-[var(--color-brand-gold)] hover:text-[#0E0A07] border border-[var(--color-brand-gold)]/30"
             }`}
           >
             {cat}
@@ -188,22 +164,22 @@ export function BentoGallery({ isPage = false, maxItems }: BentoGalleryProps) {
         ))}
       </div>
 
-      {/* DYNAMIC BENTO GRID */}
+      {/* DYNAMIC CREATIVE BENTO GRID */}
       <motion.div 
         layout
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6"
       >
         <AnimatePresence mode="popLayout">
           {displayedItems.map((item, idx) => (
             <motion.div
               key={item.id}
               layout
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.4, delay: idx * 0.04 }}
+              exit={{ opacity: 0, scale: 0.92 }}
+              transition={{ duration: 0.45, delay: idx * 0.04 }}
               onClick={() => setSelectedImageIndex(idx)}
-              className={`group relative rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer bg-black/40 border border-[var(--color-brand-gold)]/20 shadow-lg hover:shadow-2xl hover:border-[var(--color-brand-gold)] transition-all duration-500 ${item.span || 'col-span-1 h-[280px]'}`}
+              className={`group relative rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer bg-[#0E0A07] border border-[var(--color-brand-gold)]/30 shadow-lg hover:shadow-2xl hover:border-[var(--color-brand-gold)] transition-all duration-500 ${item.span || 'col-span-1 h-[280px]'}`}
             >
               {/* Main Photo Asset */}
               <img
@@ -214,29 +190,29 @@ export function BentoGallery({ isPage = false, maxItems }: BentoGalleryProps) {
               />
 
               {/* Gradient Overlay for Vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E0A07]/95 via-[#0E0A07]/35 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300 pointer-events-none" />
 
               {/* Category Pill Tag */}
               <div className="absolute top-4 left-4 z-10">
-                <span className="px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-black/60 backdrop-blur-md text-[var(--color-brand-gold)] border border-[var(--color-brand-gold)]/30 shadow-md">
+                <span className="px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-[0.2em] uppercase bg-[#0E0A07]/80 backdrop-blur-md text-[var(--color-brand-gold)] border border-[var(--color-brand-gold)]/40 shadow-md">
                   {item.category}
                 </span>
               </div>
 
               {/* Expand Icon Button */}
               <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/30 flex items-center justify-center text-white">
-                  <Maximize2 size={14} />
+                <div className="w-9 h-9 rounded-full bg-black/70 backdrop-blur-md border border-[var(--color-brand-gold)]/50 flex items-center justify-center text-[var(--color-brand-gold)]">
+                  <Maximize2 size={15} />
                 </div>
               </div>
 
-              {/* Card Footer Info */}
+              {/* Card Footer Info with Client Preferred Serif Font */}
               <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 z-10 transform group-hover:-translate-y-1 transition-transform duration-300">
-                <div className="flex items-center gap-2 mb-1.5 text-[11px] font-semibold text-[var(--color-gold-light)] uppercase tracking-wider">
-                  <Sparkles size={12} className="text-[var(--color-brand-gold)]" />
+                <div className="flex items-center gap-1.5 mb-1.5 font-serif text-xs font-bold text-[var(--color-brand-gold)] uppercase tracking-[0.25em]">
+                  <Sparkles size={13} className="text-[var(--color-brand-gold)] shrink-0" />
                   <span>{item.location}</span>
                 </div>
-                <h3 className="font-serif text-lg md:text-xl text-white font-medium leading-tight">
+                <h3 className="font-serif text-xl md:text-2xl text-white font-medium leading-snug tracking-wide group-hover:text-[var(--color-brand-gold)] transition-colors">
                   {item.title}
                 </h3>
               </div>
@@ -252,15 +228,15 @@ export function BentoGallery({ isPage = false, maxItems }: BentoGalleryProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-between p-4 md:p-8"
+            className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-between p-4 md:p-8 font-sans"
           >
             {/* Modal Header */}
             <div className="w-full max-w-6xl flex items-center justify-between z-10 pt-2">
               <div className="flex items-center gap-3 text-white">
-                <span className="px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[var(--color-brand-gold)] text-black">
+                <span className="px-3.5 py-1 rounded-full text-xs font-mono font-bold tracking-widest uppercase bg-[var(--color-brand-gold)] text-[#0E0A07]">
                   {displayedItems[selectedImageIndex].category}
                 </span>
-                <span className="text-xs text-white/70 font-sans tracking-wider uppercase">
+                <span className="text-xs text-white/70 font-mono tracking-wider uppercase">
                   {selectedImageIndex + 1} / {displayedItems.length}
                 </span>
               </div>
@@ -277,7 +253,7 @@ export function BentoGallery({ isPage = false, maxItems }: BentoGalleryProps) {
               {/* Navigation Left Arrow */}
               <button
                 onClick={handlePrev}
-                className="absolute left-2 md:left-4 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/20 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
+                className="absolute left-2 md:left-4 z-20 w-12 h-12 rounded-full bg-black/60 hover:bg-black text-[var(--color-brand-gold)] border border-[var(--color-brand-gold)]/40 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
               >
                 <ChevronLeft size={24} />
               </button>
@@ -297,7 +273,7 @@ export function BentoGallery({ isPage = false, maxItems }: BentoGalleryProps) {
               {/* Navigation Right Arrow */}
               <button
                 onClick={handleNext}
-                className="absolute right-2 md:right-4 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/20 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
+                className="absolute right-2 md:right-4 z-20 w-12 h-12 rounded-full bg-black/60 hover:bg-black text-[var(--color-brand-gold)] border border-[var(--color-brand-gold)]/40 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
               >
                 <ChevronRight size={24} />
               </button>
@@ -305,10 +281,10 @@ export function BentoGallery({ isPage = false, maxItems }: BentoGalleryProps) {
 
             {/* Modal Footer Caption */}
             <div className="w-full max-w-3xl text-center pb-4 z-10">
-              <h3 className="font-serif text-xl md:text-2xl text-white font-medium mb-1">
+              <h3 className="font-serif text-2xl md:text-3xl text-white font-medium mb-1 tracking-wide">
                 {displayedItems[selectedImageIndex].title}
               </h3>
-              <p className="font-sans text-xs md:text-sm text-[var(--color-brand-gold)] font-semibold uppercase tracking-widest">
+              <p className="font-serif text-xs md:text-sm text-[var(--color-brand-gold)] font-bold uppercase tracking-[0.25em]">
                 {displayedItems[selectedImageIndex].location} · Westend Events Production
               </p>
             </div>

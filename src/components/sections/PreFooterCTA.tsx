@@ -43,7 +43,7 @@ export function PreFooterCTA() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-sans text-[16px] text-[var(--color-cream-muted)] max-w-2xl mx-auto leading-relaxed mb-12 font-light mobile-center-subtext"
         >
-          Whether you're a foreign couple dreaming of a royal Indian wedding, an NRI family planning a destination celebration, or a brand launching its next big moment — Westendevents is your complete production partner.
+          Whether you're a foreign couple dreaming of a royal Indian wedding, an NRI family planning a destination celebration, or a brand launching its next big moment — Westend Events is your complete production partner.
         </motion.p>
         
         <motion.div 

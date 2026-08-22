@@ -24,7 +24,7 @@ export function HeroSection() {
 
   return (
     <>
-      <section ref={containerRef} className="relative min-h-[100dvh] w-full bg-black overflow-hidden flex flex-col justify-end md:justify-center">
+      <section ref={containerRef} className="relative min-h-[100dvh] w-full bg-black overflow-hidden flex flex-col justify-center pt-20 sm:pt-24 md:pt-20 pb-8">
         
         {/* =========================================
             MOBILE LAYOUT (Full Bleed Background 9:16)
@@ -54,11 +54,11 @@ export function HeroSection() {
              <source src="/mobile-hero-fast.mp4" type="video/mp4" />
            </video>
            
-           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/30"></div>
         </div>
 
         {/* =========================================
-            DESKTOP LAYOUT (Full Bleed Background 4:3)
+            DESKTOP LAYOUT (Full Bleed Background 16:9 Landscape from Turned Portrait)
             ========================================= */}
         <div className="hidden md:flex absolute inset-0 z-0 overflow-hidden bg-black items-center justify-center">
            {/* Placeholder Image */}
@@ -67,76 +67,109 @@ export function HeroSection() {
              style={{ opacity: isDesktopVideoLoaded ? 0 : 0.7 }}
            />
            <iframe
-              src="https://player.vimeo.com/video/1200799664?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
-              className={`absolute pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[75vw] min-h-[100vh] min-w-[133.33vh] transition-opacity duration-[1.5s] ${isDesktopVideoLoaded ? 'opacity-70' : 'opacity-0'}`}
-              style={{border:"none"}}
+              src="https://player.vimeo.com/video/1220420378?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
+              className={`absolute pointer-events-none top-1/2 left-1/2 w-[120vh] h-[120vw] min-w-[177.78vh] min-h-[177.78vw] transition-opacity duration-[1.5s] ${isDesktopVideoLoaded ? 'opacity-80' : 'opacity-0'}`}
+              style={{
+                border: "none",
+                transform: "translate(-50%, -50%) rotate(-90deg) scale(1.4)"
+              }}
               allow="autoplay; fullscreen; picture-in-picture"
-              title="Westendevents Desktop Reel"
+              title="Westend Events Desktop Reel"
               onLoad={() => setIsDesktopVideoLoaded(true)}
-           >
-           </iframe>
+           />
            {/* Gradient to ensure text readability */}
-           <div className="absolute inset-0 bg-black/30"></div>
-           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+           <div className="absolute inset-0 bg-black/40"></div>
+           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
         </div>
       
         {/* =========================================
             CONTENT (Overlay)
             ========================================= */}
-        <div className="relative z-20 w-full md:max-w-4xl px-6 md:px-12 lg:px-24 pb-24 md:pb-0 text-white">
+        <div className="relative z-20 w-full md:max-w-4xl lg:max-w-5xl px-5 sm:px-8 md:px-12 lg:px-20 pt-16 sm:pt-20 md:pt-20 pb-6 text-white max-w-full">
           
           {/* Eyebrow */}
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="eyebrow mb-6 md:mb-8 block text-white/80"
+            className="text-[10px] sm:text-[11px] md:text-[12px] font-mono tracking-[0.18em] uppercase text-[var(--color-brand-gold)] mb-2 block font-bold leading-normal"
           >
-            <span className="md:hidden">Destination Weddings</span>
-            <span className="hidden md:inline">Luxury Production</span>
+            LUXURY WEDDINGS • DESTINATION CELEBRATIONS • CORPORATE EXPERIENCES
           </motion.span>
           
+          {/* Headline H1 (Sleek Desktop Font Scaling) */}
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium mb-6 md:mb-8 leading-[1.1] text-white"
+            className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-3 sm:mb-4 md:mb-5 leading-[1.18] sm:leading-[1.15] text-white tracking-tight"
           >
-            Unforgettable <br className="hidden lg:block"/> Celebrations
+            We Don’t Just Plan Events. <br className="hidden sm:block"/>
+            <span className="italic font-light text-[var(--color-brand-gold)]">We Own Every Detail.</span>
           </motion.h1>
 
+          {/* Sub-headline Paragraph */}
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-            className="font-sans text-lg md:text-xl font-light leading-relaxed mb-10 max-w-lg text-gray-200"
+            className="font-sans text-xs sm:text-sm md:text-base lg:text-lg font-light leading-relaxed mb-5 sm:mb-6 max-w-2xl text-gray-200"
           >
-            Flawless in-house production for extraordinary luxury weddings.
+            From concept to final execution — décor, production, entertainment, hospitality and special effects, managed by one experienced team.
           </motion.p>
 
+          {/* Dual CTAs: Plan Your Wedding & Plan a Corporate Event */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-6"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-5 sm:mb-6"
           >
-            <a 
-              href="/gallery"
-              className="group relative inline-flex items-center justify-center px-8 py-4 w-fit text-[12px] font-semibold tracking-[0.2em] uppercase overflow-hidden border border-white/40 bg-black/20 backdrop-blur-md transition-colors"
+            <button
+              onClick={() => {
+                const contactSection = document.getElementById("contact");
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: "smooth" });
+                  window.dispatchEvent(new CustomEvent("selectEventType", { detail: "wedding" }));
+                } else {
+                  window.location.href = "/#contact";
+                }
+              }}
+              className="bg-[var(--color-brand-gold)] text-[#0E0A07] hover:bg-white transition-colors duration-300 px-6 sm:px-7 py-3 sm:py-3.5 text-[11px] sm:text-[12px] font-mono font-bold tracking-[0.15em] sm:tracking-[0.18em] uppercase shadow-xl text-center rounded-xl cursor-pointer"
             >
-              {/* Liquid Wave Animation Background */}
-              <span className="absolute left-1/2 top-[120%] w-[300px] h-[300px] -translate-x-1/2 transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:top-[-50%] pointer-events-none">
-                <span className="absolute inset-0 bg-white rounded-[43%] animate-[spin_5s_linear_infinite]" />
-                <span className="absolute inset-0 bg-white/60 rounded-[40%] animate-[spin_7s_linear_infinite_reverse]" />
-              </span>
+              Plan Your Wedding
+            </button>
 
-              <span className="relative z-10 text-white group-hover:text-[#0E0A07] transition-colors duration-700 flex items-center gap-3">
-                View Our Work
-                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
-            </a>
+            <button
+              onClick={() => {
+                const contactSection = document.getElementById("contact");
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: "smooth" });
+                  window.dispatchEvent(new CustomEvent("selectEventType", { detail: "corporate" }));
+                } else {
+                  window.location.href = "/#contact";
+                }
+              }}
+              className="border border-white/40 bg-black/40 backdrop-blur-md text-white hover:bg-white hover:text-[#0E0A07] transition-colors duration-300 px-6 sm:px-7 py-3 sm:py-3.5 text-[11px] sm:text-[12px] font-mono font-bold tracking-[0.15em] sm:tracking-[0.18em] uppercase text-center rounded-xl cursor-pointer"
+            >
+              Plan a Corporate Event
+            </button>
+          </motion.div>
+
+          {/* Underneath Trust Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="pt-3 sm:pt-4 border-t border-white/20 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-[11px] sm:text-xs md:text-sm font-mono text-[var(--color-brand-gold)] text-center sm:text-left"
+          >
+            <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
+              <span className="text-white font-bold">500+ Events</span>
+              <span className="text-white/40">•</span>
+              <span className="text-white font-bold">100% In-House Production</span>
+            </div>
+            <span className="hidden sm:inline text-white/40">|</span>
+            <div className="text-white/80">Lonavala • Pune • Mumbai • Goa • Across India</div>
           </motion.div>
         </div>
       </section>

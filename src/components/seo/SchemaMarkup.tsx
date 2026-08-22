@@ -6,7 +6,7 @@ export function LocalBusinessSchema({ location = "Lonavla, Maharashtra" }: { loc
     "description": `Luxury destination wedding planners and event management company in ${location}.`,
     "url": "https://www.westendevent.com",
     "logo": "https://www.westendevent.com/logo.png",
-    "telephone": "+91 99235 90037",
+    "telephone": "+91 99235 90038",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Lonavla",

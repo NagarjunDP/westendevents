@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Mail, Phone, User } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -13,6 +13,16 @@ export function ContactSection() {
     type: "wedding",
     message: ""
   });
+
+  useEffect(() => {
+    const handleEventTypeSelect = (e: CustomEvent) => {
+      if (e.detail) {
+        setFormData(prev => ({ ...prev, type: e.detail }));
+      }
+    };
+    window.addEventListener("selectEventType" as any, handleEventTypeSelect);
+    return () => window.removeEventListener("selectEventType" as any, handleEventTypeSelect);
+  }, []);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -42,7 +52,7 @@ export function ContactSection() {
           `💬 *Details:* ${formData.message}`;
 
         const encodedMsg = encodeURIComponent(messageText);
-        const whatsappUrl = `https://wa.me/919923590037?text=${encodedMsg}`;
+        const whatsappUrl = `https://wa.me/919923590038?text=${encodedMsg}`;
 
         // Reset form
         setFormData({
@@ -107,10 +117,8 @@ export function ContactSection() {
                   <Phone size={18} className="text-[var(--color-brand-gold)]" />
                 </div>
                 <div>
-                  <h4 className="text-[11px] text-[#4A3E31] uppercase tracking-widest mb-1 font-semibold">Direct Lines & WhatsApp</h4>
-                  <div className="flex flex-col sm:flex-row sm:gap-3 text-[16px] text-[#0E0A07] font-serif font-medium">
-                    <a href="tel:+919923590037" className="hover:text-[var(--color-brand-gold)] transition-colors">+91 99235 90037</a>
-                    <span className="hidden sm:inline text-gray-400">|</span>
+                  <h4 className="text-[11px] text-[#4A3E31] uppercase tracking-widest mb-1 font-semibold">Direct Phone & WhatsApp</h4>
+                  <div className="text-[18px] text-[#0E0A07] font-serif font-bold">
                     <a href="tel:+919923590038" className="hover:text-[var(--color-brand-gold)] transition-colors">+91 99235 90038</a>
                   </div>
                 </div>

@@ -40,7 +40,7 @@ export default function GalleryPage() {
             </div>
             <div className="flex items-center gap-2 bg-white/5 border border-[var(--color-brand-gold)]/20 px-4 py-2 rounded-full">
               <ShieldCheck size={16} />
-              <span>Original JBL VRX Sound</span>
+              <span>Turnkey Event Management</span>
             </div>
           </div>
         </div>

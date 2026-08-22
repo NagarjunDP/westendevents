@@ -36,10 +36,8 @@ export function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-[60] transition-all duration-500 border-b border-transparent",
-          isScrolled
-            ? "bg-[#FCE4EC]/95 backdrop-blur-[20px] h-[64px] shadow-sm shadow-[#0E0A07]/5"
-            : "bg-transparent h-[80px]"
+          "fixed top-0 left-0 right-0 z-[60] transition-all duration-500 border-b border-[#F48FB1]/30 bg-[#FCE4EC]/95 backdrop-blur-[20px] shadow-sm shadow-[#0E0A07]/5",
+          isScrolled ? "h-[64px]" : "h-[80px]"
         )}
       >
         <div className="container mx-auto px-6 h-full flex items-center justify-between relative">
@@ -62,10 +60,7 @@ export function Header() {
                 textShadow: ["0px 0px 4px rgba(201,168,76,0.3)", "0px 0px 12px rgba(201,168,76,0.8)", "0px 0px 4px rgba(201,168,76,0.3)"]
               }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className={cn(
-                "font-serif text-[15px] sm:text-[18px] font-medium tracking-[0.1em] whitespace-nowrap transition-colors duration-500",
-                isScrolled ? "text-[#0E0A07]" : "text-[var(--color-brand-gold)]"
-              )}
+              className="font-serif text-[15px] sm:text-[18px] font-medium tracking-[0.1em] whitespace-nowrap text-[#0E0A07]"
             >
               Westend<span className="italic font-light">Events</span>
             </motion.div>
@@ -77,10 +72,7 @@ export function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={cn(
-                  "group relative font-sans text-[11px] tracking-[0.25em] transition-colors duration-300 uppercase py-2",
-                  isScrolled ? "text-[#0E0A07] hover:text-[var(--color-brand-gold)]" : "text-[var(--color-cream-muted)] hover:text-[var(--color-brand-gold)]"
-                )}
+                className="group relative font-sans text-[11px] tracking-[0.25em] transition-colors duration-300 uppercase py-2 text-[#0E0A07] hover:text-[var(--color-brand-gold)] font-medium"
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[var(--color-brand-gold)] origin-center scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-x-100" />
@@ -90,26 +82,10 @@ export function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-6">
-            <div className="flex flex-col text-right">
-              <a href="tel:+919923590037" className={cn(
-                "font-sans text-[11px] font-medium tracking-wider transition-colors",
-                isScrolled ? "text-[#0E0A07] hover:text-[var(--color-brand-gold)]" : "text-[var(--color-brand-gold)] hover:text-white"
-              )}>
-                +91 99235 90037
-              </a>
-              <a href="tel:+919923590038" className={cn(
-                "font-sans text-[11px] font-medium tracking-wider transition-colors opacity-90",
-                isScrolled ? "text-[#0E0A07] hover:text-[var(--color-brand-gold)]" : "text-[var(--color-brand-gold)] hover:text-white"
-              )}>
-                +91 99235 90038
-              </a>
-            </div>
-            <Link href="/#contact" className={cn(
-              "border px-6 py-2.5 font-sans text-[11px] tracking-[0.2em] uppercase transition-all duration-300",
-              isScrolled
-                ? "border-[#0E0A07] text-[#0E0A07] hover:bg-[#0E0A07] hover:text-[#FDF6F5]"
-                : "border-[var(--color-brand-gold)] text-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold)] hover:text-[#0E0A07]"
-            )}>
+            <a href="tel:+919923590038" className="font-sans text-[13px] font-semibold tracking-wider transition-colors text-[#0E0A07] hover:text-[var(--color-brand-gold)]">
+              +91 99235 90038
+            </a>
+            <Link href="/#contact" className="border border-[#0E0A07] text-[#0E0A07] hover:bg-[#0E0A07] hover:text-[#FDF6F5] px-6 py-2.5 font-sans text-[11px] tracking-[0.2em] uppercase transition-all duration-300 font-semibold">
               Plan Your Event
             </Link>
           </div>
@@ -121,16 +97,16 @@ export function Header() {
             aria-label="Toggle Menu"
           >
             <span className={cn(
-              "h-[2px] transition-all duration-400 origin-right",
-              isMobileMenuOpen ? "w-[32px] -rotate-45 translate-y-[1px] bg-[#0E0A07]" : isScrolled ? "w-full bg-[#0E0A07]" : "w-full bg-[var(--color-brand-gold)]"
+              "h-[2px] transition-all duration-400 origin-right bg-[#0E0A07]",
+              isMobileMenuOpen ? "w-[32px] -rotate-45 translate-y-[1px]" : "w-full"
             )} />
             <span className={cn(
-              "h-[2px] transition-all duration-400",
-              isMobileMenuOpen ? "w-0 opacity-0 bg-[#0E0A07]" : isScrolled ? "w-[60%] bg-[#0E0A07]" : "w-[60%] bg-[var(--color-brand-gold)]"
+              "h-[2px] transition-all duration-400 bg-[#0E0A07]",
+              isMobileMenuOpen ? "w-0 opacity-0" : "w-[60%]"
             )} />
             <span className={cn(
-              "h-[2px] transition-all duration-400 origin-right",
-              isMobileMenuOpen ? "w-[32px] rotate-45 -translate-y-[1px] bg-[#0E0A07]" : isScrolled ? "w-full bg-[#0E0A07]" : "w-full bg-[var(--color-brand-gold)]"
+              "h-[2px] transition-all duration-400 origin-right bg-[#0E0A07]",
+              isMobileMenuOpen ? "w-[32px] rotate-45 -translate-y-[1px]" : "w-full"
             )} />
           </button>
         </div>
@@ -183,10 +159,7 @@ export function Header() {
               </div>
 
               <div className="flex flex-col items-center gap-1.5">
-                <a href="tel:+919923590037" className="font-sans text-[14px] tracking-widest text-[#0E0A07] hover:text-[var(--color-brand-gold)] transition-colors">
-                  +91 99235 90037
-                </a>
-                <a href="tel:+919923590038" className="font-sans text-[14px] tracking-widest text-[#0E0A07] hover:text-[var(--color-brand-gold)] transition-colors">
+                <a href="tel:+919923590038" className="font-sans text-[15px] font-bold tracking-widest text-[#0E0A07] hover:text-[var(--color-brand-gold)] transition-colors">
                   +91 99235 90038
                 </a>
                 <Link

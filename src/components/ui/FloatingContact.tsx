@@ -28,38 +28,22 @@ export function FloatingContact() {
 
             <div className="space-y-2">
               <a
-                href="https://wa.me/919923590037?text=Hello%20Westend%20Events!%20I%20would%20like%20to%20enquire%20about%20event%20management."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-2 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-900/50 transition-colors"
-              >
-                <div className="flex items-center gap-2">
-                  <MessageCircle size={16} className="text-emerald-400 fill-current" />
-                  <span className="font-mono font-medium">+91 99235 90037</span>
-                </div>
-                <span className="text-[9px] uppercase font-bold bg-emerald-500/20 px-1.5 py-0.5 rounded">Chat</span>
-              </a>
-
-              <a
                 href="https://wa.me/919923590038?text=Hello%20Westend%20Events!%20I%20would%20like%20to%20enquire%20about%20event%20management."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-2 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-900/50 transition-colors"
+                className="flex items-center justify-between p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-900/50 transition-colors"
               >
                 <div className="flex items-center gap-2">
                   <MessageCircle size={16} className="text-emerald-400 fill-current" />
-                  <span className="font-mono font-medium">+91 99235 90038</span>
+                  <span className="font-mono font-bold text-sm">+91 99235 90038</span>
                 </div>
-                <span className="text-[9px] uppercase font-bold bg-emerald-500/20 px-1.5 py-0.5 rounded">Chat</span>
+                <span className="text-[9px] uppercase font-bold bg-emerald-500/20 px-1.5 py-0.5 rounded">WhatsApp</span>
               </a>
             </div>
 
-            <div className="pt-1 border-t border-[#2E261D] flex justify-between text-[11px]">
-              <a href="tel:+919923590037" className="text-[var(--color-brand-gold)] hover:underline flex items-center gap-1">
-                <Phone size={12} /> <span>Call 37</span>
-              </a>
-              <a href="tel:+919923590038" className="text-[var(--color-brand-gold)] hover:underline flex items-center gap-1">
-                <Phone size={12} /> <span>Call 38</span>
+            <div className="pt-1 border-t border-[#2E261D] flex justify-center text-[11px]">
+              <a href="tel:+919923590038" className="text-[var(--color-brand-gold)] hover:underline flex items-center gap-1 font-bold">
+                <Phone size={12} /> <span>Call Direct (+91 99235 90038)</span>
               </a>
             </div>
           </motion.div>
@@ -71,7 +55,7 @@ export function FloatingContact() {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.8 }}
-          href="https://wa.me/919923590037?text=Hello%20Westend%20Events!%20I%20would%20like%20to%20enquire%20about%20event%20management."
+          href="https://wa.me/919923590038?text=Hello%20Westend%20Events!%20I%20would%20like%20to%20enquire%20about%20event%20management."
           target="_blank"
           rel="noopener noreferrer"
           className="w-12 h-12 bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(16,185,129,0.4)] hover:scale-110 transition-transform duration-300"
