@@ -49,6 +49,7 @@ export const metadata: Metadata = {
 };
 
 import { Preloader } from "@/components/ui/Preloader";
+import { AnalyticsTracker } from "@/components/analytics/AnalyticsTracker";
 
 export default function RootLayout({
   children,
@@ -61,6 +62,7 @@ export default function RootLayout({
         className={`${playfair.variable} ${inter.variable} h-full antialiased text-[17px] sm:text-[18px]`}
       >
         <body className="min-h-full flex flex-col leading-[1.7]">
+        <AnalyticsTracker />
         <Preloader />
         <Header />
         <main className="flex-grow">

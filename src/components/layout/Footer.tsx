@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const destinations = [
   "Lonavala", "Pune", "Mumbai", "Udaipur", "Jaipur", 
@@ -7,6 +10,11 @@ const destinations = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith("/x-admin-portal") || pathname?.startsWith("/admin")) {
+    return null;
+  }
   return (
     <footer className="bg-[#0E0A07] text-[#FAF6EF] pt-16 pb-8 border-t-[4px] border-[var(--color-brand-gold)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

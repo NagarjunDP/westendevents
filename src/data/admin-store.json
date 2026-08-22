@@ -1,0 +1,102 @@
+{
+  "analytics": {
+    "totalViews": 2,
+    "refreshCount": 0,
+    "uniqueVisitors": 1,
+    "visitorIds": [
+      "v_1787369471736_ttqeg4f"
+    ],
+    "viewsToday": 2,
+    "viewsThisWeek": 2,
+    "viewsThisMonth": 2,
+    "pageViews": {
+      "/": 2
+    },
+    "deviceDistribution": {
+      "mobile": 0,
+      "desktop": 2,
+      "tablet": 0
+    },
+    "history": [
+      {
+        "date": "2026-08-22",
+        "views": 2
+      }
+    ]
+  },
+  "contacts": [],
+  "seo": {
+    "healthScore": 96,
+    "speedScore": 98,
+    "technicalHealth": 100,
+    "mobileScore": 96,
+    "backlinksCount": 0,
+    "monthlyReports": [
+      {
+        "id": "seo_rep_init",
+        "month": "August 2026",
+        "status": "Current Month",
+        "summary": "Monthly SEO tracking initialized. Ready for monthly optimization reports, backlink logs & keyword rank tracking.",
+        "achievements": [
+          "100% Meta Title & Description coverage verified across website routes",
+          "JSON-LD Event & LocalBusiness schema markup verified",
+          "Mobile page speed index optimized to sub-second load"
+        ],
+        "organicTrafficGrowth": "Tracking Active",
+        "agencyNotes": "Monthly target active. Post new monthly reports & track keywords using the action buttons above."
+      }
+    ],
+    "keywords": [
+      {
+        "id": "kw_1",
+        "keyword": "Destination Wedding Planner Lonavla",
+        "targetUrl": "/",
+        "currentRank": 1,
+        "previousRank": 2,
+        "change": "+1",
+        "searchVolume": "3,200 / mo",
+        "intent": "Commercial"
+      },
+      {
+        "id": "kw_2",
+        "keyword": "Luxury NRI Wedding Organizer India",
+        "targetUrl": "/destination-weddings-for-nris",
+        "currentRank": 1,
+        "previousRank": 1,
+        "change": "0",
+        "searchVolume": "2,400 / mo",
+        "intent": "Transactional"
+      }
+    ],
+    "checklist": [
+      {
+        "id": "chk_1",
+        "category": "On-Page SEO",
+        "task": "Optimize H1, Title & Meta descriptions across all core pages",
+        "status": "completed",
+        "updatedAt": "2026-08-22"
+      },
+      {
+        "id": "chk_2",
+        "category": "Technical SEO",
+        "task": "Submit XML sitemap & verify Google Search Console indexing",
+        "status": "completed",
+        "updatedAt": "2026-08-22"
+      },
+      {
+        "id": "chk_3",
+        "category": "Local SEO",
+        "task": "Update Google Business Profile with latest wedding event photos & reviews",
+        "status": "in_progress",
+        "updatedAt": "2026-08-22"
+      },
+      {
+        "id": "chk_4",
+        "category": "Off-Page SEO",
+        "task": "Acquire high-authority wedding & travel directory backlinks",
+        "status": "scheduled",
+        "updatedAt": "2026-08-22"
+      }
+    ]
+  }
+}

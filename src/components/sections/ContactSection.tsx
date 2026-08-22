@@ -14,11 +14,39 @@ export function ContactSection() {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would submit to an API
-    console.log("Form submitted:", formData);
-    alert("Thank you for your enquiry. Our luxury event specialists will contact you shortly.");
+    setIsSubmitting(true);
+    setSubmitError("");
+    try {
+      const res = await fetch("/api/contact/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSubmitSuccess(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          date: "",
+          type: "wedding",
+          message: ""
+        });
+      } else {
+        setSubmitError(data.error || "Failed to submit enquiry. Please try again.");
+      }
+    } catch (err) {
+      setSubmitError("Something went wrong. Please check your network connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -186,12 +214,28 @@ export function ContactSection() {
                   className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] placeholder-[#4A3E31]/50 text-[14px] px-6 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors resize-none"
                 />
 
+                {submitSuccess && (
+                  <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded flex items-center justify-between">
+                    <span>Thank you for your enquiry. Our luxury event specialists will contact you shortly!</span>
+                    <button type="button" onClick={() => setSubmitSuccess(false)} className="text-xs text-emerald-600 font-bold ml-2 underline">Send another</button>
+                  </div>
+                )}
+
+                {submitError && (
+                  <div className="p-4 bg-rose-50 border border-rose-200 text-rose-800 text-sm rounded">
+                    {submitError}
+                  </div>
+                )}
+
                 <button 
                   type="submit"
-                  className="group relative w-full bg-[#0E0A07] text-[var(--color-brand-gold)] py-5 px-8 flex justify-center items-center gap-3 overflow-hidden mt-2 border-none"
+                  disabled={isSubmitting}
+                  className="group relative w-full bg-[#0E0A07] text-[var(--color-brand-gold)] py-5 px-8 flex justify-center items-center gap-3 overflow-hidden mt-2 border-none disabled:opacity-50"
                 >
                   <div className="absolute inset-0 bg-[var(--color-brand-gold)] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]" />
-                  <span className="relative z-10 text-[13px] font-bold uppercase tracking-widest group-hover:text-[#0E0A07] transition-colors duration-500">Submit Enquiry</span>
+                  <span className="relative z-10 text-[13px] font-bold uppercase tracking-widest group-hover:text-[#0E0A07] transition-colors duration-500">
+                    {isSubmitting ? "Submitting..." : "Submit Enquiry"}
+                  </span>
                   <ArrowRight size={16} className="relative z-10 group-hover:text-[#0E0A07] transition-colors duration-500" />
                 </button>
               </form>
