@@ -11,7 +11,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  if (pathname?.startsWith("/x-admin-portal") || pathname?.startsWith("/admin")) {
+  if (pathname?.startsWith("/westendevents-admin-portal") || pathname?.startsWith("/admin")) {
     return null;
   }
 

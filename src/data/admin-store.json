@@ -1,26 +1,27 @@
 {
   "analytics": {
-    "totalViews": 2,
+    "totalViews": 5,
     "refreshCount": 0,
     "uniqueVisitors": 1,
     "visitorIds": [
       "v_1787369471736_ttqeg4f"
     ],
-    "viewsToday": 2,
-    "viewsThisWeek": 2,
-    "viewsThisMonth": 2,
+    "viewsToday": 5,
+    "viewsThisWeek": 5,
+    "viewsThisMonth": 5,
     "pageViews": {
-      "/": 2
+      "/": 2,
+      "/x-admin-portal": 3
     },
     "deviceDistribution": {
-      "mobile": 0,
+      "mobile": 3,
       "desktop": 2,
       "tablet": 0
     },
     "history": [
       {
         "date": "2026-08-22",
-        "views": 2
+        "views": 5
       }
     ]
   },

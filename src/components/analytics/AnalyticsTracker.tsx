@@ -11,7 +11,7 @@ export function AnalyticsTracker() {
     if (!pathname) return;
 
     // Do not track admin portal or API calls
-    if (pathname.startsWith("/x-admin-portal") || pathname.startsWith("/admin")) {
+    if (pathname.startsWith("/westendevents-admin-portal") || pathname.startsWith("/admin")) {
       return;
     }
 

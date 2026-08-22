@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 export function FloatingContact() {
   const pathname = usePathname();
 
-  if (pathname?.startsWith("/x-admin-portal") || pathname?.startsWith("/admin")) {
+  if (pathname?.startsWith("/westendevents-admin-portal") || pathname?.startsWith("/admin")) {
     return null;
   }
   return (

@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const { page, deviceType, visitorId, isRefresh } = body;
 
     // Do not record views for admin paths or internal assets
-    if (page && !page.startsWith("/x-admin-portal") && !page.startsWith("/admin") && !page.startsWith("/api")) {
+    if (page && !page.startsWith("/westendevents-admin-portal") && !page.startsWith("/admin") && !page.startsWith("/api")) {
       recordPageView(page, deviceType || "desktop", visitorId, Boolean(isRefresh));
     }
 
