@@ -26,8 +26,8 @@ export function ServicesBentoGrid() {
   ];
 
   return (
-    <section className="bg-[#FAF6EF] pt-8 md:pt-12 pb-20 md:pb-24 px-4 md:px-12 lg:px-24 overflow-hidden font-sans">
-      <div className="max-w-[1400px] mx-auto space-y-24">
+    <section className="bg-[#FAF6EF] pt-6 md:pt-12 pb-10 sm:pb-16 md:pb-24 px-4 md:px-12 lg:px-24 overflow-hidden font-sans">
+      <div className="max-w-[1400px] mx-auto space-y-12 sm:space-y-16 md:space-y-24">
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
@@ -98,7 +98,7 @@ export function ServicesBentoGrid() {
               </div>
 
               <p className="text-sm text-[#4A3E31] leading-relaxed">
-                From dramatic mandap wide shots to couple entries, sangeet stages, and hospitality management — we own 100% in-house inventory for luxury weddings in Lonavala, Pune, Goa, Udaipur, and across India.
+                From dramatic mandap wide shots to couple entries, sangeet stages, and hospitality management — we own 100% in-house inventory for luxury weddings in Lonavla, Pune, Goa, Udaipur, and across India.
               </p>
 
               <ul className="space-y-3.5 pt-2">

@@ -25,12 +25,12 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { name: "HOME", href: "/" },
-    { name: "SERVICES", href: "/services" },
-    { name: "PORTFOLIO", href: "/collection" },
-    { name: "GALLERY", href: "/gallery" },
-    { name: "ABOUT", href: "/about" },
-    { name: "CONTACT", href: "/#contact" },
+    { name: "Home", href: "/" },
+    { name: "Our Work / Portfolio", href: "/gallery" },
+    { name: "Services", href: "/services" },
+    { name: "Venues", href: "/destinations" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -44,27 +44,12 @@ export function Header() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between relative">
 
           {/* Logo (Left side for all devices) */}
-          <Link href="/" className="relative z-[60] flex items-center group">
+          <Link href="/" className="relative z-[60] flex items-center group shrink-0">
             <img
               src="/logo.png"
               alt="Westend Events"
-              className="h-[46px] lg:h-[54px] w-auto object-contain transition-all duration-500 group-hover:scale-105"
+              className="h-[44px] sm:h-[50px] lg:h-[54px] w-auto object-contain transition-all duration-500 group-hover:scale-105"
             />
-          </Link>
-
-          {/* Mobile Centered Animated Text */}
-          <Link href="/" className="lg:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[60] flex items-center pointer-events-none">
-            <motion.div
-              initial={{ opacity: 0.8 }}
-              animate={{
-                opacity: [0.8, 1, 0.8],
-                textShadow: ["0px 0px 4px rgba(201,168,76,0.3)", "0px 0px 14px rgba(201,168,76,0.8)", "0px 0px 4px rgba(201,168,76,0.3)"]
-              }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="font-serif text-[16px] sm:text-[18px] font-medium tracking-[0.12em] whitespace-nowrap text-[#0E0A07]"
-            >
-              Westend<span className="italic font-light text-[var(--color-brand-gold)]">Events</span>
-            </motion.div>
           </Link>
 
           {/* Desktop Nav */}
@@ -73,7 +58,7 @@ export function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="group relative font-sans text-[12px] xl:text-[13px] tracking-[0.18em] transition-colors duration-300 uppercase py-2 text-[#0E0A07] hover:text-[var(--color-brand-gold)] font-bold"
+                className="group relative font-sans text-[12px] xl:text-[13px] tracking-[0.15em] transition-colors duration-300 uppercase py-2 text-[#0E0A07] hover:text-[var(--color-brand-gold)] font-bold whitespace-nowrap"
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[var(--color-brand-gold)] origin-center scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-x-100" />
@@ -81,43 +66,44 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-5 xl:gap-6">
+          {/* Header Actions (Call & Get a Quote CTA) */}
+          <div className="flex items-center gap-3 sm:gap-4 lg:gap-6 relative z-[60]">
             <a
               href="tel:+919923590038"
-              className="font-sans text-[13px] font-bold tracking-wider transition-all duration-300 text-[#0E0A07] hover:text-[var(--color-brand-gold)] flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E0A07]/5 border border-[#0E0A07]/15 hover:border-[var(--color-brand-gold)]"
+              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0E0A07]/5 border border-[#0E0A07]/15 hover:border-[var(--color-brand-gold)] font-sans text-[12px] font-bold tracking-wider text-[#0E0A07] hover:text-[var(--color-brand-gold)] transition-all"
             >
               <Phone size={13} className="text-[#0E0A07] animate-pulse" />
               <span>+91 99235 90038</span>
             </a>
 
+            {/* Sticky Header CTA Button (Visible on both Mobile and Desktop) */}
             <Link
               href="/#contact"
-              className="border-2 border-[#0E0A07] text-[#0E0A07] hover:bg-[#0E0A07] hover:text-[#FAF6EF] px-5 py-2 font-sans text-[12px] tracking-[0.18em] uppercase transition-all duration-300 font-extrabold rounded-lg whitespace-nowrap shadow-sm"
+              className="border-2 border-[#0E0A07] bg-[#0E0A07] text-[#FAF6EF] hover:bg-[var(--color-brand-gold)] hover:text-[#0E0A07] hover:border-[var(--color-brand-gold)] px-3.5 sm:px-5 py-2 font-sans text-[11px] sm:text-[12px] tracking-[0.15em] uppercase transition-all duration-300 font-extrabold rounded-lg whitespace-nowrap shadow-sm"
             >
-              Get a Proposal
+              Get a Quote
             </Link>
-          </div>
 
-          {/* Mobile Hamburger (Animated) */}
-          <button
-            className="lg:hidden relative z-[60] flex flex-col justify-center items-end w-[32px] h-[32px] gap-[6px] group"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle Menu"
-          >
-            <span className={cn(
-              "h-[2px] transition-all duration-400 origin-right bg-[#0E0A07]",
-              isMobileMenuOpen ? "w-[32px] -rotate-45 translate-y-[1px]" : "w-full"
-            )} />
-            <span className={cn(
-              "h-[2px] transition-all duration-400 bg-[#0E0A07]",
-              isMobileMenuOpen ? "w-0 opacity-0" : "w-[60%]"
-            )} />
-            <span className={cn(
-              "h-[2px] transition-all duration-400 origin-right bg-[#0E0A07]",
-              isMobileMenuOpen ? "w-[32px] rotate-45 -translate-y-[1px]" : "w-full"
-            )} />
-          </button>
+            {/* Mobile Hamburger (Animated) */}
+            <button
+              className="lg:hidden relative z-[60] flex flex-col justify-center items-end w-[32px] h-[32px] gap-[6px] group"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle Menu"
+            >
+              <span className={cn(
+                "h-[2px] transition-all duration-400 origin-right bg-[#0E0A07]",
+                isMobileMenuOpen ? "w-[32px] -rotate-45 translate-y-[1px]" : "w-full"
+              )} />
+              <span className={cn(
+                "h-[2px] transition-all duration-400 bg-[#0E0A07]",
+                isMobileMenuOpen ? "w-0 opacity-0" : "w-[60%]"
+              )} />
+              <span className={cn(
+                "h-[2px] transition-all duration-400 origin-right bg-[#0E0A07]",
+                isMobileMenuOpen ? "w-[32px] rotate-45 -translate-y-[1px]" : "w-full"
+              )} />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -176,7 +162,7 @@ export function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="mt-2 border-2 border-[#0E0A07] text-[#0E0A07] hover:bg-[#0E0A07] hover:text-[#FAF6EF] bg-white/80 px-8 py-3.5 font-sans text-[12px] font-extrabold tracking-[0.2em] uppercase rounded-lg shadow-sm"
                 >
-                  Get a Proposal
+                  Get Event Proposal
                 </Link>
               </div>
             </motion.div>

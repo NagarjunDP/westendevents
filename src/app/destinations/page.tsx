@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const locations = [
-  "Lonavala", "Pune", "Mumbai", "Udaipur", "Jaipur", 
+  "Lonavla", "Pune", "Mumbai", "Udaipur", "Jaipur", 
   "Goa", "Mahabaleshwar", "Karjat", "Khopoli", "Igatpuri"
 ];
 

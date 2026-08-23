@@ -60,7 +60,7 @@ export function AboutSection() {
             className="font-sans text-[16px] md:text-[18px] text-[#4A3E31] leading-relaxed max-w-3xl mx-auto space-y-4"
           >
             <p>At <strong className="text-[#0E0A07] font-semibold">Westend Events</strong>, we believe extraordinary events are created when imagination meets flawless execution.</p>
-            <p>Based in <strong className="text-[var(--color-brand-gold)] font-semibold">Lonavala and Pune</strong>, we create and manage <strong className="text-[#0E0A07]">weddings, corporate events and destination celebrations</strong>, bringing together planning, design, production, entertainment, hospitality and logistics under one roof.</p>
+            <p>Based in <strong className="text-[var(--color-brand-gold)] font-semibold">Lonavla and Pune</strong>, we create and manage <strong className="text-[#0E0A07]">weddings, corporate events and destination celebrations</strong>, bringing together planning, design, production, entertainment, hospitality and logistics under one roof.</p>
             <p>Every event is different. Every client has a different story. Our job is to understand yours — and bring it to life beautifully.</p>
             <p className="pt-2 font-serif text-xl md:text-2xl italic text-[var(--color-brand-gold)] font-semibold">"You enjoy the moment. We take care of everything behind it."</p>
           </motion.div>
@@ -127,7 +127,7 @@ export function AboutSection() {
 
           <div className="space-y-6 text-[#4A3E31] text-[15px] sm:text-[16px] leading-relaxed">
             <p>
-              <strong className="text-[#0E0A07]">Asha Agarwal</strong> is a dynamic entrepreneur and the creative force behind <strong className="text-[#0E0A07]">Westend Events</strong>, one of the leading event and wedding planning companies serving Lonavala, Pune, and destinations across India.
+              <strong className="text-[#0E0A07]">Asha Agarwal</strong> is a dynamic entrepreneur and the creative force behind <strong className="text-[#0E0A07]">Westend Events</strong>, one of the leading event and wedding planning companies serving Lonavla, Pune, and destinations across India.
             </p>
 
             {/* Honors & Recognitions Grid */}

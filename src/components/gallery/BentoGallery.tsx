@@ -22,7 +22,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Weddings",
     location: "Lonavla Resort",
     featured: true,
-    span: "col-span-1 md:col-span-2 md:row-span-2 h-[340px] sm:h-[420px] md:h-[560px]"
+    span: "col-span-1 h-64 sm:h-72 md:col-span-2 md:row-span-2 md:h-[560px]"
   },
   {
     id: "2",
@@ -30,7 +30,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Luxury Floral Pathway & Aisles",
     category: "Weddings",
     location: "Lonavla Estate",
-    span: "col-span-1 h-[260px] sm:h-[300px] md:h-[270px]"
+    span: "col-span-1 h-64 sm:h-72 md:h-[270px]"
   },
   {
     id: "3",
@@ -38,7 +38,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Global Executive Conference Summit",
     category: "Corporate",
     location: "Grand Ballroom, Mumbai",
-    span: "col-span-1 h-[260px] sm:h-[300px] md:h-[270px]"
+    span: "col-span-1 h-64 sm:h-72 md:h-[270px]"
   },
   {
     id: "4",
@@ -46,7 +46,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Sunset Beach Mandap",
     category: "Weddings",
     location: "Goa Beachfront",
-    span: "col-span-1 md:col-span-2 h-[280px] sm:h-[320px] md:h-[270px]"
+    span: "col-span-1 h-64 sm:h-72 md:col-span-2 md:h-[270px]"
   },
   {
     id: "5",
@@ -54,7 +54,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Open-Air Gala Team Offsite Night",
     category: "Corporate",
     location: "Lonavla Resort Grounds",
-    span: "col-span-1 h-[260px] sm:h-[300px] md:h-[270px]"
+    span: "col-span-1 h-64 sm:h-72 md:h-[270px]"
   },
   {
     id: "6",
@@ -63,7 +63,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Weddings",
     location: "Udaipur Palace",
     featured: true,
-    span: "col-span-1 md:col-span-2 h-[300px] sm:h-[360px] md:h-[320px]"
+    span: "col-span-1 h-64 sm:h-72 md:col-span-2 md:h-[320px]"
   },
   {
     id: "7",
@@ -71,7 +71,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Traditional Varmala Stage",
     category: "Weddings",
     location: "Pune Luxury Hotel",
-    span: "col-span-1 h-[260px] sm:h-[300px] md:h-[320px]"
+    span: "col-span-1 h-64 sm:h-72 md:h-[320px]"
   },
   {
     id: "8",
@@ -79,7 +79,7 @@ export const galleryItems: GalleryItem[] = [
     title: "High-Impact Product Reveal Stage",
     category: "Corporate",
     location: "Mumbai Expo Center",
-    span: "col-span-1 h-[260px] sm:h-[300px] md:h-[320px]"
+    span: "col-span-1 h-64 sm:h-72 md:h-[320px]"
   },
   {
     id: "9",
@@ -87,7 +87,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Corporate Excellence Awards Night",
     category: "Corporate",
     location: "Grand Ballroom, Mumbai",
-    span: "col-span-1 md:col-span-2 h-[280px] sm:h-[320px] md:h-[320px]"
+    span: "col-span-1 h-64 sm:h-72 md:col-span-2 md:h-[320px]"
   },
   {
     id: "10",
@@ -95,7 +95,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Concert Stage Audio-Visual Rigging",
     category: "Corporate",
     location: "Arena Arena, Pune",
-    span: "col-span-1 h-[260px] sm:h-[300px] md:h-[290px]"
+    span: "col-span-1 h-64 sm:h-72 md:h-[290px]"
   },
   {
     id: "11",
@@ -103,7 +103,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Vibrant Haldi & Mehendi Canopy",
     category: "Weddings",
     location: "Igatpuri Hill Resort",
-    span: "col-span-1 h-[260px] sm:h-[300px] md:h-[290px]"
+    span: "col-span-1 h-64 sm:h-72 md:h-[290px]"
   },
   {
     id: "12",
@@ -111,7 +111,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Custom Timber & Glass Expo Stall",
     category: "Corporate",
     location: "Trade Fair Center",
-    span: "col-span-1 h-[260px] sm:h-[300px] md:h-[290px]"
+    span: "col-span-1 h-64 sm:h-72 md:h-[290px]"
   }
 ];
 

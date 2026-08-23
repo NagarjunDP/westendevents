@@ -224,12 +224,12 @@ export function ContactSection() {
                       <span>★ 4.9 / 5.0</span>
                       <span className="text-[#4A3E31] font-normal">• 100+ Verified Reviews</span>
                     </div>
-                    <span className="text-[11px] text-[#4A3E31] font-mono block">Google Business Profile • Lonavala & Pune</span>
+                    <span className="text-[11px] text-[#4A3E31] font-mono block">Google Business Profile • Lonavla & Pune</span>
                   </div>
                 </div>
 
                 <a 
-                  href="https://www.google.com/maps/search/?api=1&query=Westend+Events+Lonavala" 
+                  href="https://www.google.com/maps/search/?api=1&query=Westend+Events+Lonavla" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hidden sm:inline-flex text-[11px] font-mono text-[#4285F4] font-bold hover:underline"
@@ -331,7 +331,7 @@ export function ContactSection() {
                     <input 
                       type="text" 
                       name="location"
-                      placeholder="Event Location (e.g. Lonavala, Goa...)" 
+                      placeholder="Event Location (e.g. Lonavla, Goa...)" 
                       value={formData.location}
                       onChange={handleChange}
                       className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] placeholder-[#4A3E31]/50 text-[14px] px-6 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors"
@@ -349,7 +349,7 @@ export function ContactSection() {
                       placeholder="Approx. Number of Guests" 
                       value={formData.guestCount}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] placeholder-[#4A3E31]/50 text-[14px] px-6 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors"
+                      className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] placeholder-[#4A3E31]/50 text-[16px] px-6 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors"
                     />
                   </div>
 
@@ -361,7 +361,7 @@ export function ContactSection() {
                       placeholder="Approx. Budget (e.g. ₹15L - ₹50L+)" 
                       value={formData.budget}
                       onChange={handleChange}
-                      className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] placeholder-[#4A3E31]/50 text-[14px] px-6 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors"
+                      className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] placeholder-[#4A3E31]/50 text-[16px] px-6 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors"
                     />
                   </div>
                 </div>
@@ -374,7 +374,7 @@ export function ContactSection() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] placeholder-[#4A3E31]/50 text-[14px] px-6 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors resize-none"
+                  className="w-full bg-[#FAF6EF] border border-[#0E0A07]/10 text-[#0E0A07] placeholder-[#4A3E31]/50 text-[16px] px-6 py-4 focus:outline-none focus:border-[var(--color-brand-gold)]/50 transition-colors resize-none"
                 />
 
                 {submitSuccess && (
@@ -397,7 +397,7 @@ export function ContactSection() {
                 >
                   <div className="absolute inset-0 bg-[var(--color-brand-gold)] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]" />
                   <span className="relative z-10 text-[13px] font-bold uppercase tracking-widest group-hover:text-[#0E0A07] transition-colors duration-500">
-                    {isSubmitting ? "Submitting..." : "Get a Proposal"}
+                    {isSubmitting ? "Submitting..." : "Get Event Proposal"}
                   </span>
                   <ArrowRight size={16} className="relative z-10 group-hover:text-[#0E0A07] transition-colors duration-500" />
                 </button>

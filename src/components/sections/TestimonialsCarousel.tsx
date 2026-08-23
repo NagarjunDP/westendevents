@@ -6,15 +6,15 @@ import { Star } from "lucide-react";
 export function TestimonialsCarousel() {
   const testimonials = [
     {
-      text: "Westend Events executed my son's wedding with extraordinary grandeur and precision. Their 100% in-house decor team, original JBL VRX sound, and SFX made the entire celebration unforgettable.",
+      text: "Westend Events executed my son's wedding with extraordinary grandeur and precision. Their in-house decor team, original JBL VRX sound, and SFX made the entire celebration unforgettable.",
       author: "Kanwaljit Singh (Actor)",
-      meta: "Celebrity Wedding · Lonavala",
+      meta: "Celebrity Wedding · Lonavla",
       rating: 5
     },
     {
       text: "We flew in from Toronto with 180 guests and didn't have to worry about a single thing. The décor, sound, and coordination were flawless — it felt like a Bollywood film brought to life.",
       author: "Natasha & Arjun S.",
-      meta: "NRI Destination Wedding · Lonavala",
+      meta: "NRI Destination Wedding · Lonavla",
       rating: 5
     },
     {
@@ -41,7 +41,7 @@ export function TestimonialsCarousel() {
   const marqueeTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
   return (
-    <section className="bg-[#FAF6EF] py-16 md:py-24 overflow-hidden border-t border-b border-[var(--color-brand-gold)]/20 font-sans">
+    <section className="bg-[#FAF6EF] py-10 sm:py-16 md:py-24 overflow-hidden border-t border-b border-[var(--color-brand-gold)]/20 font-sans">
       
       {/* Section Title */}
       <div className="max-w-[1400px] mx-auto text-center mb-10 md:mb-14 px-5 sm:px-8 md:px-12 lg:px-24">

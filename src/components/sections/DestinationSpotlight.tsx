@@ -44,7 +44,7 @@ export function DestinationSpotlight() {
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-serif text-3xl md:text-5xl text-[#0E0A07] leading-tight mb-8 max-w-2xl"
         >
-          Your Dream Indian Wedding. Handled From Anywhere in the World.
+          Your Dream Indian Wedding, Handled from Anywhere in the World
         </motion.h2>
         
         <motion.p 

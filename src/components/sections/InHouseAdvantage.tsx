@@ -17,7 +17,7 @@ export function InHouseAdvantage() {
   ];
 
   return (
-    <section className="bg-[#0E0A07] text-[#FAF6EF] py-20 md:py-32 px-4 md:px-12 lg:px-24 overflow-hidden border-t border-b border-[var(--color-brand-gold)]/30 font-sans">
+    <section className="bg-[#0E0A07] text-[#FAF6EF] py-10 sm:py-16 md:py-24 px-4 md:px-12 lg:px-24 overflow-hidden border-t border-b border-[var(--color-brand-gold)]/30 font-sans">
       <div className="max-w-[1400px] mx-auto text-center space-y-12">
         
         {/* Section Header Badge */}

@@ -13,9 +13,9 @@ const row1Clients: Client[] = [
     name: "Eicher Motors",
     category: "Automotive & Manufacturing",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="160" height="40" rx="6" fill="#D32F2F"/>
-        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle" fill="#FFFFFF" fontFamily="Impact, Arial Black, sans-serif" fontWeight="900" fontSize="22" letterSpacing="3">EICHER</text>
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="160" height="40" rx="4" fill="#D32F2F"/>
+        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle" fill="#FFFFFF" fontFamily="Impact, 'Arial Black', sans-serif" fontWeight="900" fontSize="22" letterSpacing="3">EICHER</text>
       </svg>
     )
   },
@@ -23,10 +23,10 @@ const row1Clients: Client[] = [
     name: "DB Schenker",
     category: "Global Logistics & Supply Chain",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 190 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 190 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="32" height="32" x="2" y="4" fill="#E30613" rx="4"/>
-        <text x="18" y="26" textAnchor="middle" fill="#FFFFFF" fontFamily="Helvetica, Arial, sans-serif" fontWeight="900" fontSize="18">DB</text>
-        <text x="44" y="27" fill="#0D0A07" fontFamily="Helvetica, Arial, sans-serif" fontWeight="800" fontSize="18" letterSpacing="2">SCHENKER</text>
+        <text x="18" y="26" textAnchor="middle" fill="#FFFFFF" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="18">DB</text>
+        <text x="44" y="27" fill="#0D0A07" fontFamily="Arial, sans-serif" fontWeight="800" fontSize="18" letterSpacing="2">SCHENKER</text>
       </svg>
     )
   },
@@ -34,10 +34,10 @@ const row1Clients: Client[] = [
     name: "ACG Pharma",
     category: "Pharmaceuticals & Healthcare",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4 20L16 6H28L40 20L28 34H16L4 20Z" fill="#00529B"/>
         <path d="M16 14L22 6L28 14L22 22L16 14Z" fill="#00A3E0"/>
-        <text x="48" y="28" fill="#00529B" fontFamily="Helvetica, Arial, sans-serif" fontWeight="900" fontSize="24" letterSpacing="2">ACG</text>
+        <text x="48" y="28" fill="#00529B" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="24" letterSpacing="2">ACG</text>
       </svg>
     )
   },
@@ -45,10 +45,10 @@ const row1Clients: Client[] = [
     name: "Tetra Pak",
     category: "Food Packaging & Processing",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 170 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 170 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4 8C4 5.79086 5.79086 4 8 4H36L26 36H8C5.79086 36 4 34.2091 4 32V8Z" fill="#0072CE"/>
         <path d="M36 4H40L30 36H26L36 4Z" fill="#E30613"/>
-        <text x="46" y="27" fill="#0072CE" fontFamily="Helvetica, Arial, sans-serif" fontWeight="800" fontSize="20" letterSpacing="0.5">Tetra Pak</text>
+        <text x="46" y="27" fill="#0072CE" fontFamily="Arial, sans-serif" fontWeight="800" fontSize="20" letterSpacing="0.5">Tetra Pak</text>
       </svg>
     )
   },
@@ -56,8 +56,8 @@ const row1Clients: Client[] = [
     name: "Hansgrohe",
     category: "Luxury Sanitaryware & Fittings",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 175 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="175" height="40" rx="6" fill="#005B48"/>
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 175 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="175" height="40" rx="4" fill="#005B48"/>
         <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle" fill="#FFFFFF" fontFamily="Georgia, serif" fontWeight="700" fontSize="19" letterSpacing="1">hansgrohe</text>
       </svg>
     )
@@ -66,11 +66,11 @@ const row1Clients: Client[] = [
     name: "SBI Bank",
     category: "Banking & Financial Services",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="20" r="16" fill="#00A3E0"/>
         <circle cx="20" cy="15" r="5" fill="#FFFFFF"/>
         <rect x="18" y="15" width="4" height="13" fill="#FFFFFF"/>
-        <text x="44" y="27" fill="#280071" fontFamily="Helvetica, Arial, sans-serif" fontWeight="900" fontSize="22" letterSpacing="1">SBI</text>
+        <text x="44" y="27" fill="#280071" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="22" letterSpacing="1">SBI</text>
       </svg>
     )
   }
@@ -81,8 +81,8 @@ const row2Clients: Client[] = [
     name: "JITO",
     category: "Jain International Trade Org",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 130 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="130" height="40" rx="6" fill="#C9A84C"/>
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 130 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="130" height="40" rx="4" fill="#C9A84C"/>
         <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle" fill="#FFFFFF" fontFamily="Georgia, serif" fontWeight="900" fontSize="22" letterSpacing="3">JITO</text>
       </svg>
     )
@@ -91,11 +91,11 @@ const row2Clients: Client[] = [
     name: "Lions Club",
     category: "International Service Organisation",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 165 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 165 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="20" r="16" fill="#002D62"/>
         <circle cx="20" cy="20" r="13" fill="#F4C430"/>
         <text x="20" y="26" textAnchor="middle" fill="#002D62" fontFamily="Impact, sans-serif" fontWeight="900" fontSize="17">L</text>
-        <text x="44" y="27" fill="#002D62" fontFamily="Helvetica, Arial, sans-serif" fontWeight="900" fontSize="18" letterSpacing="1">LIONS</text>
+        <text x="44" y="27" fill="#002D62" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="18" letterSpacing="1">LIONS</text>
       </svg>
     )
   },
@@ -103,7 +103,7 @@ const row2Clients: Client[] = [
     name: "Rotary International",
     category: "Global Humanitarian Club",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 170 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 170 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="20" r="15" fill="#013A81"/>
         <circle cx="20" cy="20" r="7" fill="#F7A800"/>
         <text x="42" y="27" fill="#013A81" fontFamily="Georgia, serif" fontWeight="700" fontSize="18" letterSpacing="1">Rotary</text>
@@ -114,16 +114,16 @@ const row2Clients: Client[] = [
     name: "Azentio",
     category: "Financial Software & Tech",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="20" cy="20" r="14" fill="url(#azentio-g2)"/>
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="14" fill="url(#azentio-g3)"/>
         <path d="M14 25L20 13L26 25H23L20 19L17 25H14Z" fill="#FFFFFF"/>
         <defs>
-          <linearGradient id="azentio-g2" x1="6" y1="6" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+          <linearGradient id="azentio-g3" x1="6" y1="6" x2="34" y2="34" gradientUnits="userSpaceOnUse">
             <stop stopColor="#6C5CE7"/>
             <stop offset="1" stopColor="#00CEC9"/>
           </linearGradient>
         </defs>
-        <text x="42" y="27" fill="#0D0A07" fontFamily="Helvetica, Arial, sans-serif" fontWeight="900" fontSize="19" letterSpacing="2">AZENTIO</text>
+        <text x="42" y="27" fill="#0D0A07" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="19" letterSpacing="2">AZENTIO</text>
       </svg>
     )
   },
@@ -131,10 +131,10 @@ const row2Clients: Client[] = [
     name: "DeLaval",
     category: "Livestock & Dairy Technology",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 155 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 155 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 8L20 4L34 8V22L20 34L6 22V8Z" fill="#003399"/>
         <path d="M20 10L28 21H12L20 10Z" fill="#FFFFFF"/>
-        <text x="42" y="27" fill="#003399" fontFamily="Helvetica, Arial, sans-serif" fontWeight="800" fontSize="20" letterSpacing="0.5">DeLaval</text>
+        <text x="42" y="27" fill="#003399" fontFamily="Arial, sans-serif" fontWeight="800" fontSize="20" letterSpacing="0.5">DeLaval</text>
       </svg>
     )
   },
@@ -142,9 +142,9 @@ const row2Clients: Client[] = [
     name: "AYC Social",
     category: "Youth & Cultural Social Club",
     svgLogo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 130 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="130" height="40" rx="6" fill="#8E44AD"/>
-        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle" fill="#FFFFFF" fontFamily="Helvetica, Arial, sans-serif" fontWeight="900" fontSize="20" letterSpacing="3">AYC</text>
+      <svg className="h-8 sm:h-9 w-auto" viewBox="0 0 130 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="130" height="40" rx="4" fill="#8E44AD"/>
+        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle" fill="#FFFFFF" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="20" letterSpacing="3">AYC</text>
       </svg>
     )
   }
@@ -155,7 +155,7 @@ export function CorporateClients() {
   const marqueeTrack2 = [...row2Clients, ...row2Clients, ...row2Clients];
 
   return (
-    <section className="relative w-full bg-[#FAF6EF] py-16 md:py-24 overflow-hidden border-t border-b border-[var(--color-brand-gold)]/20 font-sans">
+    <section className="relative w-full bg-[#FAF6EF] py-10 sm:py-16 md:py-24 overflow-hidden border-t border-b border-[var(--color-brand-gold)]/20 font-sans">
       
       {/* Decorative Gold Lighting Accent Lines */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-[var(--color-brand-gold)]/40 to-transparent" />
@@ -190,7 +190,7 @@ export function CorporateClients() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-sans text-sm md:text-base text-[#4A3E31] max-w-2xl mx-auto leading-relaxed font-light"
         >
-          Executing seamless corporate galas, product launches, social galas, and brand conventions with 100% in-house technical production.
+          Executing seamless corporate galas, product launches, social galas, and brand conventions with turnkey technical production.
         </motion.p>
       </div>
 

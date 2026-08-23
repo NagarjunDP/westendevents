@@ -13,7 +13,7 @@ export function ServicesClient() {
       id: "destination-weddings",
       title: "Destination Weddings & NRI Celebrations",
       subtitle: "Full End-to-End Planning & Management",
-      description: "From royal palace ceremonies in Udaipur and Jaipur to hilltop retreats in Lonavala and tropical beach weddings in Goa, we offer complete turn-key wedding management for couples and NRI families flying in from abroad. We act as your single point of contact for venue shortlisting, guest hospitality, airport transfers, and remote planning.",
+      description: "From royal palace ceremonies in Udaipur and Jaipur to hilltop retreats in Lonavla and tropical beach weddings in Goa, we offer complete turn-key wedding management for couples and NRI families flying in from abroad. We act as your single point of contact for venue shortlisting, guest hospitality, airport transfers, and remote planning.",
       features: ["Royal Venue Sourcing & Booking", "Dedicated NRI Concierge & Airport Logistics", "Full Remote & On-Site Planning", "Shadow Teams for Couple & Family"],
       image: "/205A4188.jpg",
       icon: Compass
@@ -70,8 +70,8 @@ export function ServicesClient() {
       id: "corporate-offsites",
       title: "Offsites & Team Retreats",
       subtitle: "Experiential Corporate Escapes",
-      description: "Transform your company offsite into an unforgettable experience. Based in Lonavala and Pune, we manage resort bookings, outdoor team-building activities, open-air lawn gala dinners under fairy lights, and evening entertainment.",
-      features: ["Lonavala & Pune Resort Bookings", "Outdoor Team Building Activities", "Open-Air Gala Dinners & Cocktail Nights", "Complete Logistics & Coach Transfers"],
+      description: "Transform your company offsite into an unforgettable experience. Based in Lonavla and Pune, we manage resort bookings, outdoor team-building activities, open-air lawn gala dinners under fairy lights, and evening entertainment.",
+      features: ["Lonavla & Pune Resort Bookings", "Outdoor Team Building Activities", "Open-Air Gala Dinners & Cocktail Nights", "Complete Logistics & Coach Transfers"],
       image: "/corporate_offsites.jpg",
       icon: Building2
     },

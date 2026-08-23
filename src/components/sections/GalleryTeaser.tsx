@@ -33,7 +33,7 @@ export function GalleryTeaser() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="font-sans text-[15px] text-[var(--color-cream-muted)] max-w-2xl mx-auto italic"
           >
-            500+ celebrations across Lonavla, Goa, Udaipur, Jaipur & Mumbai. Seamless turnkey execution behind every detail.
+            500+ celebrations across Lonavala, Goa, Udaipur, Jaipur & Mumbai. Seamless turnkey execution behind every detail.
           </motion.p>
         </div>
 

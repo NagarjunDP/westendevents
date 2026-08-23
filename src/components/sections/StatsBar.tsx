@@ -5,7 +5,7 @@ import { Award, MapPin, Users, ShieldCheck, Calendar, Sparkles } from "lucide-re
 
 export function StatsBar() {
   const locations = [
-    "Lonavala",
+    "Lonavla",
     "Pune",
     "Mahabaleshwar",
     "Karjat",

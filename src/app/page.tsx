@@ -13,14 +13,14 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 
 export const metadata: Metadata = {
-  title: "Westend Events | Luxury Wedding & Event Management in Lonavala, Pune, Goa & Rajasthan",
-  description: "India's most trusted luxury event company based in Lonavala. Destination weddings for foreigners & NRIs, local luxury weddings, corporate events & concerts. In-house production — décor, JBL VRX sound, special effects, anchors. Serving Lonavala, Mumbai, Pune, Goa, Udaipur, Jaipur & beyond.",
+  title: "Westend Events | Luxury Wedding & Event Management in Lonavla, Pune, Goa & Rajasthan",
+  description: "India's most trusted luxury event company based in Lonavla. Destination weddings for foreigners & NRIs, local luxury weddings, corporate events & concerts. In-house production — décor, JBL VRX sound, special effects, anchors. Serving Lonavla, Mumbai, Pune, Goa, Udaipur, Jaipur & beyond.",
   alternates: {
     canonical: "https://www.westendevent.com",
   },
   openGraph: {
-    title: "Westend Events | Luxury Wedding & Event Management in Lonavala, Pune, Goa & Rajasthan",
-    description: "India's most trusted luxury event company based in Lonavala. Destination weddings for foreigners & NRIs, local luxury weddings, corporate events & concerts.",
+    title: "Westend Events | Luxury Wedding & Event Management in Lonavla, Pune, Goa & Rajasthan",
+    description: "India's most trusted luxury event company based in Lonavla. Destination weddings for foreigners & NRIs, local luxury weddings, corporate events & concerts.",
     images: ["/205A4188.jpg"]
   }
 };
@@ -32,15 +32,15 @@ const faqs = [
   },
   {
     question: "What is the best place for destination wedding near Mumbai?",
-    answer: "Lonavala, Karjat, and Khopoli are the premier destinations near Mumbai. They offer lush resorts, misty hills, and beautiful farmhouses perfect for intimate to grand weddings, all within a 2-hour drive."
+    answer: "Lonavla, Karjat, and Khopoli are the premier destinations near Mumbai. They offer lush resorts, misty hills, and beautiful farmhouses perfect for intimate to grand weddings, all within a 2-hour drive."
   },
   {
     question: "Does Westend Events provide in-house decoration and sound?",
     answer: "Yes, this is our biggest differentiator. We own our entire decoration inventory and JBL VRX sound systems. We do not outsource, ensuring 100% quality control."
   },
   {
-    question: "Can international couples get married in Lonavala or Goa?",
-    answer: "Absolutely. We specialize in royal Indian ceremonies for international and NRI couples in both the scenic hills of Lonavala and the tropical beaches of Goa."
+    question: "Can international couples get married in Lonavla or Goa?",
+    answer: "Absolutely. We specialize in royal Indian ceremonies for international and NRI couples in both the scenic hills of Lonavla and the tropical beaches of Goa."
   }
 ];
 
@@ -49,8 +49,8 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Westend Events",
-    "description": "Luxury event management company based in Lonavala offering destination weddings, local weddings, corporate events, brand activations and concerts with in-house production.",
-    "areaServed": ["Lonavala", "Khopoli", "Karjat", "Pune", "Mumbai", "Igatpuri", "Mahabaleshwar", "Goa", "Udaipur", "Jaipur", "India"],
+    "description": "Luxury event management company based in Lonavla offering destination weddings, local weddings, corporate events, brand activations and concerts with in-house production.",
+    "areaServed": ["Lonavla", "Khopoli", "Karjat", "Pune", "Mumbai", "Igatpuri", "Mahabaleshwar", "Goa", "Udaipur", "Jaipur", "India"],
     "serviceType": ["Destination Wedding Planning", "Luxury Wedding Management", "Corporate Event Management", "Brand Activation", "Concert Production"],
     "hasOfferCatalog": ["In-house Decoration", "JBL VRX Sound System", "Special Effects", "Anchor and Artist Management"],
     "geo": {
@@ -60,7 +60,7 @@ export default function Home() {
     },
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Lonavala",
+      "addressLocality": "Lonavla",
       "addressRegion": "Maharashtra",
       "addressCountry": "IN"
     },
