@@ -39,7 +39,7 @@ export function ServicesBentoGrid() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-brand-gold)]/10 border border-[var(--color-brand-gold)]/30 text-[var(--color-brand-gold)] text-[11px] font-mono font-bold tracking-[0.25em] uppercase mb-6"
           >
             <Sparkles size={14} />
-            <span>TWO DISTINCT EXPERIENCES</span>
+            <span>OUR EXPERTISE</span>
           </motion.div>
 
           <motion.h2
@@ -133,25 +133,25 @@ export function ServicesBentoGrid() {
           className="bg-[#0E0A07] text-[#FAF6EF] border-2 border-[var(--color-brand-gold)]/40 rounded-3xl overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-0"
         >
           {/* Left Side: Structured Corporate Services List */}
-          <div className="lg:col-span-5 p-8 sm:p-12 bg-[#140F0B] flex flex-col justify-between space-y-8 order-2 lg:order-1 border-t lg:border-t-0 lg:border-r border-[#261E16]">
-            <div className="space-y-6">
+          <div className="lg:col-span-5 p-6 sm:p-10 lg:p-12 bg-[#140F0B] flex flex-col justify-between space-y-6 sm:space-y-8 order-2 lg:order-1 border-t lg:border-t-0 lg:border-r border-[#261E16]">
+            <div className="space-y-5 sm:space-y-6">
               <div>
-                <span className="text-xs font-mono text-[var(--color-brand-gold)] uppercase tracking-[0.25em] font-bold block mb-2">
-                  ROUTE 02
+                <span className="text-[10px] sm:text-xs font-mono text-[var(--color-brand-gold)] uppercase tracking-[0.25em] font-bold block mb-1.5">
+                  CORPORATE SOLUTIONS
                 </span>
-                <h3 className="font-serif text-3xl md:text-4xl text-white font-bold">
+                <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white font-bold">
                   Corporate Experiences
                 </h3>
               </div>
 
-              <p className="text-sm text-[#C0B0A0] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#C0B0A0] leading-relaxed">
                 Scale, precision, and technical execution. Complete turnkey corporate management with in-house JBL sound, intelligent stage lighting, LED video walls, and custom stall fabrications.
               </p>
 
-              <ul className="space-y-3 pt-2">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5 sm:gap-3 pt-1">
                 {corporateServices.map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-sm font-semibold text-white">
-                    <CheckCircle2 size={18} className="text-[var(--color-brand-gold)] shrink-0" />
+                  <li key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-white">
+                    <CheckCircle2 size={16} className="text-[var(--color-brand-gold)] shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -161,7 +161,7 @@ export function ServicesBentoGrid() {
             <div className="pt-4 border-t border-[#261E16]">
               <Link
                 href="/services#corporate"
-                className="inline-flex items-center justify-center gap-3 bg-[var(--color-brand-gold)] text-[#0E0A07] hover:bg-white hover:text-[#0E0A07] transition-all duration-300 px-8 py-4 rounded-xl font-mono text-xs font-bold uppercase tracking-[0.2em] w-full shadow-lg"
+                className="inline-flex items-center justify-center gap-2 bg-[var(--color-brand-gold)] text-[#0E0A07] hover:bg-white hover:text-[#0E0A07] transition-all duration-300 px-6 py-3.5 rounded-xl font-mono text-xs font-bold uppercase tracking-[0.16em] w-full shadow-lg text-center"
               >
                 <span>Explore Corporate →</span>
               </Link>

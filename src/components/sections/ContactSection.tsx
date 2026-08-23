@@ -118,7 +118,7 @@ export function ContactSection() {
               Let's create something <span className="text-[var(--color-brand-gold)] italic font-light">extraordinary.</span>
             </h2>
             <p className="font-sans text-[16px] text-[#4A3E31] leading-relaxed mb-12">
-              Whether you're planning a royal destination wedding or a massive corporate conference, our in-house production team is ready to bring your vision to life. No outsourcing. No compromises.
+              Whether you're planning a royal destination wedding or a large-scale corporate conference, our in-house production team is ready to bring your vision to life. No outsourcing. No compromises.
             </p>
 
             <div className="flex flex-col gap-8">
@@ -212,6 +212,31 @@ export function ContactSection() {
               <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-[var(--color-brand-gold)]" />
               <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[var(--color-brand-gold)]" />
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[var(--color-brand-gold)]" />
+
+              {/* Google Rating Proof Badge */}
+              <div className="mb-6 p-4 rounded-xl bg-[#FAF6EF] border border-[var(--color-brand-gold)]/30 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-white border border-[#4285F4]/30 flex items-center justify-center font-bold text-lg text-[#4285F4] shadow-sm">
+                    G
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1 text-amber-500 font-bold text-xs">
+                      <span>★ 4.9 / 5.0</span>
+                      <span className="text-[#4A3E31] font-normal">• 100+ Verified Reviews</span>
+                    </div>
+                    <span className="text-[11px] text-[#4A3E31] font-mono block">Google Business Profile • Lonavala & Pune</span>
+                  </div>
+                </div>
+
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Westend+Events+Lonavala" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hidden sm:inline-flex text-[11px] font-mono text-[#4285F4] font-bold hover:underline"
+                >
+                  Verify Reviews →
+                </a>
+              </div>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 

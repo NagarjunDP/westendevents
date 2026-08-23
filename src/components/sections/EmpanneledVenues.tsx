@@ -8,30 +8,30 @@ export function EmpanneledVenues() {
     {
       name: "Maharaja Agrasen Palace",
       location: "Lonavala",
-      tagline: "Official Empanneled Event Partner",
+      tagline: "Official Empanelled Event Partner",
       type: "Royal Palace & Heritage Banquets",
-      badge: "Empanneled Partner"
+      badge: "Empanelled Partner"
     },
     {
       name: "Ovis Holiday Resort",
       location: "Lonavala",
-      tagline: "Official Empanneled Production Partner",
+      tagline: "Official Empanelled Production Partner",
       type: "Luxury Resort & Scenic Lawns",
-      badge: "Empanneled Partner"
+      badge: "Empanelled Partner"
     },
     {
       name: "Upperdeck Resort",
       location: "Lonavala",
-      tagline: "Official Empanneled Event Partner",
+      tagline: "Official Empanelled Event Partner",
       type: "Hilltop Luxury Resort & Open-Air Venues",
-      badge: "Empanneled Partner"
+      badge: "Empanelled Partner"
     },
     {
       name: "The Orchid Lonavala",
       location: "Lonavala",
-      tagline: "Official Empanneled Event Partner",
+      tagline: "Official Empanelled Event Partner",
       type: "5-Star Luxury Eco Resort",
-      badge: "Empanneled Partner"
+      badge: "Empanelled Partner"
     }
   ];
 
@@ -59,7 +59,7 @@ export function EmpanneledVenues() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-serif text-3xl md:text-5xl text-[#0E0A07] font-bold"
           >
-            Officially Empanneled With Premier <span className="text-[var(--color-brand-gold)] italic font-light">Lonavala Resorts.</span>
+            Officially Empanelled With Premier <span className="text-[var(--color-brand-gold)] italic font-light">Lonavala Resorts.</span>
           </motion.h2>
 
           <motion.p

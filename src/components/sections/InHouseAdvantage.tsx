@@ -80,7 +80,7 @@ export function InHouseAdvantage() {
               className="inline-flex items-center gap-2 bg-[var(--color-brand-gold)] text-[#0E0A07] hover:bg-white transition-colors duration-300 px-8 py-4 rounded-xl font-mono text-xs font-bold uppercase tracking-[0.2em] shadow-xl"
             >
               <ShieldCheck size={16} />
-              <span>Experience Zero-Outsource Production</span>
+              <span>Experience Our In-House Advantage</span>
             </Link>
           </div>
         </motion.div>

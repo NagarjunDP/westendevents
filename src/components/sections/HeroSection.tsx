@@ -30,13 +30,12 @@ export function HeroSection() {
             MOBILE LAYOUT (Full Bleed Background 9:16)
             ========================================= */}
         <div className="absolute inset-0 md:hidden z-0 overflow-hidden bg-black flex items-center justify-center">
-           {/* Fast-loading Poster Image */}
+           {/* Anchor Mic Photo Background */}
            <div 
-             className="absolute inset-0 bg-[url('/Video-44267-mobile-poster.jpg')] bg-cover bg-center transition-opacity duration-700"
-             style={{ opacity: isMobileVideoLoaded ? 0.3 : 1 }}
+             className="absolute inset-0 bg-[url('/205A4188.jpg')] bg-cover bg-center transition-opacity duration-700 opacity-80"
            />
 
-           {/* High-Performance Native Mobile Video (Trimmed at 3s, Instant Playback) */}
+           {/* High-Performance Native Mobile Video */}
            <video
              ref={mobileVideoRef}
              autoPlay
@@ -44,11 +43,11 @@ export function HeroSection() {
              muted
              playsInline
              preload="auto"
-             poster="/Video-44267-mobile-poster.jpg"
+             poster="/205A4188.jpg"
              onLoadedData={() => setIsMobileVideoLoaded(true)}
              onCanPlay={() => setIsMobileVideoLoaded(true)}
              className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-700 ${
-               isMobileVideoLoaded ? 'opacity-85' : 'opacity-85'
+               isMobileVideoLoaded ? 'opacity-70' : 'opacity-70'
              }`}
            >
              <source src="/mobile-hero-fast.mp4" type="video/mp4" />
@@ -92,30 +91,30 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[10px] sm:text-[11px] md:text-[12px] font-mono tracking-[0.18em] uppercase text-[var(--color-brand-gold)] mb-2 block font-bold leading-normal"
+            className="text-[10px] sm:text-[11px] md:text-[12px] font-mono tracking-[0.2em] uppercase text-[var(--color-brand-gold)] mb-2 block font-bold leading-normal"
           >
-            LUXURY WEDDINGS. POWERFUL CORPORATE EXPERIENCES.
+            LUXURY WEDDINGS & CORPORATE EXPERIENCES
           </motion.span>
           
-          {/* Headline H1 (Sleek Desktop Font Scaling) */}
+          {/* Headline H1 */}
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-3 sm:mb-4 md:mb-5 leading-[1.18] sm:leading-[1.15] text-white tracking-tight"
+            className="font-serif text-3xl sm:text-5xl md:text-6xl font-medium mb-4 sm:mb-5 leading-tight text-white tracking-tight"
           >
-            Unforgettable Celebrations <br className="hidden sm:block"/>
-            <span className="italic font-light text-[var(--color-brand-gold)] font-serif text-xl sm:text-3xl md:text-4xl block mt-1">
-              "Flawless in-house production for extraordinary luxury weddings."
+            Unforgettable Celebrations
+            <span className="italic font-light text-[var(--color-brand-gold)] font-serif text-base sm:text-2xl md:text-3xl block mt-2 leading-relaxed">
+              "Flawless in-house production for extraordinary luxury events."
             </span>
           </motion.h1>
 
-          {/* Sub-headline Paragraph */}
+          {/* Sub-headline Paragraph (Shown on Tablet/Desktop for zero mobile clutter) */}
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-            className="font-sans text-xs sm:text-sm md:text-base lg:text-lg font-light leading-relaxed mb-5 sm:mb-6 max-w-3xl text-gray-200"
+            className="hidden sm:block font-sans text-sm md:text-base lg:text-lg font-light leading-relaxed mb-6 max-w-3xl text-gray-200"
           >
             From destination weddings to corporate events, Westend Events delivers creative concepts, complete in-house production and seamless execution across India.
           </motion.p>
@@ -125,7 +124,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-5 sm:mb-6"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-6 pt-1 sm:pt-0"
           >
             <button
               onClick={() => {
@@ -137,7 +136,7 @@ export function HeroSection() {
                   window.location.href = "/#contact";
                 }
               }}
-              className="bg-[var(--color-brand-gold)] text-[#0E0A07] hover:bg-white transition-colors duration-300 px-6 sm:px-7 py-3 sm:py-3.5 text-[11px] sm:text-[12px] font-mono font-bold tracking-[0.15em] sm:tracking-[0.18em] uppercase shadow-xl text-center rounded-xl cursor-pointer"
+              className="bg-[var(--color-brand-gold)] text-[#0E0A07] hover:bg-white transition-colors duration-300 px-6 sm:px-7 py-3 sm:py-3.5 text-[11px] sm:text-[12px] font-mono font-bold tracking-[0.16em] uppercase shadow-xl text-center rounded-xl cursor-pointer"
             >
               Plan Your Wedding
             </button>
@@ -152,18 +151,18 @@ export function HeroSection() {
                   window.location.href = "/#contact";
                 }
               }}
-              className="border border-white/40 bg-black/40 backdrop-blur-md text-white hover:bg-white hover:text-[#0E0A07] transition-colors duration-300 px-6 sm:px-7 py-3 sm:py-3.5 text-[11px] sm:text-[12px] font-mono font-bold tracking-[0.15em] sm:tracking-[0.18em] uppercase text-center rounded-xl cursor-pointer"
+              className="border border-white/40 bg-black/40 backdrop-blur-md text-white hover:bg-white hover:text-[#0E0A07] transition-colors duration-300 px-6 sm:px-7 py-3 sm:py-3.5 text-[11px] sm:text-[12px] font-mono font-bold tracking-[0.16em] uppercase text-center rounded-xl cursor-pointer"
             >
               Plan Your Corporate Event
             </button>
           </motion.div>
 
-          {/* Underneath Capabilities Bar */}
+          {/* Underneath Capabilities Bar (Desktop & Tablet) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="pt-3 sm:pt-4 border-t border-white/20 flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 text-[11px] sm:text-xs md:text-sm font-mono text-[var(--color-brand-gold)] font-medium text-center sm:text-left"
+            className="hidden sm:flex pt-4 border-t border-white/20 flex-wrap items-center justify-start gap-3 text-xs md:text-sm font-mono text-[var(--color-brand-gold)] font-medium"
           >
             <span>JBL VRX Sound Systems</span>
             <span className="text-white/40">|</span>

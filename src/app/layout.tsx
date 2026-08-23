@@ -65,6 +65,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { SmoothScrollProvider } from "@/components/theme/SmoothScrollProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -76,14 +78,16 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased text-[17px] sm:text-[18px]`}
     >
       <body className="min-h-full flex flex-col leading-[1.7]">
-        <DynamicThemeFont />
-        <AnalyticsTracker />
-        <ExclusiveOfferPopup />
-        <Preloader />
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <FloatingContact />
+        <SmoothScrollProvider>
+          <DynamicThemeFont />
+          <AnalyticsTracker />
+          <ExclusiveOfferPopup />
+          <Preloader />
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <FloatingContact />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

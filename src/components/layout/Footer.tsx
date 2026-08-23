@@ -229,7 +229,7 @@ export function Footer() {
               OFFICE & STUDIO INFRASTRUCTURE
             </span>
             <h3 className="font-serif text-2xl md:text-3xl text-white font-bold">
-              Empanneled Locations & Warehouses
+              Empanelled Locations & Warehouses
             </h3>
           </div>
 

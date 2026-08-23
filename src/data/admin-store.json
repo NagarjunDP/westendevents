@@ -1,16 +1,16 @@
 {
   "analytics": {
-    "totalViews": 53,
+    "totalViews": 56,
     "refreshCount": 0,
     "uniqueVisitors": 1,
     "visitorIds": [
       "v_1787369471736_ttqeg4f"
     ],
-    "viewsToday": 53,
-    "viewsThisWeek": 53,
-    "viewsThisMonth": 53,
+    "viewsToday": 56,
+    "viewsThisWeek": 56,
+    "viewsThisMonth": 56,
     "pageViews": {
-      "/": 30,
+      "/": 33,
       "/x-admin-portal": 3,
       "/westendevents_admin-portal": 1,
       "/about": 3,
@@ -19,13 +19,17 @@
     },
     "deviceDistribution": {
       "mobile": 23,
-      "desktop": 30,
+      "desktop": 33,
       "tablet": 0
     },
     "history": [
       {
         "date": "2026-08-22",
         "views": 53
+      },
+      {
+        "date": "2026-08-23",
+        "views": 3
       }
     ]
   },
