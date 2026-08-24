@@ -56,7 +56,7 @@ export function ContactSection() {
           `✉️ *Email:* ${formData.email}\n` +
           `📅 *Event Date:* ${formData.date || "TBD"}\n` +
           `🎉 *Event Type:* ${formData.type}\n` +
-          `📍 *Location:* ${formData.location || "Lonavala / TBD"}\n` +
+          `📍 *Location:* ${formData.location || "Lonavla / TBD"}\n` +
           `👥 *Guest Count:* ${formData.guestCount || "TBD"}\n` +
           `💰 *Approx. Budget:* ${formData.budget || "Flexible"}\n` +
           `💬 *Details:* ${formData.message}`;

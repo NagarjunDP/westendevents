@@ -148,7 +148,7 @@ export function ServicesClient() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="font-sans text-[16px] md:text-[18px] text-gray-300 max-w-[800px] mx-auto leading-relaxed"
           >
-            Based in <strong className="text-white">Lonavala and Pune</strong>, Westend Events owns 100% in-house decor inventory, JBL VRX Sound Systems, Technical AV, LED Screens, Special Entries, and SFX for extraordinary celebrations across India.
+            Based in <strong className="text-white">Lonavla and Pune</strong>, Westend Events owns 100% in-house decor inventory, JBL VRX Sound Systems, Technical AV, LED Screens, Special Entries, and SFX for extraordinary celebrations across India.
           </motion.p>
 
           {/* Interactive Category Selector Tabs */}
@@ -291,7 +291,7 @@ export function ServicesClient() {
         >
           <h2 className="font-serif text-3xl md:text-5xl text-white">We Create. You Celebrate.</h2>
           <p className="font-sans text-gray-300 max-w-[600px] mx-auto leading-relaxed">
-            Contact Westend Events today to schedule a meeting at our Lonavala or Pune office, or book a video consultation for international NRI clients.
+            Contact Westend Events today to schedule a meeting at our Lonavla or Pune office, or book a video consultation for international NRI clients.
           </p>
           <div>
             <Link 

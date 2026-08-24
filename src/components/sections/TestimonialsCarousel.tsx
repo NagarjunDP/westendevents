@@ -1,10 +1,51 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, ExternalLink } from "lucide-react";
+
+export interface Testimonial {
+  text: string;
+  author: string;
+  meta: string;
+  rating: number;
+  googleReviewUrl?: string;
+  isGoogleReview?: boolean;
+}
 
 export function TestimonialsCarousel() {
-  const testimonials = [
+  const testimonials: Testimonial[] = [
+    {
+      text: "A huge thank you to the Westend Events team for making our celebration better than imagined. What touched us most was their personal involvement — they handled everything like family! The décor was stunning, arrangements on point, and staff polite and coordinated.",
+      author: "Tajammul Kazi",
+      meta: "Verified Google Review · 5 Stars",
+      rating: 5,
+      isGoogleReview: true,
+      googleReviewUrl: "https://www.google.com/maps/contrib/103236144724626609074/reviews?hl=en-GB"
+    },
+    {
+      text: "Westend Events turned our dream celebration into reality! Warm, transparent, and extremely professional. The décor, guest handling, and last-minute adjustments were handled with so much care and perfection. Highly, highly recommended!",
+      author: "Ashwini Kotasthane",
+      meta: "Google Local Guide (15 Reviews) · 5 Stars",
+      rating: 5,
+      isGoogleReview: true,
+      googleReviewUrl: "https://www.google.com/maps/contrib/114604049785360873359/reviews?hl=en-GB"
+    },
+    {
+      text: "We had an amazing experience with Westend Events! The team took care of everything from start to finish with attention to detail. The décor was stunning, matching our theme perfectly, and management was smooth and stress-free.",
+      author: "Ravindra Kamble",
+      meta: "Verified Google Review · 5 Stars",
+      rating: 5,
+      isGoogleReview: true,
+      googleReviewUrl: "https://www.google.com/maps/contrib/104966247915137286966/reviews?hl=en-GB"
+    },
+    {
+      text: "Westend Events organized the 50th Marriage Anniversary of our parents. It was the best gift we could give them! The event was a huge success and everyone in our family had the greatest experience.",
+      author: "Reetu Jain",
+      meta: "Verified Google Review (14 Reviews) · 5 Stars",
+      rating: 5,
+      isGoogleReview: true,
+      googleReviewUrl: "https://www.google.com/maps/contrib/102216003625701023073/reviews?hl=en-GB"
+    },
     {
       text: "Westend Events executed my son's wedding with extraordinary grandeur and precision. Their in-house decor team, original JBL VRX sound, and SFX made the entire celebration unforgettable.",
       author: "Kanwaljit Singh (Actor)",
@@ -15,24 +56,6 @@ export function TestimonialsCarousel() {
       text: "We flew in from Toronto with 180 guests and didn't have to worry about a single thing. The décor, sound, and coordination were flawless — it felt like a Bollywood film brought to life.",
       author: "Natasha & Arjun S.",
       meta: "NRI Destination Wedding · Lonavla",
-      rating: 5
-    },
-    {
-      text: "As an American bride marrying into an Indian family, I was overwhelmed. Westend Events held our hand through every ritual and detail. Truly end-to-end — they meant it.",
-      author: "Emily & Rohan M.",
-      meta: "Foreigner & NRI Fusion Wedding · Goa",
-      rating: 5
-    },
-    {
-      text: "Their JBL sound system and in-house production team was the best we've experienced for our annual corporate convention. Punctual, professional, and world-class.",
-      author: "Event Chairperson, JITO Lead",
-      meta: "Corporate & Social Convention · Mumbai",
-      rating: 5
-    },
-    {
-      text: "The decor at Maharaja Agrasen Palace was stunning beyond words. From Mandap lighting to entry fireworks, Westend Events delivered 10/10 perfection.",
-      author: "Dr. Vikram & Sneha K.",
-      meta: "Luxury Palace Wedding · Lonavala",
       rating: 5
     }
   ];
@@ -50,9 +73,9 @@ export function TestimonialsCarousel() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="eyebrow block mb-3 font-mono font-bold tracking-[0.25em]"
+          className="eyebrow inline-flex items-center gap-2 mb-3 font-mono font-bold tracking-[0.25em]"
         >
-          CLIENT EXPERIENCES & STORIES
+          <span>REAL GOOGLE REVIEWS & STORIES</span>
         </motion.span>
 
         <motion.h2 
@@ -62,7 +85,7 @@ export function TestimonialsCarousel() {
           transition={{ duration: 0.7 }}
           className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#0E0A07] font-medium leading-tight max-w-3xl mx-auto"
         >
-          Trusted by Couples & Brands Across the World
+          Trusted by Families, Couples & Brands
         </motion.h2>
       </div>
 
@@ -78,18 +101,28 @@ export function TestimonialsCarousel() {
           {marqueeTestimonials.map((t, idx) => (
             <div 
               key={idx}
-              className="w-[290px] sm:w-[350px] md:w-[400px] bg-white p-6 sm:p-8 border border-[#EADBCE] rounded-2xl flex flex-col justify-between items-start text-left shadow-xs hover:shadow-xl hover:border-[var(--color-brand-gold)] transition-all duration-300 shrink-0 relative group"
+              className="w-[300px] sm:w-[360px] md:w-[410px] bg-white p-6 sm:p-8 border border-[#EADBCE] rounded-2xl flex flex-col justify-between items-start text-left shadow-xs hover:shadow-xl hover:border-[var(--color-brand-gold)] transition-all duration-300 shrink-0 relative group"
             >
               {/* Decorative Gold Quotation Mark */}
               <div className="absolute top-3 right-5 font-serif text-[60px] leading-none text-[var(--color-brand-gold)] opacity-20 select-none pointer-events-none group-hover:opacity-40 transition-opacity">
                 “
               </div>
 
-              {/* Star Rating Header */}
-              <div className="flex items-center gap-1 mb-4 text-amber-500">
-                {[...Array(t.rating)].map((_, i) => (
-                  <Star key={i} size={15} fill="currentColor" />
-                ))}
+              {/* Star Rating Header + Google Badge */}
+              <div className="flex items-center justify-between w-full mb-4">
+                <div className="flex items-center gap-1 text-amber-500">
+                  {[...Array(t.rating)].map((_, i) => (
+                    <Star key={i} size={15} fill="currentColor" />
+                  ))}
+                </div>
+                {t.isGoogleReview && (
+                  <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-wider text-[#4285F4] bg-[#4285F4]/10 px-2 py-0.5 rounded-md border border-[#4285F4]/30">
+                    <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 15.907 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+                    </svg>
+                    <span>Google Review</span>
+                  </span>
+                )}
               </div>
 
               {/* Review Paragraph */}
@@ -97,14 +130,28 @@ export function TestimonialsCarousel() {
                 "{t.text}"
               </p>
 
-              {/* Author & Event Location Metadata */}
-              <div className="relative z-10 pt-4 border-t border-[#F2E8DD] w-full">
-                <div className="font-serif text-sm font-bold text-[#0E0A07] group-hover:text-[var(--color-brand-gold)] transition-colors">
-                  {t.author}
+              {/* Author & Metadata */}
+              <div className="relative z-10 pt-4 border-t border-[#F2E8DD] w-full flex items-center justify-between">
+                <div>
+                  <div className="font-serif text-sm font-bold text-[#0E0A07] group-hover:text-[var(--color-brand-gold)] transition-colors">
+                    {t.author}
+                  </div>
+                  <div className="font-mono text-[10px] sm:text-[11px] text-[#8A7663] font-semibold uppercase tracking-wider mt-0.5">
+                    {t.meta}
+                  </div>
                 </div>
-                <div className="font-mono text-[10px] sm:text-[11px] text-[#8A7663] font-semibold uppercase tracking-wider mt-0.5">
-                  {t.meta}
-                </div>
+
+                {t.googleReviewUrl && (
+                  <a
+                    href={t.googleReviewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-[#FAF6EF] text-[#4285F4] hover:bg-[#4285F4] hover:text-white transition-colors"
+                    title="View Original Google Review"
+                  >
+                    <ExternalLink size={14} />
+                  </a>
+                )}
               </div>
             </div>
           ))}

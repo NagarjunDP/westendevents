@@ -1,25 +1,26 @@
 {
   "analytics": {
-    "totalViews": 57,
+    "totalViews": 65,
     "refreshCount": 0,
-    "uniqueVisitors": 1,
+    "uniqueVisitors": 2,
     "visitorIds": [
-      "v_1787369471736_ttqeg4f"
+      "v_1787369471736_ttqeg4f",
+      "v_1787596916111_a0qdanq"
     ],
-    "viewsToday": 57,
-    "viewsThisWeek": 57,
-    "viewsThisMonth": 57,
+    "viewsToday": 65,
+    "viewsThisWeek": 65,
+    "viewsThisMonth": 65,
     "pageViews": {
-      "/": 34,
+      "/": 37,
       "/x-admin-portal": 3,
       "/westendevents_admin-portal": 1,
-      "/about": 3,
+      "/about": 4,
       "/services": 10,
-      "/gallery": 6
+      "/gallery": 10
     },
     "deviceDistribution": {
       "mobile": 23,
-      "desktop": 34,
+      "desktop": 42,
       "tablet": 0
     },
     "history": [
@@ -30,6 +31,10 @@
       {
         "date": "2026-08-23",
         "views": 4
+      },
+      {
+        "date": "2026-08-24",
+        "views": 8
       }
     ]
   },

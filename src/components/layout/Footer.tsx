@@ -5,7 +5,7 @@ import { MapPin, Phone, Mail, ExternalLink, Navigation } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const destinations = [
-  "Lonavala", "Pune",
+  "Lonavla", "Pune",
   "Goa", "Mahabaleshwar", "Karjat", "Khopoli", "Igatpuri", "Mumbai", "Udaipur", "Jaipur"
 ];
 
@@ -36,7 +36,7 @@ export function Footer() {
               Ready to Plan Your <span className="text-[var(--color-brand-gold)] italic font-light">Extraordinary Event?</span>
             </h3>
             <p className="text-xs sm:text-sm text-gray-300 font-light max-w-xl">
-              100% In-House Decor, Original JBL VRX Sound Systems, SFX & Full Production. Based in Lonavala & Pune.
+              100% In-House Decor, Original JBL VRX Sound Systems, SFX & Full Production. Based in Lonavla & Pune.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export function Footer() {
               <img src="/logo.png" alt="Westend Events" className="h-14 w-auto object-contain drop-shadow-[0_4px_12px_rgba(201,168,76,0.2)]" />
             </Link>
             <p className="text-xs text-gray-300 leading-relaxed max-w-xs font-light">
-              India's premier luxury event management & in-house production company based in Lonavala and Pune. Specializing in destination weddings, corporate summits & concerts.
+              India's premier luxury event management & in-house production company based in Lonavla and Pune. Specializing in destination weddings, corporate summits & concerts.
             </p>
 
             {/* Social Links Badges */}
@@ -272,7 +272,7 @@ export function Footer() {
                 </a>
 
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Westend+Events+Bhangarwadi+Lonavala+Maharashtra+410401"
+                  href="https://www.google.com/maps/search/?api=1&query=Westend+Events+Bhangarwadi+Lonavla+Maharashtra+410401"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#4285F4]/15 border border-[#4285F4]/40 text-[#4285F4] hover:bg-[#4285F4] hover:text-white text-[11px] font-mono font-bold transition-all duration-300 shadow-sm"

@@ -23,7 +23,7 @@ export function PreFooterCTA() {
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-[11px] text-[var(--color-brand-gold)] uppercase tracking-[0.3em] mb-6 mobile-center"
         >
-          Lonavala · Pune · Mumbai · Goa · Udaipur · Jaipur
+          Lonavla · Pune · Mumbai · Goa · Udaipur · Jaipur
         </motion.div>
         
         <motion.h2 

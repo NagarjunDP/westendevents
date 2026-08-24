@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Sparkles, CheckCircle2, ArrowRight, Heart, Award, ShieldCheck, Globe, Phone, Star, Mic } from "lucide-react";
 
+import { getCdnUrl } from "@/lib/cdn";
+
 export function AboutSection() {
   const servicesList = [
     "Wedding Planning",
@@ -125,49 +127,76 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="space-y-6 text-[#4A3E31] text-[15px] sm:text-[16px] leading-relaxed">
-            <p>
-              <strong className="text-[#0E0A07]">Asha Agarwal</strong> is a dynamic entrepreneur and the creative force behind <strong className="text-[#0E0A07]">Westend Events</strong>, one of the leading event and wedding planning companies serving Lonavla, Pune, and destinations across India.
-            </p>
-
-            {/* Honors & Recognitions Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-              <div className="p-4 rounded-2xl bg-[#FAF6EF] border border-[#EADBCE] space-y-2">
-                <Award size={24} className="text-[var(--color-brand-gold)]" />
-                <h4 className="font-serif font-bold text-[#0E0A07] text-sm">Best Wedding Planner</h4>
-                <p className="text-xs text-[#6A5A4A]">Honored with the <em>"Best Wedding Planner in Town"</em> award by the Western Eastern Maharashtra Forum.</p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[#FAF6EF] border border-[#EADBCE] space-y-2">
-                <Mic size={24} className="text-[var(--color-brand-gold)]" />
-                <h4 className="font-serif font-bold text-[#0E0A07] text-sm">Guest Speaker</h4>
-                <p className="text-xs text-[#6A5A4A]">Invited to share her entrepreneurial journey on <em>"Women Leading Businesses in the Event Industry"</em>.</p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[#FAF6EF] border border-[#EADBCE] space-y-2">
-                <Star size={24} className="text-[var(--color-brand-gold)]" />
-                <h4 className="font-serif font-bold text-[#0E0A07] text-sm">Industry Felicitations</h4>
-                <p className="text-xs text-[#6A5A4A]">Felicitation at <strong>The Westin Goa</strong> for outstanding contributions to the wedding & events industry.</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            {/* Founder Portrait Photo (Optimized for Mobile & Desktop) */}
+            <div className="lg:col-span-4 flex flex-col items-center">
+              <div className="relative group w-full max-w-[300px] lg:max-w-none aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-2 border-[var(--color-brand-gold)] bg-[#FAF6EF]">
+                <img
+                  src={getCdnUrl("/aboutasha.jpeg")}
+                  alt="Asha Agarwal - Founder & Creative Director of Westend Events"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
+                <div className="absolute bottom-4 left-4 right-4 text-white text-center space-y-1 z-10">
+                  <span className="inline-block px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-[var(--color-brand-gold)] text-[#0E0A07] shadow-md">
+                    FOUNDER & CREATIVE DIRECTOR
+                  </span>
+                  <h4 className="font-serif text-xl font-bold text-white tracking-wide">
+                    Asha Agarwal
+                  </h4>
+                  <p className="text-[11px] text-[var(--color-brand-gold)] font-mono">
+                    Westend Events Lonavla & Pune
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#F4EDE2] border border-[var(--color-brand-gold)]/30 space-y-2">
-              <div className="flex items-center gap-2 font-mono font-bold text-xs text-[var(--color-brand-gold)] uppercase tracking-wider">
-                <CheckCircle2 size={16} />
-                <span>EXCELLENCE IN NUMBERS</span>
+            {/* Founder Bio & Details */}
+            <div className="lg:col-span-8 space-y-6 text-[#4A3E31] text-[15px] sm:text-[16px] leading-relaxed">
+              <p>
+                <strong className="text-[#0E0A07]">Asha Agarwal</strong> is a dynamic entrepreneur and the creative force behind <strong className="text-[#0E0A07]">Westend Events</strong>, one of the leading event and wedding planning companies serving Lonavla, Pune, and destinations across India.
+              </p>
+
+              {/* Honors & Recognitions Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                <div className="p-4 rounded-2xl bg-[#FAF6EF] border border-[#EADBCE] space-y-2">
+                  <Award size={24} className="text-[var(--color-brand-gold)]" />
+                  <h4 className="font-serif font-bold text-[#0E0A07] text-sm">Best Wedding Planner</h4>
+                  <p className="text-xs text-[#6A5A4A]">Honored with the <em>"Best Wedding Planner in Town"</em> award by the Western Eastern Maharashtra Forum.</p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-[#FAF6EF] border border-[#EADBCE] space-y-2">
+                  <Mic size={24} className="text-[var(--color-brand-gold)]" />
+                  <h4 className="font-serif font-bold text-[#0E0A07] text-sm">Guest Speaker</h4>
+                  <p className="text-xs text-[#6A5A4A]">Invited to share her entrepreneurial journey on <em>"Women Leading Businesses in the Event Industry"</em>.</p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-[#FAF6EF] border border-[#EADBCE] space-y-2">
+                  <Star size={24} className="text-[var(--color-brand-gold)]" />
+                  <h4 className="font-serif font-bold text-[#0E0A07] text-sm">Industry Felicitations</h4>
+                  <p className="text-xs text-[#6A5A4A]">Felicitation at <strong>The Westin Goa</strong> for outstanding contributions to the wedding & events industry.</p>
+                </div>
               </div>
-              <p className="text-sm sm:text-base text-[#0E0A07] font-medium">
-                Under her leadership, Westend Events has successfully executed <strong>30+ weddings in a single year with 100% positive client feedback</strong>, reflecting the company's unwavering focus on quality, creativity, and flawless execution.
+
+              <div className="p-5 rounded-2xl bg-[#F4EDE2] border border-[var(--color-brand-gold)]/30 space-y-2">
+                <div className="flex items-center gap-2 font-mono font-bold text-xs text-[var(--color-brand-gold)] uppercase tracking-wider">
+                  <CheckCircle2 size={16} />
+                  <span>EXCELLENCE IN NUMBERS</span>
+                </div>
+                <p className="text-sm sm:text-base text-[#0E0A07] font-medium">
+                  Under her leadership, Westend Events has successfully executed <strong>30+ weddings in a single year with 100% positive client feedback</strong>, reflecting the company's unwavering focus on quality, creativity, and flawless execution.
+                </p>
+              </div>
+
+              <p>
+                What sets Westend Events apart is its <strong className="text-[#0E0A07]">fully in-house execution team</strong>, comprising dedicated professionals for <em>Event Management, Production, Special Effects, Sound & Audio, and Technical Operations</em>. This integrated approach ensures complete quality control, seamless coordination, and unforgettable experiences for every celebration.
+              </p>
+
+              <p className="font-serif italic text-[#0E0A07] text-base sm:text-lg border-l-4 border-[var(--color-brand-gold)] pl-4 py-1">
+                "From intimate gatherings to grand luxury weddings and corporate events, Asha Agarwal continues to transform ideas into extraordinary celebrations, making every event a memorable experience."
               </p>
             </div>
-
-            <p>
-              What sets Westend Events apart is its <strong className="text-[#0E0A07]">fully in-house execution team</strong>, comprising dedicated professionals for <em>Event Management, Production, Special Effects, Sound & Audio, and Technical Operations</em>. This integrated approach ensures complete quality control, seamless coordination, and unforgettable experiences for every celebration.
-            </p>
-
-            <p className="font-serif italic text-[#0E0A07] text-base sm:text-lg border-l-4 border-[var(--color-brand-gold)] pl-4 py-1">
-              "From intimate gatherings to grand luxury weddings and corporate events, Asha Agarwal continues to transform ideas into extraordinary celebrations, making every event a memorable experience."
-            </p>
           </div>
         </motion.div>
 
@@ -185,12 +214,11 @@ export function AboutSection() {
             {/* Team Image Card */}
             <div className="relative group rounded-3xl overflow-hidden shadow-2xl border-2 border-[var(--color-brand-gold)]/40 p-2 bg-[#FAF6EF]">
               <div className="relative aspect-[4/3] sm:aspect-[16/10] w-full rounded-2xl overflow-hidden">
-                <Image
-                  src="/aboutsection.jpeg"
+                <img
+                  src={getCdnUrl("/aboutsection.jpeg")}
                   alt="Team Westend Events"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  priority
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-mono font-medium flex items-center justify-between">
@@ -198,7 +226,7 @@ export function AboutSection() {
                     👥 TEAM WESTEND
                   </span>
                   <span className="text-[var(--color-brand-gold)] font-semibold">
-                    Lonavala & Pune
+                    Lonavla & Pune
                   </span>
                 </div>
               </div>
@@ -236,7 +264,7 @@ export function AboutSection() {
                 Weddings & Destination Celebrations
               </h3>
               <p className="text-[15px] text-[#4A3E31] leading-relaxed">
-                Whether it is an intimate wedding in the hills of Lonavala, a grand celebration in Pune or a destination wedding away from home, we work closely with families to make the entire journey smooth and memorable.
+                Whether it is an intimate wedding in the hills of Lonavla, a grand celebration in Pune or a destination wedding away from home, we work closely with families to make the entire journey smooth and memorable.
               </p>
               <p className="text-[14px] text-[#4A3E31]/90 italic border-l-2 border-[var(--color-brand-gold)] pl-4 py-1">
                 "We understand that a wedding is more than an event — it is one of the most important celebrations for two families. That is why we focus equally on the details guests see and the countless details they never have to worry about."

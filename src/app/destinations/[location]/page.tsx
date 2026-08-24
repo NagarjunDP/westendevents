@@ -9,7 +9,7 @@ const lonavlaData = {
   serviceCategory: "Premium",
   hook: "Our home turf — most experience, fastest response, largest portfolio.",
   details: "As a Lonavla-based company, this is our home turf. We have executed hundreds of weddings at iconic venues like Della Resorts, Dukes Retreat, Fariyas, and Aamby Valley. Just a 90 to 120-minute drive from Mumbai or Pune, Lonavla offers the perfect hill-station and monsoon aesthetic for your big day, and nobody knows these venues better than we do.",
-  mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.04711153123!2d73.32551573215284!3d18.75133658514104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be801098bdf8145%3A0x696b4a60a5e28658!2sLonavala%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+  mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.04711153123!2d73.32551573215284!3d18.75133658514104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be801098bdf8145%3A0x696b4a60a5e28658!2sLonavla%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
   faqs: [
     { question: "How much does a destination wedding in Lonavla cost?", answer: "The cost varies, but typical luxury weddings start from ₹15 Lakhs for decor and production. Because we own all our inventory (JBL VRX, cold pyros), we provide better value by eliminating middleman markups." },
     { question: "Do you have tie-ups with resorts in Lonavla?", answer: "Yes, being locally based, we work closely with top-tier resorts like Della, Fariyas, and Dukes Retreat to ensure smooth logistics." },
