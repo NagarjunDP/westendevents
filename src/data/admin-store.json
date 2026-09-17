@@ -1,26 +1,29 @@
 {
   "analytics": {
-    "totalViews": 65,
+    "totalViews": 70,
     "refreshCount": 0,
     "uniqueVisitors": 2,
     "visitorIds": [
       "v_1787369471736_ttqeg4f",
       "v_1787596916111_a0qdanq"
     ],
-    "viewsToday": 65,
-    "viewsThisWeek": 65,
-    "viewsThisMonth": 65,
+    "viewsToday": 70,
+    "viewsThisWeek": 70,
+    "viewsThisMonth": 70,
     "pageViews": {
-      "/": 37,
+      "/": 39,
       "/x-admin-portal": 3,
       "/westendevents_admin-portal": 1,
       "/about": 4,
       "/services": 10,
-      "/gallery": 10
+      "/gallery": 10,
+      "/destination-weddings-for-nris": 1,
+      "/mehendi-ceremony-planner-pune": 1,
+      "/pune": 1
     },
     "deviceDistribution": {
       "mobile": 23,
-      "desktop": 42,
+      "desktop": 47,
       "tablet": 0
     },
     "history": [
@@ -35,6 +38,10 @@
       {
         "date": "2026-08-24",
         "views": 8
+      },
+      {
+        "date": "2026-09-17",
+        "views": 5
       }
     ]
   },
@@ -116,7 +123,7 @@
   "popup": {
     "enabled": true,
     "title": "Grand Wedding Season Offer",
-    "badge": "EXCLUSIVE FESTIVE OFFERrr",
+    "badge": "EXCLUSIVE FESTIVE OFFER",
     "subtitle": "Lonavla, Pune & Goa Luxury Packages",
     "description": "Book your luxury event & receive complimentary 100% In-House VRX Sound & Stage Pyros setup!",
     "perks": [
@@ -124,11 +131,11 @@
       "Complimentary JBL VRX Sound & Stage Pyros Setup",
       "Dedicated Senior Event Director for NRI Weddings"
     ],
-    "phone": "+91 99235 90037",
+    "phone": "+91 99235 90038",
     "email": "info@westendevent.com",
     "buttonText": "Plan Your Event",
     "buttonLink": "#contact",
     "effectStyle": "snow-flakes",
-    "showDelaySeconds": 1.5
+    "showDelaySeconds": 8
   }
 }

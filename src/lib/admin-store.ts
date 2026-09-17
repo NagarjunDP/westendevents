@@ -113,7 +113,7 @@ const DEFAULT_POPUP: PopupOfferConfig = {
   buttonText: "Plan Your Event",
   buttonLink: "#contact",
   effectStyle: "gold-flakes",
-  showDelaySeconds: 1.5,
+  showDelaySeconds: 8,
   fontFamily: "Cormorant Garamond"
 };
 

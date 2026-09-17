@@ -156,12 +156,12 @@ export default function AdminPortalPage() {
     badge: "EXCLUSIVE FESTIVE OFFER",
     subtitle: "Lonavla, Pune & Goa Luxury Packages",
     description: "Book your luxury event & receive complimentary 100% In-House VRX Sound & Stage Pyros setup!",
-    phone: "+91 99235 90037",
+    phone: "+91 99235 90038",
     email: "info@westendevent.com",
     buttonText: "Plan Your Event",
     buttonLink: "#contact",
     effectStyle: "gold-flakes",
-    showDelaySeconds: 1.5
+    showDelaySeconds: 8
   });
   const [popupSaving, setPopupSaving] = useState(false);
   const [popupSaveMessage, setPopupSaveMessage] = useState("");
