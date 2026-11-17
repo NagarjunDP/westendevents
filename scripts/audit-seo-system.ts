@@ -4,8 +4,8 @@ console.log("=========================================");
 console.log("WESTEND EVENTS — SEO SYSTEM AUDIT");
 console.log("=========================================\n");
 
-let errors: string[] = [];
-let warnings: string[] = [];
+const errors: string[] = [];
+const warnings: string[] = [];
 
 // 1. Total Page Count Check
 console.log(`Total Programmatic Pages Registered: ${allSEOPages.length}`);

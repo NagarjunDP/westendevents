@@ -31,7 +31,7 @@ async function uploadFiles() {
   let active = 0;
   let completed = 0;
 
-  await new Promise((resolve, reject) => {
+  await new Promise((resolve) => {
     let index = 0;
     
     function next() {
