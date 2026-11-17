@@ -3,6 +3,7 @@ import { allSEOPages } from "@/data/seo-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.westendevent.com";
+  const sitemapLastModified = new Date("2026-11-17");
 
   const staticRoutes = [
     { path: "", priority: 1.0, changeFrequency: "daily" as const },
@@ -18,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((r) => ({
     url: `${baseUrl}${r.path}`,
-    lastModified: new Date(),
+    lastModified: sitemapLastModified,
     changeFrequency: r.changeFrequency,
     priority: r.priority
   }));
@@ -33,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return {
       url: `${baseUrl}/${page.slug}`,
-      lastModified: new Date(),
+      lastModified: sitemapLastModified,
       changeFrequency: "weekly" as const,
       priority
     };
